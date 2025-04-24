@@ -1,16 +1,78 @@
-## Hi there 👋
+# 👨‍💻 Faisal Alhuzali
 
-<!--
-**Falhuz/Falhuz** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+🎓 Computer Science undergraduate at Taif University (Class of 2025)  
+📍 Taif, Saudi Arabia  
+📧 faa.huzli@gmail.com | 📱 0580408646
 
-Here are some ideas to get you started:
+---
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## 🌟 Objective
+
+Aspiring software engineer with a strong foundation in Dart, web development, Python, and AWS cloud solutions. Eager to contribute to innovative software projects while expanding my experience in cross-platform development and cloud technologies through a co-op opportunity.
+
+---
+
+## 🛠 Skills
+
+**Programming Languages:**  
+- Python  
+- JavaScript  
+- Dart
+
+**Web Development:**  
+- HTML, CSS, JavaScript
+
+**Cloud Computing:**  
+- AWS EC2, S3, Lambda
+
+**Mobile Development:**  
+- Dart/Flutter (Beginner)
+
+**Soft Skills:**  
+- Critical Thinking  
+- Collaboration  
+- Problem Solving  
+- Creativity
+
+---
+
+## 📚 Education
+
+**Taif University**  
+- B.Sc. in Computer Science  
+- Expected Graduation: 2025
+
+---
+
+## 💼 Experience
+
+**Cashier** – Panda (2015)  
+- Managed transactions and assisted customers with purchases.
+
+**Mobile Software Technician** – Al Khobar Fingerprint (2017–2018)  
+- Diagnosed and repaired hardware/software issues on mobile devices.
+
+---
+
+## 📘 Related Courses
+
+- Web Development  
+- Database Systems  
+- Software Engineering  
+- Computer Networking  
+- Data Structures & Algorithms  
+- Cloud Computing
+
+---
+
+## 📜 Certifications
+
+- AWS Cloud Practitioner  
+- DevOps on AWS  
+- Meta Back-End Development Introduction
+
+---
+
+## 📈 Goals
+
+Currently seeking a co-op or internship to enhance practical skills, collaborate with industry professionals, and make meaningful contributions to real-world software and cloud-based projects.

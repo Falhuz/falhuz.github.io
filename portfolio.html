@@ -259,23 +259,99 @@
             <section id="certifications" class="section">
                 <h2>Certifications</h2>
                 
-                <div class="cert-grid">
-                    <div class="cert-card">
-                        <i class="fab fa-aws fa-2x"></i>
-                        <h3>AWS Cloud Practitioner</h3>
-                        <p>Amazon Web Services</p>
+                <div class="cert-specializations">
+                    <div class="cert-specialization">
+                        <div class="cert-specialization-header">
+                            <i class="fab fa-aws"></i>
+                            <h3>Cloud Computing</h3>
+                        </div>
+                        <div class="cert-grid">
+                            <div class="cert-card">
+                                <i class="fab fa-aws fa-2x"></i>
+                                <h3>AWS Cloud Practitioner</h3>
+                                <p>Amazon Web Services</p>
+                                <div class="cert-actions">
+                                    <a href="#" class="cert-link preview-cert" data-cert="aws-cloud-practitioner.pdf">Preview</a>
+                                    <a href="aws-cloud-practitioner.pdf" class="cert-link" download>Download PDF</a>
+                                </div>
+                            </div>
+                            
+                            <div class="cert-card">
+                                <i class="fab fa-aws fa-2x"></i>
+                                <h3>AWS Cloud Technical Essentials</h3>
+                                <p>Amazon Web Services</p>
+                                <div class="cert-actions">
+                                    <a href="#" class="cert-link preview-cert" data-cert="AWS Cloud Technical Essentials.pdf">Preview</a>
+                                    <a href="AWS Cloud Technical Essentials.pdf" class="cert-link" download>Download PDF</a>
+                                </div>
+                            </div>
+                            
+                            <div class="cert-card">
+                                <i class="fas fa-cogs fa-2x"></i>
+                                <h3>DevOps on AWS</h3>
+                                <p>Amazon Web Services</p>
+                                <div class="cert-actions">
+                                    <a href="#" class="cert-link preview-cert" data-cert="devops-on-aws.pdf">Preview</a>
+                                    <a href="devops-on-aws.pdf" class="cert-link" download>Download PDF</a>
+                                </div>
+                            </div>
+                            
+                            <div class="cert-card">
+                                <i class="fas fa-tools fa-2x"></i>
+                                <h3>DevOps on AWS: Operate and Monitor</h3>
+                                <p>Amazon Web Services</p>
+                                <div class="cert-actions">
+                                    <a href="#" class="cert-link preview-cert" data-cert="devops-aws-operate-monitor.pdf">Preview</a>
+                                    <a href="devops-aws-operate-monitor.pdf" class="cert-link" download>Download PDF</a>
+                                </div>
+                            </div>
+                            
+                            <div class="cert-card">
+                                <i class="fas fa-code-branch fa-2x"></i>
+                                <h3>DevOps on AWS: Code Build and Test</h3>
+                                <p>Amazon Web Services</p>
+                                <div class="cert-actions">
+                                    <a href="#" class="cert-link preview-cert" data-cert="DevOps on AWS Code Build and Test.pdf">Preview</a>
+                                    <a href="DevOps on AWS Code Build and Test.pdf" class="cert-link" download>Download PDF</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="cert-card">
-                        <i class="fas fa-cogs fa-2x"></i>
-                        <h3>DevOps on AWS</h3>
-                        <p>Amazon Web Services</p>
+                    <div class="cert-specialization">
+                        <div class="cert-specialization-header">
+                            <i class="fas fa-code"></i>
+                            <h3>Web Development</h3>
+                        </div>
+                        <div class="cert-grid">
+                            <div class="cert-card">
+                                <i class="fab fa-facebook fa-2x"></i>
+                                <h3>Meta Back-End Development</h3>
+                                <p>Meta</p>
+                                <div class="cert-actions">
+                                    <a href="#" class="cert-link preview-cert" data-cert="meta-backend.pdf">Preview</a>
+                                    <a href="meta-backend.pdf" class="cert-link" download>Download PDF</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="cert-card">
-                        <i class="fab fa-facebook fa-2x"></i>
-                        <h3>Meta Back-End Development</h3>
-                        <p>Meta</p>
+                    <div class="cert-specialization">
+                        <div class="cert-specialization-header">
+                            <i class="fab fa-dev"></i>
+                            <h3>DevOps & Development Practices</h3>
+                        </div>
+                        <div class="cert-grid">
+                            <div class="cert-card">
+                                <i class="fab fa-dev fa-2x"></i>
+                                <h3>IBM DevOps Essentials</h3>
+                                <p>IBM</p>
+                                <div class="cert-actions">
+                                    <a href="#" class="cert-link preview-cert" data-cert="IBM_DevOps_Essentials_Badge.pdf">Preview</a>
+                                    <a href="IBM_DevOps_Essentials_Badge.pdf" class="cert-link" download>Download PDF</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -303,6 +379,27 @@
             <a href="#"><i class="fab fa-twitter"></i></a>
         </div>
     </footer>
+    
+    <!-- Certificate Preview Modal -->
+    <div class="cert-modal" id="certModal">
+        <div class="cert-modal-content">
+            <div class="cert-modal-header">
+                <h3 class="cert-modal-title" id="certModalTitle">Certificate Preview</h3>
+                <button class="cert-modal-close" id="certModalClose">&times;</button>
+            </div>
+            <div class="cert-modal-body">
+                <iframe id="certFrame" src="" frameborder="0">
+                    <p>Your browser doesn't support embedded PDF viewing. Please <a id="fallbackLink" href="" download>download the PDF</a> instead.</p>
+                </iframe>
+                <div id="pdfError" class="pdf-error">
+                    <i class="fas fa-file-pdf"></i>
+                    <h4>Unable to preview PDF</h4>
+                    <p>The PDF file might not be available or your browser doesn't support PDF preview.</p>
+                    <a href="#" id="pdfDownloadBtn" class="pdf-error-btn">Download PDF Instead</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Theme Toggle Functionality
@@ -398,6 +495,76 @@
         // Handle window resize
         window.addEventListener('resize', () => {
             updateMenuVisibility();
+        });
+        
+        // Certificate Preview Modal Functionality
+        const certModal = document.getElementById('certModal');
+        const certModalClose = document.getElementById('certModalClose');
+        const certFrame = document.getElementById('certFrame');
+        const certModalTitle = document.getElementById('certModalTitle');
+        const previewButtons = document.querySelectorAll('.preview-cert');
+        const pdfError = document.getElementById('pdfError');
+        const pdfDownloadBtn = document.getElementById('pdfDownloadBtn');
+        
+        // Open certificate preview modal
+        previewButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const certFile = button.getAttribute('data-cert');
+                const certName = button.closest('.cert-card').querySelector('h3').textContent;
+                
+                // Reset error state
+                pdfError.classList.remove('active');
+                certFrame.style.display = 'block';
+                
+                certModalTitle.textContent = certName;
+                certFrame.src = certFile;
+                
+                // Set fallback download link
+                const fallbackLink = document.getElementById('fallbackLink');
+                if (fallbackLink) {
+                    fallbackLink.href = certFile;
+                    fallbackLink.textContent = `download ${certName}`;
+                }
+                
+                // Set download button for error fallback
+                pdfDownloadBtn.href = certFile;
+                pdfDownloadBtn.setAttribute('download', certName + '.pdf');
+                
+                certModal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+            });
+        });
+        
+        // Handle PDF loading error
+        certFrame.addEventListener('error', () => {
+            certFrame.style.display = 'none';
+            pdfError.classList.add('active');
+        });
+        
+        // Close certificate preview modal
+        certModalClose.addEventListener('click', () => {
+            certModal.classList.remove('active');
+            setTimeout(() => {
+                certFrame.src = '';
+                pdfError.classList.remove('active');
+                certFrame.style.display = 'block';
+                document.body.style.overflow = ''; // Restore scrolling
+            }, 300);
+        });
+        
+        // Close modal when clicking outside of modal content
+        certModal.addEventListener('click', (e) => {
+            if (e.target === certModal) {
+                certModalClose.click();
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && certModal.classList.contains('active')) {
+                certModalClose.click();
+            }
         });
     </script>
 </body>

@@ -512,6 +512,46 @@ ul {
 }
 
 /* Certifications Section */
+.cert-specializations {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.cert-specialization {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.cert-specialization:hover {
+    box-shadow: 0 15px 20px -5px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+}
+
+.cert-specialization-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cert-specialization-header i {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-right: 1rem;
+}
+
+.cert-specialization-header h3 {
+    margin-bottom: 0;
+    font-size: 1.5rem;
+}
+
 .cert-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -540,6 +580,168 @@ ul {
 .cert-card p {
     color: var(--text-muted);
     font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.cert-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.75rem;
+}
+
+.cert-link {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-weight: 500;
+    position: relative;
+    padding: 0.35rem 0.75rem;
+    background-color: rgba(58, 134, 255, 0.1);
+    border-radius: 20px;
+    transition: var(--transition);
+}
+
+.cert-link:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.cert-link::after {
+    content: '';
+    margin-left: 0.25rem;
+}
+
+.cert-link.preview-cert::after {
+    content: '👁️';
+}
+
+/* Certificate Preview Modal */
+.cert-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 1002;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.cert-modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.cert-modal-content {
+    background-color: var(--card-bg);
+    max-width: 95%;
+    width: 1200px;
+    max-height: 85vh;
+    height: 700px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.cert-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--card-bg);
+    flex-shrink: 0;
+}
+
+.cert-modal-title {
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--text-color);
+}
+
+.cert-modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: var(--transition);
+}
+
+.cert-modal-close:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.cert-modal-body {
+    overflow: hidden;
+    flex: 1;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cert-modal-body iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    min-height: 600px;
+}
+
+.pdf-error {
+    display: none;
+    padding: 2rem;
+    text-align: center;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+}
+
+.pdf-error.active {
+    display: block;
+}
+
+.pdf-error i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.pdf-error h4 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.pdf-error p {
+    margin-bottom: 1.5rem;
+}
+
+.pdf-error-btn {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.pdf-error-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-3px);
+}
+
+.cert-card i {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
 }
 
 /* Courses Section */
@@ -689,11 +891,6 @@ footer {
     color: var(--primary-color);
 }
 
-.cert-card i {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-
 .course-item i {
     margin-right: 0.5rem;
     color: var(--primary-color);
@@ -780,6 +977,7 @@ footer {
     
     .project-header {
         flex-direction: column;
+        align-items: flex-start;
     }
     
     .project-links {
@@ -798,9 +996,40 @@ footer {
         gap: 1rem;
     }
     
+    .cert-specialization-header {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+    
+    .cert-specialization-header i {
+        margin-bottom: 0.5rem;
+    }
+    
     .theme-toggle, .menu-toggle {
         width: 40px;
         height: 40px;
+        top: 15px;
+    }
+    
+    .cert-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .cert-link {
+        text-align: center;
+    }
+    
+    .cert-modal-content {
+        max-width: 98%;
+        width: auto;
+        height: 500px;
+        max-height: 70vh;
+    }
+    
+    .cert-modal-body iframe {
+        min-height: 400px;
     }
 }
 
@@ -810,7 +1039,7 @@ footer {
     }
     
     .section {
-        padding: 1.25rem;
+        padding: 1rem;
     }
     
     .skills-container, .projects-grid, .cert-grid {
@@ -818,11 +1047,11 @@ footer {
     }
     
     h1 {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
     }
     
     h2 {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
     }
     
     .profile-img-container {
@@ -831,6 +1060,33 @@ footer {
     }
     
     .sidebar {
-        padding: 1.5rem;
+        padding: 1.5rem 1rem;
+    }
+    
+    .cert-specialization {
+        padding: 1rem;
+    }
+    
+    .cert-card {
+        padding: 1rem;
+    }
+    
+    .cert-modal-content {
+        max-width: 99%;
+        width: auto;
+        height: 400px;
+        max-height: 60vh;
+    }
+    
+    .cert-modal-body iframe {
+        min-height: 300px;
+    }
+    
+    .cert-modal-header {
+        padding: 0.75rem 1rem;
+    }
+    
+    .cert-modal-title {
+        font-size: 1rem;
     }
 } 

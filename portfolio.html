@@ -1,619 +1,22 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Faisal Alhuzali | Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary: #64748b;
-            --dark: #1e293b;
-            --light: #f8fafc;
-            --gray: #94a3b8;
-            --card-bg: #ffffff;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --radius: 8px;
-            --transition: all 0.3s ease;
-        }
-
-        [data-theme="dark"] {
-            --primary: #3b82f6;
-            --primary-dark: #2563eb;
-            --secondary: #cbd5e1;
-            --dark: #f8fafc;
-            --light: #0f172a;
-            --gray: #64748b;
-            --card-bg: #1e293b;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background-color: var(--light);
-            transition: var(--transition);
-        }
-
-        .container {
-            display: flex;
-            min-height: 100vh;
-        }
-
-        /* Theme Toggle */
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 1000;
-            box-shadow: var(--shadow);
-        }
-
-        /* Sidebar */
-        .sidebar {
-            width: 300px;
-            background-color: var(--card-bg);
-            padding: 30px 20px;
-            box-shadow: var(--shadow);
-            position: fixed;
-            height: 100vh;
-            overflow-y: auto;
-        }
-
-        .sidebar-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--primary);
-            margin-bottom: 20px;
-        }
-
-        .sidebar h1 {
-            font-size: 24px;
-            margin-bottom: 5px;
-            color: var(--dark);
-        }
-
-        .title {
-            color: var(--primary);
-            font-weight: 500;
-            margin-bottom: 20px;
-        }
-
-        .contact-info {
-            margin-bottom: 30px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            color: var(--secondary);
-        }
-
-        .contact-item i {
-            width: 25px;
-            margin-right: 10px;
-            color: var(--primary);
-        }
-
-        .contact-item a {
-            color: var(--secondary);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .contact-item a:hover {
-            color: var(--primary);
-        }
-
-        .sidebar-nav ul {
-            list-style: none;
-        }
-
-        .sidebar-nav li {
-            margin-bottom: 10px;
-        }
-
-        .sidebar-nav a {
-            display: flex;
-            align-items: center;
-            padding: 12px 15px;
-            color: var(--secondary);
-            text-decoration: none;
-            border-radius: var(--radius);
-            transition: var(--transition);
-        }
-
-        .sidebar-nav a:hover,
-        .sidebar-nav a.active {
-            background-color: rgba(59, 130, 246, 0.1);
-            color: var(--primary);
-        }
-
-        .sidebar-nav i {
-            margin-right: 10px;
-            width: 20px;
-        }
-
-        /* Main Content */
-        .main-content {
-            flex: 1;
-            padding: 40px;
-            margin-left: 300px;
-        }
-
-        .section {
-            margin-bottom: 60px;
-        }
-
-        h2 {
-            font-size: 28px;
-            margin-bottom: 30px;
-            color: var(--dark);
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background-color: var(--primary);
-        }
-
-        /* About */
-        .about-content p {
-            margin-bottom: 30px;
-            font-size: 18px;
-            line-height: 1.8;
-            color: var(--secondary);
-        }
-
-        .highlight-boxes {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .highlight-box {
-            background-color: var(--card-bg);
-            padding: 25px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: var(--transition);
-        }
-
-        .highlight-box:hover {
-            transform: translateY(-5px);
-        }
-
-        .highlight-box i {
-            font-size: 40px;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        .highlight-box h3 {
-            margin-bottom: 10px;
-            color: var(--dark);
-        }
-
-        .highlight-box p {
-            color: var(--secondary);
-            font-size: 14px;
-        }
-
-        /* Timeline */
-        .timeline {
-            position: relative;
-            padding-left: 30px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background-color: var(--primary);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 40px;
-        }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .timeline-date {
-            position: absolute;
-            left: -30px;
-            top: 0;
-            background-color: var(--primary);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .timeline-content {
-            background-color: var(--card-bg);
-            padding: 25px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            margin-left: 20px;
-        }
-
-        .timeline-content h3 {
-            color: var(--dark);
-            margin-bottom: 5px;
-        }
-
-        .timeline-content h4 {
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-weight: 500;
-        }
-
-        .timeline-content h4 i {
-            margin-right: 8px;
-        }
-
-        .experience-list {
-            padding-left: 20px;
-            color: var(--secondary);
-        }
-
-        .experience-list li {
-            margin-bottom: 8px;
-        }
-
-        /* Skills */
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .skill-category {
-            background-color: var(--card-bg);
-            padding: 25px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-        }
-
-        .skill-category h3 {
-            color: var(--dark);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-        }
-
-        .skill-category h3 i {
-            margin-right: 10px;
-            color: var(--primary);
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 15px;
-        }
-
-        .skill-item {
-            background-color: rgba(59, 130, 246, 0.1);
-            padding: 12px 15px;
-            border-radius: var(--radius);
-            text-align: center;
-            color: var(--primary);
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .skill-item:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        /* Projects */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .project-card {
-            background-color: var(--card-bg);
-            padding: 25px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .project-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .project-header h3 {
-            color: var(--dark);
-            margin-bottom: 0;
-        }
-
-        .project-header i {
-            margin-right: 10px;
-            color: var(--primary);
-        }
-
-        .project-card p {
-            color: var(--secondary);
-            margin-bottom: 20px;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .tech-tag {
-            background-color: rgba(59, 130, 246, 0.1);
-            color: var(--primary);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        /* Certifications */
-        .cert-specializations {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-        }
-
-        .cert-specialization-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-
-        .cert-specialization-header i {
-            font-size: 24px;
-            color: var(--primary);
-            margin-right: 15px;
-        }
-
-        .cert-specialization-header h3 {
-            color: var(--dark);
-            margin-bottom: 0;
-        }
-
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .cert-card {
-            background-color: var(--card-bg);
-            padding: 25px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: var(--transition);
-        }
-
-        .cert-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .cert-card i {
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        .cert-card h3 {
-            color: var(--dark);
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-
-        .cert-card p {
-            color: var(--secondary);
-            margin-bottom: 20px;
-            font-size: 14px;
-        }
-
-        .cert-actions {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-        }
-
-        .cert-link {
-            padding: 8px 15px;
-            background-color: rgba(59, 130, 246, 0.1);
-            color: var(--primary);
-            text-decoration: none;
-            border-radius: var(--radius);
-            font-size: 14px;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .cert-link:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        /* Courses */
-        .courses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
-        .course-item {
-            background-color: var(--card-bg);
-            padding: 20px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            display: flex;
-            align-items: center;
-            color: var(--secondary);
-            transition: var(--transition);
-        }
-
-        .course-item:hover {
-            transform: translateY(-3px);
-            color: var(--primary);
-        }
-
-        .course-item i {
-            margin-right: 10px;
-            color: var(--primary);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--card-bg);
-            padding: 30px;
-            text-align: center;
-            color: var(--secondary);
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 15px;
-        }
-
-        .social-icons a {
-            color: var(--secondary);
-            font-size: 20px;
-            transition: var(--transition);
-        }
-
-        .social-icons a:hover {
-            color: var(--primary);
-        }
-
-        /* Responsive */
-        @media (max-width: 992px) {
-            .container {
-                flex-direction: column;
-            }
-
-            .sidebar {
-                position: fixed;
-                width: 250px;
-                left: -250px;
-                transition: var(--transition);
-                z-index: 100;
-            }
-
-            .sidebar.active {
-                left: 0;
-            }
-
-            .main-content {
-                margin-left: 0;
-                padding: 80px 20px 20px;
-            }
-
-            .menu-toggle {
-                display: flex !important;
-                position: fixed;
-                top: 20px;
-                left: 20px;
-                width: 50px;
-                height: 50px;
-                background: var(--primary);
-                color: white;
-                border-radius: 50%;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                z-index: 99;
-                box-shadow: var(--shadow);
-            }
-
-            .sidebar-backdrop {
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background-color: rgba(0, 0, 0, 0.5);
-                z-index: 99;
-                display: none;
-            }
-
-            .sidebar-backdrop.active {
-                display: block;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .highlight-boxes,
-            .projects-grid,
-            .cert-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .skills-container {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body data-theme="dark">
+<body>
     <!-- Theme Toggle Button -->
     <div class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
-        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
     </div>
     
     <!-- Mobile Menu Toggle -->
@@ -629,33 +32,28 @@
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <div class="profile-img-container">
-                    <!-- Replace with your actual image URL -->
-                    <div style="width:150px;height:150px;background:#2563eb;border-radius:50%;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;color:white;font-size:24px;">FA</div>
+                    <img src="faisal.png" alt="Faisal Alhuzali" class="profile-img">
                 </div>
                 <h1>Faisal Alhuzali</h1>
-                <p class="title">Junior System Administrator | IT Infrastructure & DevOps Focus</p>
+                <p class="title">Computer Science Student</p>
             </div>
             
             <div class="contact-info">
                 <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span>Riyadh, Saudi Arabia</span>
+                    <span>Riyadh , Saudi Arabia</span>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-phone"></i>
-                    <a href="tel:+966580408646">+966580408646</a>
+                    <a href="https://wa.me/+966580408646" target="_blank">+966580408646</a>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
                     <a href="mailto:faa.huzli@gmail.com">faa.huzli@gmail.com</a>
                 </div>
                 <div class="contact-item">
-                    <i class="fab fa-whatsapp"></i>
-                    <a href="https://wa.me/+966580408646" target="_blank">WhatsApp</a>
-                </div>
-                <div class="contact-item">
                     <i class="fas fa-download"></i>
-                    <a href="Faisal-Alhuzali-FlowCV-Resume-20251230.pdf" download>Download Resume</a>
+                    <a href="Faisal Alhuzali.pdf" download>Download Resume</a>
                 </div>
                 <div class="contact-item">
                     <i class="fab fa-github"></i>
@@ -684,25 +82,24 @@
         <main class="main-content">
             <section id="about" class="section">
                 <h2>About Me</h2>
-                <div class="about-content">
-                    <p>Recent Computer Science graduate with practical system administration experience from SFDA training. Building modern skills in automation (Ansible, PowerShell), Infrastructure as Code (Terraform), and AWS cloud operations. Seeking a junior role to support and evolve IT infrastructure within system administration, cloud, or DevOps environments.</p>
+                    <div class="about-content">
+                    <p>I’m a Computer Science student and IT Co-op Trainee at SFDA specializing in server operations and cloud infrastructure. Passionate about cloud computing, automation, and scalable system design, I work with AWS, DevOps tools, and web technologies to enhance performance and reliability. I’m driven by continuous learning and the goal of building efficient, cloud-driven solutions that make an impact.</p>
                     <div class="highlight-boxes">
                         <div class="highlight-box">
-                            <i class="fas fa-server"></i>
-                            <h3>System Administration</h3>
-                            <p>Windows Server, Active Directory, VMware vSphere, and infrastructure management.</p>
+                            <i class="fas fa-tools"></i>
+                            <h3>DevOps</h3>
+                            <p>CI/CD, automation, infrastructure-as-code, monitoring and reliability practices to speed delivery and increase system stability.</p>
                         </div>
                         <div class="highlight-box">
                             <i class="fas fa-cloud"></i>
-                            <h3>Cloud & DevOps</h3>
-                            <p>AWS services, Docker basics, GitHub Actions, and cloud infrastructure operations.</p>
+                            <h3>Cloud Computing</h3>
+                            <p>Designing, deploying and operating scalable cloud infrastructure on AWS, GCP and Alibaba Cloud.</p>
                         </div>
                         <div class="highlight-box">
-                            <i class="fas fa-robot"></i>
-                            <h3>Automation & IaC</h3>
-                            <p>Learning Ansible, Terraform, PowerShell, and Bash for infrastructure automation.</p>
+                            <i class="fas fa-laptop-code"></i>
+                            <h3>Web Development</h3>
+                            <p>Frontend and backend development for responsive, accessible, and performant web applications.</p>
                         </div>
-                    </div>
                 </div>
             </section>
             
@@ -710,98 +107,97 @@
                 <h2>Work Experience</h2>
                 <div class="timeline">
                     <div class="timeline-item">
-                        <div class="timeline-date">09/2025 – 12/2025</div>
+                        <div class="timeline-date">2025</div>
                         <div class="timeline-content">
-                            <h3>System Administrator Trainee</h3>
-                            <h4><i class="fas fa-building"></i> Saudi Food and Drug Authority (SFDA), Riyadh</h4>
+                            <h3>IT Co-op Trainee – I/O Operation (Server Support)</h3>
+                            <h4><i class="fas fa-building"></i>Saudi Food and Drug Authority (SFDA)</h4>
                             <ul class="experience-list">
-                                <li>Assisted in resolving technical support tickets via ManageEngine ServiceDesk Plus</li>
-                                <li>Supported user provisioning and RBAC tasks in ManageEngine AD360</li>
-                                <li>Aided in automated software deployment using PDQ Deploy for endpoint compliance</li>
-                                <li>Helped deploy and configure a VMware vSphere virtual server</li>
+                                <li>Supported server operations and monitored system performance</li>
+                                <li>Assisted in troubleshooting and maintaining infrastructure reliability</li>
+                                <li>Collaborated with IT teams to ensure seamless server functionality</li>
                             </ul>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-date">2017 – 2018</div>
+                        <div class="timeline-date">2017-2018</div>
                         <div class="timeline-content">
                             <h3>Mobile Software Technician</h3>
-                            <h4><i class="fas fa-building"></i> Self-employed, Al-Khobar</h4>
+                            <h4><i class="fas fa-building"></i> Al Khobar Fingerprint</h4>
                             <ul class="experience-list">
-                                <li>Performed troubleshooting, firmware updates, and OS restoration for mobile devices</li>
-                                <li>Achieved high customer satisfaction through quality service</li>
+                                <li>Diagnosed and troubleshooted hardware and software issues on mobile devices</li>
+                                <li>Performed system updates and software installations</li>
+                                <li>Provided technical support to customers</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">2015</div>
+                        <div class="timeline-content">
+                            <h3>Cashier</h3>
+                            <h4><i class="fas fa-store"></i> Panda</h4>
+                            <ul class="experience-list">
+                                <li>Handled payments and assisted customers</li>
+                                <li>Maintained accurate transaction records</li>
+                                <li>Provided excellent customer service</li>
                             </ul>
                         </div>
                     </div>
                 </div>
+                
             </section>
             
             <section id="education" class="section">
                 <h2>Education</h2>
+                
                 <div class="timeline">
                     <div class="timeline-item">
-                        <div class="timeline-date">12/2025</div>
+                        <div class="timeline-date">2025</div>
                         <div class="timeline-content">
                             <h3>Bachelor's Degree in Computer Science</h3>
-                            <h4><i class="fas fa-university"></i> Taif University</h4>
-                            <p>Relevant Coursework: Web Development, Database Systems, Software Engineering, Data Structures & Algorithms, Human-Computer Interaction</p>
+                            <h4><i class="fas fa-university"></i> Taif University, CIT</h4>
+                            <p>Focusing on software development, cloud computing, and web technologies.</p>
                         </div>
                     </div>
                 </div>
             </section>
             
             <section id="skills" class="section">
-                <h2>Technical Skills</h2>
+                <h2>Skills & Abilities</h2>
                 
                 <div class="skills-container">
                     <div class="skill-category">
-                        <h3><i class="fas fa-server"></i> System Administration</h3>
+                        <h3><i class="fas fa-code"></i> Programming Languages</h3>
                         <div class="skills-grid">
-                            <div class="skill-item">Windows Server</div>
-                            <div class="skill-item">Active Directory</div>
-                            <div class="skill-item">VMware vSphere</div>
+                            <div class="skill-item"><i class="fab fa-python"></i> Python</div>
+                            <div class="skill-item"><i class="fab fa-js"></i> JavaScript</div>
                         </div>
                     </div>
                     
                     <div class="skill-category">
-                        <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
+                        <h3><i class="fas fa-laptop-code"></i> Web Development</h3>
                         <div class="skills-grid">
-                            <div class="skill-item">AWS EC2</div>
-                            <div class="skill-item">AWS IAM</div>
-                            <div class="skill-item">AWS S3</div>
-                            <div class="skill-item">Docker Basics</div>
-                            <div class="skill-item">GitHub Actions</div>
+                            <div class="skill-item"><i class="fab fa-html5"></i> HTML</div>
+                            <div class="skill-item"><i class="fab fa-css3-alt"></i> CSS</div>
+                            <div class="skill-item"><i class="fab fa-js"></i> JavaScript</div>
                         </div>
                     </div>
                     
                     <div class="skill-category">
-                        <h3><i class="fas fa-robot"></i> Automation & IaC (Actively Learning)</h3>
+                        <h3><i class="fas fa-cloud"></i> Cloud Computing</h3>
                         <div class="skills-grid">
-                            <div class="skill-item">Ansible</div>
-                            <div class="skill-item">Terraform</div>
-                            <div class="skill-item">PowerShell</div>
-                            <div class="skill-item">Bash Scripting</div>
+                            <div class="skill-item"><i class="fab fa-aws"></i> AWS EC2</div>
+                            <div class="skill-item"><i class="fab fa-aws"></i> AWS S3</div>
+                            <div class="skill-item"><i class="fab fa-aws"></i> AWS Lambda</div>
                         </div>
                     </div>
-                    
                     <div class="skill-category">
-                        <h3><i class="fas fa-tools"></i> Productivity & Management Tools</h3>
+                        <h3><i class="fas fa-brain"></i> Soft Skills</h3>
                         <div class="skills-grid">
-                            <div class="skill-item">Microsoft 365 Suite</div>
-                            <div class="skill-item">ManageEngine ServiceDesk Plus</div>
-                            <div class="skill-item">ManageEngine AD360</div>
-                            <div class="skill-item">PDQ Deploy</div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3><i class="fas fa-brain"></i> Professional Skills</h3>
-                        <div class="skills-grid">
-                            <div class="skill-item">Problem Solving</div>
-                            <div class="skill-item">Analytical Thinking</div>
-                            <div class="skill-item">Cross-Team Collaboration</div>
-                            <div class="skill-item">Time Management</div>
-                            <div class="skill-item">Adaptability</div>
+                            <div class="skill-item"><i class="fas fa-lightbulb"></i> Critical Thinking</div>
+                            <div class="skill-item"><i class="fas fa-users"></i> Collaboration</div>
+                            <div class="skill-item"><i class="fas fa-puzzle-piece"></i> Problem-Solving</div>
+                            <div class="skill-item"><i class="fas fa-paint-brush"></i> Creativity</div>
                         </div>
                     </div>
                 </div>
@@ -813,38 +209,25 @@
                 <div class="projects-grid">
                     <div class="project-card">
                         <div class="project-header">
-                            <h3><i class="fas fa-id-card"></i> Personal Portfolio Website</h3>
+                            <h3><i class="fas fa-id-card"></i> Personal Portfolio</h3>
                         </div>
-                        <p>A responsive, self-hosted site built with HTML/CSS/JS on GitHub Pages to showcase technical projects and experience.</p>
+                        <p>This responsive portfolio website showcasing my skills, projects, and experience with dark/light mode toggle and mobile-friendly design.</p>
                         <div class="project-tech">
                             <span class="tech-tag">HTML</span>
                             <span class="tech-tag">CSS</span>
                             <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">GitHub Pages</span>
                         </div>
                     </div>
                     
                     <div class="project-card">
                         <div class="project-header">
-                            <h3><i class="fas fa-wheelchair"></i> Manasik Robotic Wheelchair (MRW)</h3>
+                            <h3><i class="fas fa-code"></i> Web Page Entities Study</h3>
                         </div>
-                        <p>Prototyped a sensor-guided robotic wheelchair using LEGO Spike Prime and color-based lane detection for autonomous navigation.</p>
+                        <p>A comprehensive homework project exploring and implementing various HTML entities and web page components.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">LEGO Spike Prime</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Sensor Integration</span>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3><i class="fas fa-shapes"></i> HCI Triangle Classification Tool</h3>
-                        </div>
-                        <p>Designed and tested an interactive Figma prototype with real-time input validation logic for triangle classification based on side lengths.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Figma</span>
-                            <span class="tech-tag">HCI Principles</span>
-                            <span class="tech-tag">Prototyping</span>
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
                         </div>
                     </div>
                 </div>
@@ -856,42 +239,46 @@
                 <div class="cert-specializations">
                     <div class="cert-specialization">
                         <div class="cert-specialization-header">
-                            <i class="fas fa-certificate"></i>
-                            <h3>System Administration</h3>
-                        </div>
-                        <div class="cert-grid">
-                            <div class="cert-card">
-                                <i class="fab fa-google"></i>
-                                <h3>Google Career Certificates</h3>
-                                <p>System Administration and IT Infrastructure Services</p>
-                                <div class="cert-actions">
-                                    <a href="#" class="cert-link">View Certificate</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="cert-specialization">
-                        <div class="cert-specialization-header">
                             <i class="fas fa-cloud"></i>
-                            <h3>AWS & Cloud</h3>
+                            <h3>Cloud Computing</h3>
                         </div>
                         <div class="cert-grid">
                             <div class="cert-card">
-                                <i class="fab fa-aws"></i>
+                                <i class="fab fa-aws fa-2x"></i>
                                 <h3>AWS Cloud Practitioner</h3>
                                 <p>Amazon Web Services</p>
                                 <div class="cert-actions">
-                                    <a href="#" class="cert-link">View Certificate</a>
+                                    <a href="#" class="cert-link preview-cert" data-cert="aws-cloud-practitioner.pdf">Preview</a>
+                                    <a href="aws-cloud-practitioner.pdf" class="cert-link" download>Download PDF</a>
                                 </div>
                             </div>
                             
                             <div class="cert-card">
-                                <i class="fab fa-aws"></i>
+                                <i class="fab fa-aws fa-2x"></i>
                                 <h3>AWS Cloud Technical Essentials</h3>
                                 <p>Amazon Web Services</p>
                                 <div class="cert-actions">
-                                    <a href="#" class="cert-link">View Certificate</a>
+                                    <a href="#" class="cert-link preview-cert" data-cert="AWS Cloud Technical Essentials.pdf">Preview</a>
+                                    <a href="AWS Cloud Technical Essentials.pdf" class="cert-link" download>Download PDF</a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="cert-specialization">
+                        <div class="cert-specialization-header">
+                            <i class="fas fa-code"></i>
+                            <h3>Web Development</h3>
+                        </div>
+                        <div class="cert-grid">
+                            <div class="cert-card">
+                                <i class="fa-brands fa-meta fa-2x"></i>
+                                <h3>Meta Back-End Development</h3>
+                                <p>Meta</p>
+                                <div class="cert-actions">
+                                    <a href="#" class="cert-link preview-cert" data-cert="Introduction to Back-End Development.pdf">Preview</a>
+                                    <a href="Introduction to Back-End Development.pdf" class="cert-link" download>Download PDF</a>
                                 </div>
                             </div>
                         </div>
@@ -899,43 +286,46 @@
                     
                     <div class="cert-specialization">
                         <div class="cert-specialization-header">
-                            <i class="fas fa-code-branch"></i>
-                            <h3>DevOps</h3>
+                            <i class="fab fa-dev"></i>
+                            <h3>DevOps & Development Practices</h3>
                         </div>
                         <div class="cert-grid">
                             <div class="cert-card">
-                                <i class="fab fa-ibm"></i>
+                                <i class="fab fa-dev fa-2x"></i>
                                 <h3>IBM DevOps Essentials</h3>
                                 <p>IBM</p>
                                 <div class="cert-actions">
-                                    <a href="#" class="cert-link">View Certificate</a>
+                                    <a href="#" class="cert-link preview-cert" data-cert="IBM_DevOps_Essentials_Badge.pdf">Preview</a>
+                                    <a href="IBM_DevOps_Essentials_Badge.pdf" class="cert-link" download>Download PDF</a>
                                 </div>
                             </div>
-                            
                             <div class="cert-card">
-                                <i class="fab fa-aws"></i>
-                                <h3>DevOps on AWS: Code Build and Test</h3>
+                                <i class="fas fa-cogs fa-2x"></i>
+                                <h3>DevOps on AWS</h3>
                                 <p>Amazon Web Services</p>
                                 <div class="cert-actions">
-                                    <a href="#" class="cert-link">View Certificate</a>
+                                    <a href="#" class="cert-link preview-cert" data-cert="devops-on-aws.pdf">Preview</a>
+                                    <a href="devops-on-aws.pdf" class="cert-link" download>Download PDF</a>
                                 </div>
                             </div>
                             
                             <div class="cert-card">
-                                <i class="fab fa-aws"></i>
-                                <h3>DevOps on AWS: Release and Deploy</h3>
-                                <p>Amazon Web Services</p>
-                                <div class="cert-actions">
-                                    <a href="#" class="cert-link">View Certificate</a>
-                                </div>
-                            </div>
-                            
-                            <div class="cert-card">
-                                <i class="fab fa-aws"></i>
+                                <i class="fas fa-tools fa-2x"></i>
                                 <h3>DevOps on AWS: Operate and Monitor</h3>
                                 <p>Amazon Web Services</p>
                                 <div class="cert-actions">
-                                    <a href="#" class="cert-link">View Certificate</a>
+                                    <a href="#" class="cert-link preview-cert" data-cert="devops-aws-operate-monitor.pdf">Preview</a>
+                                    <a href="devops-aws-operate-monitor.pdf" class="cert-link" download>Download PDF</a>
+                                </div>
+                            </div>
+                            
+                            <div class="cert-card">
+                                <i class="fas fa-code-branch fa-2x"></i>
+                                <h3>DevOps on AWS: Code Build and Test</h3>
+                                <p>Amazon Web Services</p>
+                                <div class="cert-actions">
+                                    <a href="#" class="cert-link preview-cert" data-cert="DevOps on AWS Code Build and Test.pdf">Preview</a>
+                                    <a href="DevOps on AWS Code Build and Test.pdf" class="cert-link" download>Download PDF</a>
                                 </div>
                             </div>
                         </div>
@@ -944,24 +334,25 @@
                     <div class="cert-specialization">
                         <div class="cert-specialization-header">
                             <i class="fas fa-database"></i>
-                            <h3>Databases</h3>
+                            <h3>Database & SQL</h3>
                         </div>
                         <div class="cert-grid">
                             <div class="cert-card">
-                                <i class="fas fa-database"></i>
-                                <h3>Designing and Building Databases</h3>
-                                <p>Coursera</p>
+                                <i class="fas fa-database fa-2x"></i>
+                                <h3>MYSQL Workbench</h3>
+                                <p>MySQL</p>
                                 <div class="cert-actions">
-                                    <a href="#" class="cert-link">View Certificate</a>
+                                    <a href="#" class="cert-link preview-cert" data-cert="MYSQL Workbench.pdf">Preview</a>
+                                    <a href="MYSQL Workbench.pdf" class="cert-link" download>Download PDF</a>
                                 </div>
                             </div>
-                            
                             <div class="cert-card">
-                                <i class="fas fa-database"></i>
+                                <i class="fas fa-database fa-2x"></i>
                                 <h3>Relational Databases - MySQL</h3>
                                 <p>MySQL</p>
                                 <div class="cert-actions">
-                                    <a href="#" class="cert-link">View Certificate</a>
+                                    <a href="#" class="cert-link preview-cert" data-cert="Relational Databases - MySQL.pdf">Preview</a>
+                                    <a href="Relational Databases - MySQL.pdf" class="cert-link" download>Download PDF</a>
                                 </div>
                             </div>
                         </div>
@@ -970,40 +361,62 @@
             </section>
             
             <section id="courses" class="section">
-                <h2>Relevant Coursework</h2>
+                <h2>Related Courses</h2>
                 
                 <div class="courses-grid">
                     <div class="course-item"><i class="fas fa-laptop-code"></i> Web Development</div>
                     <div class="course-item"><i class="fas fa-database"></i> Database Systems</div>
                     <div class="course-item"><i class="fas fa-cogs"></i> Software Engineering</div>
-                    <div class="course-item"><i class="fas fa-project-diagram"></i> Data Structures & Algorithms</div>
-                    <div class="course-item"><i class="fas fa-user-circle"></i> Human-Computer Interaction</div>
                     <div class="course-item"><i class="fas fa-network-wired"></i> Computer Networking</div>
+                    <div class="course-item"><i class="fas fa-project-diagram"></i> Data Structures & Algorithms</div>
+                    <div class="course-item"><i class="fas fa-cloud"></i> Cloud Computing</div>
                 </div>
             </section>
         </main>
     </div>
     
     <footer>
-        <p>© 2025 Faisal Alhuzali. All rights reserved.</p>
+        <p>&copy; 2025 Faisal Alhuzali. All rights reserved.</p>
         <div class="social-icons">
-            <a href="https://github.com/Falhuz" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/faisal-alhuzali/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://wa.me/+966580408646" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://github.com/Falhuz"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/faisal-alhuzali/"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
         </div>
     </footer>
+    
+    <!-- Certificate Preview Modal -->
+    <div class="cert-modal" id="certModal">
+        <div class="cert-modal-content">
+            <div class="cert-modal-header">
+                <h3 class="cert-modal-title" id="certModalTitle">Certificate Preview</h3>
+                <button class="cert-modal-close" id="certModalClose">&times;</button>
+            </div>
+            <div class="cert-modal-body">
+                <iframe id="certFrame" src="" frameborder="0">
+                    <p>Your browser doesn't support embedded PDF viewing. Please <a id="fallbackLink" href="" download>download the PDF</a> instead.</p>
+                </iframe>
+                <div id="pdfError" class="pdf-error">
+                    <i class="fas fa-file-pdf"></i>
+                    <h4>Unable to preview PDF</h4>
+                    <p>The PDF file might not be available or your browser doesn't support PDF preview.</p>
+                    <a href="#" id="pdfDownloadBtn" class="pdf-error-btn">Download PDF Instead</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
-        // Theme Toggle
+        // Theme Toggle Functionality
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = themeToggle.querySelector('i');
         const htmlElement = document.documentElement;
         
-        // Check saved theme or default to dark
-        const savedTheme = localStorage.getItem('theme') || 'dark';
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme') || 'light';
         htmlElement.setAttribute('data-theme', savedTheme);
         updateThemeIcon(savedTheme);
         
+        // Toggle theme on click
         themeToggle.addEventListener('click', () => {
             const currentTheme = htmlElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
@@ -1014,7 +427,13 @@
         });
         
         function updateThemeIcon(theme) {
-            themeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            if (theme === 'dark') {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
         }
         
         // Mobile Menu Toggle
@@ -1022,46 +441,134 @@
         const sidebar = document.getElementById('sidebar');
         const backdrop = document.getElementById('sidebarBackdrop');
         
+        // Show menu toggle button on smaller screens
+        function updateMenuVisibility() {
+            if (window.innerWidth < 992) {
+                menuToggle.style.display = 'flex';
+            } else {
+                menuToggle.style.display = 'none';
+                sidebar.classList.remove('active');
+                backdrop.classList.remove('active');
+            }
+        }
+        
+        // Initialize menu visibility
+        updateMenuVisibility();
+        
+        // Toggle sidebar on menu button click
         menuToggle.addEventListener('click', () => {
             sidebar.classList.toggle('active');
             backdrop.classList.toggle('active');
             
+            // Change icon based on sidebar state
             const menuIcon = menuToggle.querySelector('i');
-            menuIcon.className = sidebar.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
+            if (sidebar.classList.contains('active')) {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            } else {
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            }
         });
         
+        // Close sidebar when clicking on backdrop
         backdrop.addEventListener('click', () => {
             sidebar.classList.remove('active');
             backdrop.classList.remove('active');
-            menuToggle.querySelector('i').className = 'fas fa-bars';
+            
+            const menuIcon = menuToggle.querySelector('i');
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
         });
         
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.sidebar-nav a').forEach(link => {
+        // Close sidebar when clicking on a link (mobile)
+        const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
+        sidebarLinks.forEach(link => {
             link.addEventListener('click', () => {
                 if (window.innerWidth < 992) {
                     sidebar.classList.remove('active');
                     backdrop.classList.remove('active');
-                    menuToggle.querySelector('i').className = 'fas fa-bars';
+                    
+                    const menuIcon = menuToggle.querySelector('i');
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
                 }
             });
         });
         
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            updateMenuVisibility();
+        });
+        
+        // Certificate Preview Modal Functionality
+        const certModal = document.getElementById('certModal');
+        const certModalClose = document.getElementById('certModalClose');
+        const certFrame = document.getElementById('certFrame');
+        const certModalTitle = document.getElementById('certModalTitle');
+        const previewButtons = document.querySelectorAll('.preview-cert');
+        const pdfError = document.getElementById('pdfError');
+        const pdfDownloadBtn = document.getElementById('pdfDownloadBtn');
+        
+        // Open certificate preview modal
+        previewButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
                 e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
+                const certFile = button.getAttribute('data-cert');
+                const certName = button.closest('.cert-card').querySelector('h3').textContent;
                 
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
+                // Reset error state
+                pdfError.classList.remove('active');
+                certFrame.style.display = 'block';
+                
+                certModalTitle.textContent = certName;
+                certFrame.src = certFile;
+                
+                // Set fallback download link
+                const fallbackLink = document.getElementById('fallbackLink');
+                if (fallbackLink) {
+                    fallbackLink.href = certFile;
+                    fallbackLink.textContent = `download ${certName}`;
                 }
+                
+                // Set download button for error fallback
+                pdfDownloadBtn.href = certFile;
+                pdfDownloadBtn.setAttribute('download', certName + '.pdf');
+                
+                certModal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
             });
+        });
+        
+        // Handle PDF loading error
+        certFrame.addEventListener('error', () => {
+            certFrame.style.display = 'none';
+            pdfError.classList.add('active');
+        });
+        
+        // Close certificate preview modal
+        certModalClose.addEventListener('click', () => {
+            certModal.classList.remove('active');
+            setTimeout(() => {
+                certFrame.src = '';
+                pdfError.classList.remove('active');
+                certFrame.style.display = 'block';
+                document.body.style.overflow = ''; // Restore scrolling
+            }, 300);
+        });
+        
+        // Close modal when clicking outside of modal content
+        certModal.addEventListener('click', (e) => {
+            if (e.target === certModal) {
+                certModalClose.click();
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && certModal.classList.contains('active')) {
+                certModalClose.click();
+            }
         });
     </script>
 </body>

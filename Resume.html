@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faisal Alhuzali · System Admin Portfolio</title>
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Font: Inter clean & modern -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: #f4f7fb;
+      color: #1e2b3c;
+      line-height: 1.5;
+      padding: 2rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 28px;
+      box-shadow: 0 20px 40px -12px rgba(0,20,40,0.25);
+      overflow: hidden;
+      padding: 2.5rem 2.8rem;
+    }
+
+    /* headings */
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #0a2942;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #0f3b5e;
+      border-bottom: 4px solid #e7eef6;
+      padding-bottom: 0.4rem;
+      margin: 2rem 0 1.5rem 0;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #1e405e;
+      margin-bottom: 0.3rem;
+    }
+
+    .subhead {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: #2c5779;
+    }
+
+    /* header & contact bar */
+    .header-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .profile-image {
+      flex-shrink: 0;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: #e1ecf7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border: 3px solid white;
+      box-shadow: 0 8px 16px -6px rgba(30, 80, 120, 0.2);
+    }
+
+    .profile-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .name-title-area {
+      flex: 1;
+    }
+
+    .title-tag {
+      background: #e1ecf7;
+      color: #0f3b5e;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 1.2rem;
+      display: inline-block;
+      margin: 0.5rem 0;
+    }
+
+    .quick-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 0.3rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #f0f5fa;
+      padding: 0.5rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.95rem;
+      color: #1a405b;
+      transition: 0.2s;
+    }
+
+    .contact-item i {
+      font-size: 1.1rem;
+      color: #2a6b9c;
+    }
+
+    .contact-item a {
+      text-decoration: none;
+      color: #1a405b;
+      font-weight: 500;
+    }
+
+    .contact-item a:hover {
+      color: #0a2b44;
+      text-decoration: underline;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1.2rem 0 1.8rem 0;
+    }
+
+    /* CV button stands out a bit */
+    .cv-download {
+      background: #e3f0fa;
+      border: 1px solid #1f6e9f;
+    }
+
+    .cv-download i {
+      color: #1f6e9f;
+    }
+
+    .summary {
+      background: #f0f7ff;
+      padding: 1.6rem 2rem;
+      border-radius: 22px;
+      margin: 1.8rem 0 1rem 0;
+      font-size: 1.05rem;
+      border-left: 6px solid #1f6e9f;
+      box-shadow: 0 6px 12px rgba(0,40,70,0.04);
+    }
+
+    .summary strong {
+      color: #0c3b60;
+    }
+
+    /* metric highlight */
+    .metric-badge {
+      background: white;
+      border-radius: 40px;
+      padding: 0.2rem 0.9rem;
+      font-weight: 600;
+      color: #0f4c7a;
+      border: 1px solid #bdd8f0;
+      white-space: nowrap;
+    }
+
+    /* skills grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .skill-card {
+      background: #f9fcff;
+      border: 1px solid #dde9f5;
+      border-radius: 20px;
+      padding: 1.4rem 1.5rem;
+      transition: all 0.1s ease;
+    }
+
+    .skill-card:hover {
+      background: #ffffff;
+      border-color: #9fc1df;
+      box-shadow: 0 8px 14px -10px #1e4f77;
+    }
+
+    .skill-card h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #153e5c;
+      margin-bottom: 1rem;
+      border-left: 4px solid #3070a5;
+      padding-left: 0.8rem;
+    }
+
+    .skill-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.9rem;
+    }
+
+    .skill-tag {
+      background: white;
+      border: 1px solid #c6ddf3;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #1a4b70;
+    }
+
+    /* experience & project cards */
+    .exp-item {
+      margin-bottom: 2.5rem;
+    }
+
+    .exp-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.5rem;
+    }
+
+    .exp-title {
+      font-size: 1.3rem;
+      font-weight: 650;
+      color: #0f3f60;
+    }
+
+    .exp-org {
+      font-weight: 600;
+      color: #2b5b82;
+      font-size: 1.1rem;
+    }
+
+    .exp-date {
+      color: #537a9c;
+      font-weight: 500;
+      background: #e3f0fa;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      margin-top: 0.8rem;
+    }
+
+    .exp-bullets li {
+      margin-bottom: 0.7rem;
+      padding-left: 1.8rem;
+      position: relative;
+      font-size: 1rem;
+      color: #1f3f58;
+    }
+
+    .exp-bullets li::before {
+      content: "▹";
+      position: absolute;
+      left: 0.2rem;
+      color: #1e6da8;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .project-card {
+      background: #f6faff;
+      border-radius: 24px;
+      padding: 1.6rem 1.8rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #d6e6f8;
+    }
+
+    .project-title {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .project-title h3 {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+
+    .project-links a {
+      background: white;
+      border: 1px solid #afceec;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #13609b;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .project-links a i {
+      font-size: 0.95rem;
+    }
+
+    .project-links a:hover {
+      background: #ddeeff;
+    }
+
+    .project-desc {
+      color: #1e405e;
+    }
+
+    /* education */
+    .edu-item {
+      background: #f2f8ff;
+      padding: 1.5rem 2rem;
+      border-radius: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .edu-left h3 {
+      margin-bottom: 0.2rem;
+    }
+
+    .edu-left p {
+      color: #34658b;
+    }
+
+    .edu-right {
+      background: white;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      color: #11507c;
+      font-weight: 500;
+    }
+
+    hr {
+      border: none;
+      border-top: 2px dashed #cbddec;
+      margin: 2rem 0 0.5rem;
+    }
+
+    .footer-note {
+      text-align: center;
+      color: #6d8fb0;
+      font-size: 0.9rem;
+      margin-top: 2.5rem;
+    }
+
+    @media (max-width: 700px) {
+      .container { padding: 1.8rem; }
+      h1 { font-size: 2.2rem; }
+      .header-row { flex-direction: column; align-items: flex-start; }
+      .quick-contact { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- HEADER with profile image, name and quick contacts -->
+  <div class="header-row">
+    <!-- profile image placeholder (ui-avatar with initials) -->
+    <div class="profile-image">
+      <img src="https://ui-avatars.com/api/?name=Faisal+Alhuzali&size=100&background=1f6e9f&color=fff&rounded=true&bold=true" alt="Faisal Alhuzali">
+    </div>
+    <!-- name + title + quick phone/email -->
+    <div class="name-title-area">
+      <h1>Faisal Alhuzali</h1>
+      <div class="title-tag"><i class="fas fa-terminal" style="margin-right: 8px;"></i> Aspiring System Administrator</div>
+      <div class="quick-contact">
+        <span class="contact-item"><i class="fas fa-phone-alt"></i> <a href="tel:+966580408646">+966 58 040 8646</a></span>
+        <span class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:faisalalhuzali@outlook.com">faisalalhuzali@outlook.com</a></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- contact row with portfolio, linkedin, github AND download CV button -->
+  <div class="contact-links">
+    <span class="contact-item"><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/faisalalhuzali" target="_blank">linkedin.com/in/faisalalhuzali</a></span>
+    <span class="contact-item"><i class="fas fa-globe"></i> <a href="https://falhuz.github.io/portfolio.html" target="_blank">falhuz.github.io/portfolio.html</a></span>
+    <span class="contact-item"><i class="fab fa-github"></i> <a href="https://github.com/falhuz" target="_blank">github.com/falhuz</a></span>
+    <!-- downloadable CV button (assumes PDF is in same folder) -->
+    <span class="contact-item cv-download"><i class="fas fa-file-pdf"></i> <a href="Faisal_Alhuzali_System%20Administrator.pdf" download>Download CV (PDF)</a></span>
+  </div>
+
+  <!-- Professional Summary with key metrics -->
+  <div class="summary">
+    <i class="fas fa-quote-left" style="color: #1f6e9f; opacity: 0.5; margin-right: 6px;"></i>
+    Computer Science graduate with proven ability to deliver measurable results in system administration and IT operations. Engineered automation solutions that reduced manual deployment time by <span class="metric-badge">30%</span> during traineeship, while resolving <span class="metric-badge">70+ IT incidents</span> with <span class="metric-badge">95% first‑contact resolution</span>. Maintained <span class="metric-badge">99.9% availability</span> for virtual servers and streamlined identity management for <span class="metric-badge">100+ employees</span> using Active Directory, PowerShell, and VMware. Combines technical expertise with strong communication, analytical problem-solving, and collaboration skills — seeking a Junior System Administrator role to ensure reliable, user‑focused IT operations.
+  </div>
+
+  <!-- Technical Skills (grid) -->
+  <h2><i class="fas fa-cog" style="margin-right: 12px; color: #3070a5;"></i> Technical Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-card"><h4>Languages</h4><div class="skill-items"><span class="skill-tag">Arabic (Native)</span><span class="skill-tag">English (Intermediate)</span></div></div>
+    <div class="skill-card"><h4>System Administration</h4><div class="skill-items"><span class="skill-tag">Windows Server</span><span class="skill-tag">Active Directory</span><span class="skill-tag">Group Policy</span><span class="skill-tag">Patch Mgmt</span><span class="skill-tag">Backup/Recovery</span><span class="skill-tag">ITIL</span></div></div>
+    <div class="skill-card"><h4>Automation & Scripting</h4><div class="skill-items"><span class="skill-tag">PDQ Deploy</span><span class="skill-tag">PowerShell</span><span class="skill-tag">Bash</span></div></div>
+    <div class="skill-card"><h4>Virtualization</h4><div class="skill-items"><span class="skill-tag">VMware vSphere</span></div></div>
+    <div class="skill-card"><h4>Monitoring & Helpdesk</h4><div class="skill-items"><span class="skill-tag">ManageEngine ServiceDesk Plus</span><span class="skill-tag">AD360</span></div></div>
+    <div class="skill-card"><h4>Cloud</h4><div class="skill-items"><span class="skill-tag">AWS (EC2, IAM, S3)</span></div></div>
+    <div class="skill-card"><h4>Programming & Tools</h4><div class="skill-items"><span class="skill-tag">Python</span><span class="skill-tag">Git</span><span class="skill-tag">Docker</span><span class="skill-tag">Kubernetes</span></div></div>
+    <div class="skill-card"><h4>Certifications / Courses</h4><div class="skill-items"><span class="skill-tag">AWS Cloud Practitioner</span><span class="skill-tag">DevOps on AWS</span><span class="skill-tag">Databases (Coursera)</span><span class="skill-tag">Google IT Support</span><span class="skill-tag">Kubernetes</span><span class="skill-tag">Mastering Docker</span></div></div>
+  </div>
+
+  <!-- Professional Experience -->
+  <h2><i class="fas fa-briefcase" style="margin-right: 12px; color: #3070a5;"></i> Professional Experience</h2>
+  
+  <div class="exp-item">
+    <div class="exp-header">
+      <span class="exp-title">System Administrator Trainee</span>
+      <span class="exp-date">Sep 2025 – Dec 2025</span>
+    </div>
+    <div class="exp-org">Saudi Food & Drug Authority</div>
+    <ul class="exp-bullets">
+      <li>Engineered automated software deployment for 50+ endpoints using PDQ Deploy and PowerShell, achieving 30% reduction in manual deployment time.</li>
+      <li>Resolved 70+ Level 1 & 2 IT incidents with 95% first‑contact resolution by diagnosing issues via ManageEngine ServiceDesk Plus.</li>
+      <li>Streamlined identity management for 100+ employees by centralizing Active Directory user lifecycle and access controls.</li>
+      <li>Maintained 99.9% availability for virtual servers through VMware vSphere configuration and maintenance.</li>
+    </ul>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-header">
+      <span class="exp-title">Mobile Software Technician</span>
+      <span class="exp-date">Jan 2017 – June 2018</span>
+    </div>
+    <div class="exp-org">Self-employed</div>
+    <ul class="exp-bullets">
+      <li>Diagnosed and repaired OS‑level issues on various mobile devices, restoring full functionality and ensuring client satisfaction.</li>
+      <li>Performed firmware updates and OS restoration, extending device lifespan and improving performance.</li>
+      <li>Communicated technical solutions clearly to clients, demonstrating patience and customer‑focused approach.</li>
+      <li>Developed strong troubleshooting and problem‑solving skills across multiple device platforms.</li>
+    </ul>
+  </div>
+
+  <!-- Technical Projects (detailed but concise) -->
+  <h2><i class="fas fa-laptop-code" style="margin-right: 12px; color: #3070a5;"></i> Technical Projects</h2>
+  
+  <div class="project-card">
+    <div class="project-title">
+      <h3>Kubernetes Cluster Deployment</h3>
+      <div class="project-links">
+        <a href="#"><i class="fab fa-github"></i> repo (private)</a>
+      </div>
+    </div>
+    <div class="project-desc">
+      <p>Designed and deployed a highly available Kubernetes cluster on AWS EC2 using <strong>kops</strong>. Implemented RBAC, persistent storage with EBS, and automated rolling updates. Configured <strong>Prometheus</strong> + <strong>Grafana</strong> for real‑time cluster monitoring and alerting. Used <strong>Helm</strong> to manage application releases, achieving 99.8% uptime during testing.</p>
+      <p style="margin-top: 8px;"><span class="metric-badge">k8s</span> <span class="metric-badge">AWS</span> <span class="metric-badge">Terraform</span> <span class="metric-badge">Docker</span></p>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-title">
+      <h3>Personal Portfolio</h3>
+      <div class="project-links">
+        <a href="https://falhuz.github.io/portfolio.html" target="_blank"><i class="fas fa-external-link-alt"></i> live</a>
+        <a href="https://github.com/falhuz/portfolio" target="_blank"><i class="fab fa-github"></i> source</a>
+      </div>
+    </div>
+    <div class="project-desc">
+      <p>Designed and built a self‑hosted professional portfolio website using <strong>HTML, CSS, JavaScript</strong>. Deployed via GitHub Pages to showcase technical projects and establish an online professional presence. Fully responsive, with light/dark mode toggle and smooth animations.</p>
+    </div>
+  </div>
+
+  <!-- Education + relevant coursework -->
+  <h2><i class="fas fa-graduation-cap" style="margin-right: 12px;"></i> Education</h2>
+  <div class="edu-item">
+    <div class="edu-left">
+      <h3>Bachelor of Computer Science</h3>
+      <p>Taif University · <strong>Relevant coursework:</strong> Web Development, Database Systems, Machine Learning, Data Structures, and Algorithms.</p>
+    </div>
+    <div class="edu-right">
+      <i class="far fa-calendar-alt"></i> 2020 – 2024
+    </div>
+  </div>
+
+  <!-- subtle separator and additional certs (extra touch) -->
+  <hr>
+  <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem;">
+    <span><i class="fas fa-certificate" style="color: #1f6e9f;"></i> AWS Cloud Practitioner</span>
+    <span><i class="fas fa-certificate" style="color: #1f6e9f;"></i> DevOps on AWS (Coursera)</span>
+    <span><i class="fas fa-certificate" style="color: #1f6e9f;"></i> Google IT Support Certificate</span>
+  </div>
+  
+  <!-- footer with quick note -->
+  <div class="footer-note">
+    <i class="fas fa-shield-alt"></i> Available for junior system administrator opportunities · <strong>CV download available above</strong>
+  </div>
+</div>
+<!-- the portfolio now includes a profile picture (initials placeholder) and a one-click CV download -->
+</body>
+</html>

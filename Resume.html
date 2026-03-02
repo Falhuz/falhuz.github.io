@@ -1,573 +1,455 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Faisal Alhuzali · IT System Administrator</title>
-  <!-- Font Awesome 6 (free) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Google Font: Inter (clean, professional) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faisal AlHuzali | Junior IT System Administrator</title>
+    <meta name="description" content="Resume of Faisal AlHuzali, Junior IT System Administrator specializing in IT Operations, AWS Cloud Support, and Automation.">
+    <meta name="keywords" content="IT System Administrator, AWS, Python, JavaScript, Cloud Computing, Web Development, APIs, Databases, Git, Problem Solving, Faisal AlHuzali">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    body {
-      font-family: "Inter", system-ui, -apple-system, sans-serif;
-      background: #f2f5f9;
-      color: #1e2b3c;
-      line-height: 1.5;
-      padding: 2.5rem 1.5rem;
-    }
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#0f172a', // Slate 900
+                        secondary: '#334155', // Slate 700
+                        accent: '#2563eb', // Blue 600
+                        accentHover: '#1d4ed8', // Blue 700
+                        bgLight: '#f8fafc', // Slate 50
+                    }
+                }
+            }
+        }
+    </script>
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      background: #ffffff;
-      border-radius: 2rem;
-      box-shadow: 0 25px 50px -12px rgba(0, 20, 40, 0.25);
-      overflow: hidden;
-      padding: 2.5rem 3rem;
-    }
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Print Optimization */
+        @media print {
+            body { background: white; color: black; }
+            .no-print { display: none; }
+            a { text-decoration: none; color: black; }
+            section { break-inside: avoid; margin-bottom: 20px; }
+            .hero-section { min-height: auto; padding: 40px 0; background: white !important; color: black !important; }
+            .hero-title { color: black !important; }
+            .btn { border: 1px solid black; background: white; color: black; }
+        }
 
-    /* Typography */
-    h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: #0c2b44;
-      line-height: 1.2;
-    }
-
-    h2 {
-      font-size: 1.8rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      color: #103a58;
-      border-bottom: 3px solid rgba(25, 113, 177, 0.2);
-      padding-bottom: 0.6rem;
-      margin: 2.5rem 0 1.8rem 0;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    h2 i {
-      color: #1a6ea8;
-      font-size: 1.8rem;
-      width: 2rem;
-    }
-
-    h3 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #1e405e;
-      margin-bottom: 0.2rem;
-    }
-
-    /* header area */
-    .header-flex {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 2rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .avatar {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      background: linear-gradient(145deg, #1b5a8c, #113a5c);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      font-weight: 500;
-      color: white;
-      box-shadow: 0 12px 26px -8px rgba(20, 80, 130, 0.4);
-      border: 4px solid white;
-      flex-shrink: 0;
-    }
-
-    .name-title {
-      flex: 1;
-    }
-
-    .title-badge {
-      background: #e3effa;
-      color: #0f3f64;
-      padding: 0.5rem 1.6rem;
-      border-radius: 60px;
-      font-weight: 600;
-      font-size: 1.2rem;
-      display: inline-block;
-      margin: 0.6rem 0 0.8rem 0;
-      border: 1px solid #bed9f2;
-    }
-
-    .quick-contact {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-    }
-
-    .chip {
-      background: #f0f6fd;
-      border-radius: 60px;
-      padding: 0.5rem 1.2rem;
-      font-size: 0.95rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      color: #1d4b73;
-      border: 1px solid #d2e3f5;
-      transition: 0.15s;
-    }
-
-    .chip i {
-      color: #1f6e9f;
-      font-size: 1rem;
-    }
-
-    .chip a {
-      text-decoration: none;
-      color: inherit;
-      font-weight: 500;
-    }
-
-    .chip a:hover {
-      color: #0a2e4a;
-      text-decoration: underline;
-    }
-
-    .contact-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin: 1.2rem 0 2rem 0;
-      padding: 1rem 0 0.2rem;
-      border-top: 1px solid #e2ecf7;
-      border-bottom: 1px solid #e2ecf7;
-      padding-bottom: 1rem;
-    }
-
-    .contact-bar .chip {
-      background: white;
-    }
-
-    .cv-chip {
-      background: #e1effb;
-      border-color: #3e85b9;
-    }
-
-    .cv-chip i {
-      color: #1661a0;
-    }
-
-    /* summary card */
-    .summary-card {
-      background: #f6faff;
-      padding: 2rem 2.2rem;
-      border-radius: 28px;
-      margin: 1.8rem 0 2.2rem 0;
-      border-left: 8px solid #1f6e9f;
-      box-shadow: 0 6px 14px rgba(0, 50, 80, 0.06);
-      font-size: 1.05rem;
-    }
-
-    .metric {
-      background: white;
-      border-radius: 40px;
-      padding: 0.2rem 1rem;
-      font-weight: 650;
-      color: #0f4c7a;
-      border: 1px solid #b2d1f0;
-      display: inline-block;
-      margin: 0 0.2rem;
-      white-space: nowrap;
-    }
-
-    /* skills grid */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.4rem;
-      margin: 2rem 0 0.5rem;
-    }
-
-    .skill-card {
-      background: #f9fcfe;
-      border: 1px solid #e1eff9;
-      border-radius: 24px;
-      padding: 1.4rem 1.6rem;
-      transition: 0.2s ease;
-    }
-
-    .skill-card:hover {
-      background: #ffffff;
-      border-color: #afcde7;
-      box-shadow: 0 8px 18px -12px #1d6190;
-      transform: translateY(-2px);
-    }
-
-    .skill-card h4 {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #123f60;
-      margin-bottom: 1.2rem;
-      border-left: 4px solid #3070a5;
-      padding-left: 1rem;
-    }
-
-    .skill-items {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem 0.8rem;
-    }
-
-    .skill-tag {
-      background: white;
-      border: 1px solid #c9dff5;
-      border-radius: 40px;
-      padding: 0.3rem 1.1rem;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: #1b4b72;
-    }
-
-    /* experience & project cards */
-    .exp-item {
-      margin-bottom: 2.6rem;
-    }
-
-    .exp-header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 0.3rem;
-    }
-
-    .exp-title {
-      font-size: 1.35rem;
-      font-weight: 650;
-      color: #0f3f60;
-    }
-
-    .exp-org {
-      font-weight: 600;
-      color: #29648c;
-      font-size: 1.1rem;
-      margin-bottom: 0.1rem;
-    }
-
-    .exp-date {
-      background: #e4f0fa;
-      padding: 0.3rem 1.2rem;
-      border-radius: 40px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: #145986;
-    }
-
-    .exp-bullets {
-      list-style: none;
-      margin-top: 0.9rem;
-    }
-
-    .exp-bullets li {
-      margin-bottom: 0.7rem;
-      padding-left: 1.8rem;
-      position: relative;
-      font-size: 1rem;
-      color: #1f405b;
-    }
-
-    .exp-bullets li::before {
-      content: "▹";
-      position: absolute;
-      left: 0.2rem;
-      color: #1e6da8;
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
-
-    .project-card {
-      background: #f5faff;
-      border-radius: 26px;
-      padding: 1.8rem 2rem;
-      margin-bottom: 1.8rem;
-      border: 1px solid #d6e7f8;
-      transition: 0.15s;
-    }
-
-    .project-card:hover {
-      background: #fafdff;
-      border-color: #aac6e4;
-    }
-
-    .project-title {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 1rem 1.8rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .project-title h3 {
-      margin: 0;
-      font-size: 1.45rem;
-    }
-
-    .project-link {
-      background: white;
-      border: 1px solid #b9d6f2;
-      border-radius: 40px;
-      padding: 0.3rem 1.2rem;
-      font-size: 0.9rem;
-      color: #13609b;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-weight: 500;
-    }
-
-    .project-link i {
-      font-size: 0.9rem;
-    }
-
-    .project-link:hover {
-      background: #e3efff;
-    }
-
-    .project-desc {
-      color: #1b3d57;
-    }
-
-    .tech-tags {
-      margin-top: 1rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .tech-tag {
-      background: white;
-      border: 1px solid #b7d3ef;
-      border-radius: 40px;
-      padding: 0.2rem 1rem;
-      font-size: 0.85rem;
-      color: #145d91;
-    }
-
-    /* education panel */
-    .edu-card {
-      background: #f1f7fe;
-      border-radius: 26px;
-      padding: 1.8rem 2.2rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .edu-left h3 {
-      margin-bottom: 0.2rem;
-    }
-
-    .edu-left p {
-      color: #2b5880;
-      max-width: 600px;
-    }
-
-    .edu-right {
-      background: white;
-      border-radius: 60px;
-      padding: 0.5rem 1.5rem;
-      font-weight: 500;
-      color: #0f4b79;
-      border: 1px solid #b7d2ed;
-    }
-
-    hr {
-      border: none;
-      border-top: 2px dashed #c6dcf2;
-      margin: 2.2rem 0 1.2rem;
-    }
-
-    .cert-strip {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.2rem 2rem;
-      justify-content: center;
-      background: #f1f7fd;
-      padding: 1rem 2rem;
-      border-radius: 60px;
-      margin-top: 1.5rem;
-      font-size: 0.95rem;
-      color: #1f5680;
-    }
-
-    .cert-strip i {
-      color: #1a6eac;
-      margin-right: 0.4rem;
-    }
-
-    .footer-note {
-      text-align: center;
-      color: #628db0;
-      font-size: 0.9rem;
-      margin-top: 2.5rem;
-      border-top: 1px solid #daeaf8;
-      padding-top: 1.8rem;
-    }
-
-    @media (max-width: 700px) {
-      .container { padding: 1.8rem; }
-      h1 { font-size: 2.3rem; }
-      .avatar { width: 80px; height: 80px; font-size: 2.2rem; }
-    }
-  </style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
 </head>
-<body>
-<div class="container">
-  <!-- Header with name, title, avatar (initials) -->
-  <div class="header-flex">
-    <div class="avatar">FA</div>
-    <div class="name-title">
-      <h1>Faisal Alhuzali</h1>
-      <div class="title-badge">
-        <i class="fas fa-terminal" style="margin-right: 8px;"></i> Junior IT System Administrator | IT Operations | AWS Cloud Support
-      </div>
-      <div class="quick-contact">
-        <span class="chip"><i class="fas fa-phone-alt"></i> <a href="tel:+966580408646">+966 58 040 8646</a></span>
-        <span class="chip"><i class="fas fa-envelope"></i> <a href="mailto:faisalalhuzali@outlook.com">faisalalhuzali@outlook.com</a></span>
-      </div>
-    </div>
-  </div>
+<body class="bg-bgLight text-slate-800 leading-relaxed">
 
-  <!-- Contact bar with links + CV download (filename matches resume) -->
-  <div class="contact-bar">
-    <span class="chip"><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/faisalalhuzali" target="_blank">linkedin.com/in/faisalalhuzali</a></span>
-    <span class="chip"><i class="fas fa-globe"></i> <a href="https://falhuz.github.io/portfolio.html" target="_blank">falhuz.github.io/portfolio.html</a></span>
-    <span class="chip"><i class="fab fa-github"></i> <a href="https://github.com/falhuz" target="_blank">github.com/falhuz</a></span>
-    <span class="chip cv-chip"><i class="fas fa-file-pdf"></i> <a href="Faisal_Alhuzali_IT_System_Administrator.pdf" download>Download CV (PDF)</a></span>
-  </div>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 no-print">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-xl font-bold text-primary tracking-tight">Faisal AlHuzali</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#summary" class="hover:text-accent transition-colors duration-200 font-medium text-sm">Summary</a>
+                        <a href="#skills" class="hover:text-accent transition-colors duration-200 font-medium text-sm">Skills</a>
+                        <a href="#experience" class="hover:text-accent transition-colors duration-200 font-medium text-sm">Experience</a>
+                        <a href="#projects" class="hover:text-accent transition-colors duration-200 font-medium text-sm">Projects</a>
+                        <a href="#education" class="hover:text-accent transition-colors duration-200 font-medium text-sm">Education</a>
+                        <a href="#contact" class="px-4 py-2 rounded-md bg-primary text-white text-sm font-medium hover:bg-slate-800 transition-colors">Contact</a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" onclick="toggleMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-slate-700 hover:text-accent focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white border-b border-slate-200" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#summary" onclick="toggleMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-accent hover:bg-slate-50">Summary</a>
+                <a href="#skills" onclick="toggleMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-accent hover:bg-slate-50">Skills</a>
+                <a href="#experience" onclick="toggleMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-accent hover:bg-slate-50">Experience</a>
+                <a href="#projects" onclick="toggleMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-accent hover:bg-slate-50">Projects</a>
+                <a href="#education" onclick="toggleMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-accent hover:bg-slate-50">Education</a>
+                <a href="#contact" onclick="toggleMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-accent font-bold">Contact Me</a>
+            </div>
+        </div>
+    </nav>
 
-  <!-- Professional summary (exact from resume) -->
-  <div class="summary-card">
-    <i class="fas fa-quote-left" style="color: #1f6e9f; opacity: 0.4; margin-right: 6px;"></i>
-    Customer-focused IT Support professional with a CS background and proven impact in IT Operations. Resolved <span class="metric">70+ IT incidents</span> with <span class="metric">95% first‑contact resolution</span>, demonstrating strong problem‑solving and client service excellence. Automated deployments (<span class="metric">30% faster</span>) using PowerShell and maintained <span class="metric">99.9% uptime</span> via VMware vSphere. Skilled in Windows, Office 365, IT networks, Active Directory, and SLA‑compliant incident management. Dedicated to delivering timely, accurate, and responsive IT support that ensures internal customer satisfaction.
-  </div>
+    <!-- Hero Section -->
+    <header class="hero-section bg-primary text-white pt-32 pb-20 lg:pt-48 lg:pb-32">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center lg:text-left">
+            <div class="lg:flex lg:items-center lg:justify-between">
+                <div class="lg:w-2/3">
+                    <h1 class="text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl hero-title mb-4">
+                        <span class="block">Faisal AlHuzali</span>
+                    </h1>
+                    <p class="mt-3 max-w-md mx-auto lg:mx-0 text-xl text-slate-300 sm:text-2xl md:mt-5 font-light">
+                        Junior IT System Administrator <span class="text-slate-500 mx-2">|</span> IT Operations <span class="text-slate-500 mx-2">|</span> AWS Cloud Support
+                    </p>
+                    <p class="mt-4 max-w-2xl text-lg text-slate-400 mx-auto lg:mx-0">
+                        Customer-focused IT professional with a CS background. Proven track record in automating deployments, maintaining 99.9% uptime, and resolving complex technical incidents with 95% first-contact resolution.
+                    </p>
+                    <div class="mt-8 max-w-md mx-auto lg:mx-0 sm:flex sm:justify-center lg:justify-start gap-4">
+                        <div class="rounded-md shadow">
+                            <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary bg-white hover:bg-slate-100 md:py-4 md:text-lg transition-all duration-200">
+                                <i class="fas fa-download mr-2"></i> Download CV
+                            </a>
+                        </div>
+                        <div class="mt-3 sm:mt-0">
+                            <a href="#contact" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-accent hover:bg-accentHover md:py-4 md:text-lg transition-all duration-200 shadow-lg shadow-blue-900/50">
+                                Contact Me
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Abstract Visual Element for Credibility -->
+                <div class="hidden lg:block lg:w-1/3 pl-12">
+                    <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700 backdrop-blur-sm">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="h-3 w-3 bg-red-500 rounded-full"></div>
+                            <div class="h-3 w-3 bg-yellow-500 rounded-full"></div>
+                            <div class="h-3 w-3 bg-green-500 rounded-full"></div>
+                        </div>
+                        <div class="space-y-3 font-mono text-sm text-slate-400">
+                            <div class="flex justify-between">
+                                <span>Uptime:</span>
+                                <span class="text-green-400">99.9%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Incidents Resolved:</span>
+                                <span class="text-blue-400">70+</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Deployment Speed:</span>
+                                <span class="text-purple-400">+30% Faster</span>
+                            </div>
+                            <div class="pt-4 border-t border-slate-700">
+                                <span class="text-slate-500">// System Status: Operational</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-  <!-- Technical Skills – all categories from resume, including every tool/cert -->
-  <h2><i class="fas fa-microchip"></i> Technical Skills</h2>
-  <div class="skills-grid">
-    <div class="skill-card"><h4>Languages</h4><div class="skill-items"><span class="skill-tag">Arabic (Native)</span><span class="skill-tag">English (Intermediate)</span></div></div>
-    <div class="skill-card"><h4>System Administration</h4><div class="skill-items"><span class="skill-tag">Windows Server</span><span class="skill-tag">Linux (Ubuntu)</span><span class="skill-tag">Active Directory</span><span class="skill-tag">DNS</span><span class="skill-tag">DHCP</span><span class="skill-tag">Group Policy</span><span class="skill-tag">Patch Management</span><span class="skill-tag">Backup & Recovery</span><span class="skill-tag">ITIL Processes</span></div></div>
-    <div class="skill-card"><h4>Automation & Scripting</h4><div class="skill-items"><span class="skill-tag">PDQ Deploy</span><span class="skill-tag">PowerShell</span><span class="skill-tag">Bash</span></div></div>
-    <div class="skill-card"><h4>Virtualization</h4><div class="skill-items"><span class="skill-tag">VMware vSphere</span></div></div>
-    <div class="skill-card"><h4>Monitoring & Helpdesk</h4><div class="skill-items"><span class="skill-tag">ManageEngine ServiceDesk Plus</span><span class="skill-tag">AD360</span></div></div>
-    <div class="skill-card"><h4>Cloud & Productivity</h4><div class="skill-items"><span class="skill-tag">AWS (EC2, IAM, S3)</span><span class="skill-tag">Office 365</span></div></div>
-    <div class="skill-card"><h4>Programming & Version Control</h4><div class="skill-items"><span class="skill-tag">Python</span><span class="skill-tag">Git</span></div></div>
-    <div class="skill-card"><h4>Containers & Orchestration</h4><div class="skill-items"><span class="skill-tag">Docker</span><span class="skill-tag">Kubernetes</span></div></div>
-    <div class="skill-card"><h4>Certifications & Courses</h4><div class="skill-items"><span class="skill-tag">AWS Cloud Practitioner</span><span class="skill-tag">DevOps on AWS</span><span class="skill-tag">Databases (Coursera)</span><span class="skill-tag">Google Career Course: System Administration & IT Infrastructure Services</span><span class="skill-tag">DevOps with Kubernetes</span><span class="skill-tag">Mastering Docker</span></div></div>
-  </div>
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24">
 
-  <!-- Professional Experience -->
-  <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
-  
-  <div class="exp-item">
-    <div class="exp-header">
-      <span class="exp-title">System Administrator Trainee</span>
-      <span class="exp-date">Sep 2025 – Dec 2025</span>
-    </div>
-    <div class="exp-org">Saudi Food & Drug Authority, Riyadh</div>
-    <ul class="exp-bullets">
-      <li>Engineered automated software deployment for 50+ endpoints using PDQ Deploy and PowerShell, achieving 30% reduction in manual deployment time.</li>
-      <li>Resolved 70+ Level 1 & 2 IT incidents using analytical problem‑solving to prioritize critical tickets under tight deadlines. (95% first‑contact resolution)</li>
-      <li>Streamlined identity management for 100+ employees by centralizing Active Directory user lifecycle and access controls.</li>
-      <li>Maintained 99.9% availability for virtual servers through VMware vSphere configuration and maintenance.</li>
-      <li>Documented system configurations, procedures, and infrastructure diagrams for knowledge transfer and future reference.</li>
-    </ul>
-  </div>
+        <!-- Professional Summary -->
+        <section id="summary" class="scroll-mt-24">
+            <div class="border-l-4 border-accent pl-6">
+                <h2 class="text-2xl font-bold text-primary mb-4">Professional Summary</h2>
+                <p class="text-lg text-slate-600 max-w-4xl">
+                    Results-oriented IT Support professional with a Computer Science background and proven impact in IT Operations. Expert in resolving Level 1 & 2 incidents with a <strong>95% first-contact resolution rate</strong>. Successfully automated software deployments to achieve a <strong>30% reduction in manual time</strong> and maintained <strong>99.9% server availability</strong> via VMware vSphere. Skilled in Windows Server, Active Directory, AWS Cloud, and SLA-compliant incident management. Dedicated to delivering timely, accurate, and responsive IT support.
+                </p>
+            </div>
+        </section>
 
-  <div class="exp-item">
-    <div class="exp-header">
-      <span class="exp-title">Mobile Software Technician</span>
-      <!-- no date in resume, so omitted -->
-    </div>
-    <div class="exp-org">Self‑employed, Al Khobar</div>
-    <ul class="exp-bullets">
-      <li>Diagnosed and repaired OS‑level issues on various mobile devices, restoring full functionality and ensuring client satisfaction.</li>
-      <li>Performed firmware updates and OS restoration, extending device lifespan and improving performance.</li>
-      <li>Communicated technical solutions clearly to clients, demonstrating patience and customer‑focused approach.</li>
-      <li>Developed strong troubleshooting and problem‑solving skills across multiple device platforms while working flexible hours to meet client needs.</li>
-    </ul>
-  </div>
+        <!-- Technical Skills -->
+        <section id="skills" class="scroll-mt-24">
+            <h2 class="text-2xl font-bold text-primary mb-8 flex items-center">
+                <i class="fas fa-tools mr-3 text-accent"></i> Technical Skills
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- System Admin -->
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+                    <h3 class="font-semibold text-primary mb-3 border-b border-slate-100 pb-2">System Administration</h3>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2 text-xs"></i> Windows Server & Linux (Ubuntu)</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2 text-xs"></i> Active Directory & Group Policy</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2 text-xs"></i> DNS, DHCP, Patch Management</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2 text-xs"></i> Backup & Recovery</li>
+                    </ul>
+                </div>
 
-  <!-- Technical Projects (wording exactly from resume) -->
-  <h2><i class="fas fa-laptop-code"></i> Technical Projects</h2>
-  
-  <div class="project-card">
-    <div class="project-title">
-      <h3>Kubernetes Cluster Deployment</h3>
-      <a href="#" class="project-link"><i class="fab fa-github"></i> repo (private)</a>
-    </div>
-    <div class="project-desc">
-      <p>Set up and configured a multi‑node Kubernetes cluster for container orchestration and management. Managed cluster nodes, networking, and security policies to ensure reliable application deployment. Configured health checks, resource limits, and auto‑scaling to maintain 99.9% application availability.</p>
-    </div>
-    <div class="tech-tags">
-      <span class="tech-tag">Kubernetes</span><span class="tech-tag">Docker</span><span class="tech-tag">Linux</span><span class="tech-tag">kubectl</span>
-    </div>
-  </div>
+                <!-- Cloud & Virtualization -->
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+                    <h3 class="font-semibold text-primary mb-3 border-b border-slate-100 pb-2">Cloud & Virtualization</h3>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2 text-xs"></i> AWS (EC2, IAM, S3)</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2 text-xs"></i> VMware vSphere</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2 text-xs"></i> Office 365 Administration</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2 text-xs"></i> Kubernetes & Docker</li>
+                    </ul>
+                </div>
 
-  <div class="project-card">
-    <div class="project-title">
-      <h3>Personal Portfolio</h3>
-      <a href="https://falhuz.github.io/portfolio.html" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> live</a>
-      <a href="https://github.com/falhuz/portfolio" target="_blank" class="project-link"><i class="fab fa-github"></i> source</a>
-    </div>
-    <div class="project-desc">
-      <p>Designed and built a self‑hosted professional portfolio website using HTML, CSS, and JavaScript. Deployed via GitHub Pages to showcase technical projects and establish an online professional presence.</p>
-    </div>
-    <div class="tech-tags">
-      <span class="tech-tag">HTML5</span><span class="tech-tag">CSS3</span><span class="tech-tag">JavaScript</span><span class="tech-tag">GitHub Pages</span>
-    </div>
-  </div>
+                <!-- Automation & Scripting -->
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+                    <h3 class="font-semibold text-primary mb-3 border-b border-slate-100 pb-2">Automation & Scripting</h3>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2 text-xs"></i> PowerShell & Bash</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2 text-xs"></i> Python</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2 text-xs"></i> PDQ Deploy</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2 text-xs"></i> Git Version Control</li>
+                    </ul>
+                </div>
 
-  <!-- Education (exact) -->
-  <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-  <div class="edu-card">
-    <div class="edu-left">
-      <h3>Bachelor of Computer Science</h3>
-      <p>Taif University · <strong>Relevant coursework:</strong> Web Development, Database Systems, Machine Learning, Data Structures, and Algorithms.</p>
-    </div>
-    <div class="edu-right">
-      <i class="far fa-calendar-alt" style="margin-right: 6px;"></i> 2020 – 2024
-    </div>
-  </div>
+                <!-- Tools & Monitoring -->
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+                    <h3 class="font-semibold text-primary mb-3 border-b border-slate-100 pb-2">Tools & Monitoring</h3>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2 text-xs"></i> ManageEngine ServiceDesk</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2 text-xs"></i> AD360</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2 text-xs"></i> ITIL Processes</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2 text-xs"></i> Web Development (HTML/CSS/JS)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-  <!-- Certifications strip (extra touch but all listed already) -->
-  <hr>
-  <div class="cert-strip">
-    <span><i class="fas fa-certificate"></i> AWS Cloud Practitioner</span>
-    <span><i class="fas fa-certificate"></i> DevOps on AWS</span>
-    <span><i class="fas fa-certificate"></i> Google IT Support Certificate</span>
-    <span><i class="fas fa-certificate"></i> DevOps with Kubernetes</span>
-  </div>
+        <!-- Experience -->
+        <section id="experience" class="scroll-mt-24">
+            <h2 class="text-2xl font-bold text-primary mb-8 flex items-center">
+                <i class="fas fa-briefcase mr-3 text-accent"></i> Professional Experience
+            </h2>
+            <div class="space-y-12">
+                
+                <!-- Role 1 -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="md:flex md:items-start md:justify-between">
+                        <div class="md:w-3/4">
+                            <h3 class="text-xl font-bold text-primary">System Administrator Trainee</h3>
+                            <div class="text-accent font-medium mb-2">Saudi Food & Drug Authority (SFDA) | Riyadh</div>
+                            <div class="text-sm text-slate-500 mb-4 italic">Sep 2025 — Dec 2025</div>
+                            
+                            <ul class="space-y-3 text-slate-700">
+                                <li class="flex items-start">
+                                    <span class="flex-shrink-0 h-6 w-6 flex items-center justify-center rounded-full bg-blue-100 text-accent text-xs mr-3 mt-0.5">1</span>
+                                    <span>Engineered automated software deployment for <strong>50+ endpoints</strong> using PDQ Deploy and PowerShell, achieving a <strong>30% reduction</strong> in manual deployment time.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="flex-shrink-0 h-6 w-6 flex items-center justify-center rounded-full bg-blue-100 text-accent text-xs mr-3 mt-0.5">2</span>
+                                    <span>Resolved <strong>70+ Level 1 & 2 IT incidents</strong> using analytical problem-solving to prioritize critical tickets under tight deadlines, maintaining high SLA compliance.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="flex-shrink-0 h-6 w-6 flex items-center justify-center rounded-full bg-blue-100 text-accent text-xs mr-3 mt-0.5">3</span>
+                                    <span>Streamlined identity management for <strong>100+ employees</strong> by centralizing Active Directory user lifecycle and access controls.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="flex-shrink-0 h-6 w-6 flex items-center justify-center rounded-full bg-blue-100 text-accent text-xs mr-3 mt-0.5">4</span>
+                                    <span>Maintained <strong>99.9% availability</strong> for virtual servers through proactive VMware vSphere configuration and maintenance.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-  <!-- Footer with availability -->
-  <div class="footer-note">
-    <i class="fas fa-shield-alt" style="margin-right: 6px;"></i> Available for junior system administrator opportunities · CV download above
-  </div>
-</div>
+                <!-- Role 2 -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="md:flex md:items-start md:justify-between">
+                        <div class="md:w-3/4">
+                            <h3 class="text-xl font-bold text-primary">Mobile Software Technician</h3>
+                            <div class="text-accent font-medium mb-2">Self-employed | Al Khobar</div>
+                            <div class="text-sm text-slate-500 mb-4 italic">Jan 2017 — June 2018</div>
+                            
+                            <ul class="space-y-3 text-slate-700">
+                                <li class="flex items-start">
+                                    <span class="flex-shrink-0 h-6 w-6 flex items-center justify-center rounded-full bg-slate-100 text-slate-600 text-xs mr-3 mt-0.5"><i class="fas fa-mobile-alt"></i></span>
+                                    <span>Diagnosed and repaired OS-level issues on various mobile devices, restoring full functionality and ensuring client satisfaction.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="flex-shrink-0 h-6 w-6 flex items-center justify-center rounded-full bg-slate-100 text-slate-600 text-xs mr-3 mt-0.5"><i class="fas fa-sync"></i></span>
+                                    <span>Performed firmware updates and OS restoration, extending device lifespan and improving performance.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="flex-shrink-0 h-6 w-6 flex items-center justify-center rounded-full bg-slate-100 text-slate-600 text-xs mr-3 mt-0.5"><i class="fas fa-users"></i></span>
+                                    <span>Communicated technical solutions clearly to clients, demonstrating patience and a customer-focused approach.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="scroll-mt-24">
+            <h2 class="text-2xl font-bold text-primary mb-8 flex items-center">
+                <i class="fas fa-laptop-code mr-3 text-accent"></i> Technical Projects
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Project 1 -->
+                <div class="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-primary mb-2">Kubernetes Cluster Deployment</h3>
+                        <p class="text-sm text-slate-500 mb-4">Container Orchestration | Auto-scaling</p>
+                        <div class="space-y-3 text-slate-700 text-sm mb-4">
+                            <p><strong class="text-primary">Problem:</strong> Need for reliable, scalable application deployment infrastructure.</p>
+                            <p><strong class="text-primary">Solution:</strong> Set up and configured a multi-node Kubernetes cluster. Managed nodes, networking, and security policies.</p>
+                            <p><strong class="text-primary">Outcome:</strong> Configured health checks and auto-scaling to maintain <strong>99.9% application availability</strong>.</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-md">Kubernetes</span>
+                            <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-md">Docker</span>
+                            <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-md">Networking</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-primary mb-2">Personal Portfolio Website</h3>
+                        <p class="text-sm text-slate-500 mb-4">Web Development | GitHub Pages</p>
+                        <div class="space-y-3 text-slate-700 text-sm mb-4">
+                            <p><strong class="text-primary">Problem:</strong> Need for a centralized online professional presence to showcase technical projects.</p>
+                            <p><strong class="text-primary">Solution:</strong> Designed and built a self-hosted portfolio using HTML, CSS, and JavaScript. Deployed via GitHub Pages.</p>
+                            <p><strong class="text-primary">Outcome:</strong> Established a responsive, fast-loading digital resume accessible to global recruiters.</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-md">HTML5</span>
+                            <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-md">CSS3</span>
+                            <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-md">JavaScript</span>
+                            <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-md">Git</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Education & Certifications -->
+        <section id="education" class="scroll-mt-24">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                
+                <!-- Education -->
+                <div>
+                    <h2 class="text-2xl font-bold text-primary mb-6 flex items-center">
+                        <i class="fas fa-graduation-cap mr-3 text-accent"></i> Education
+                    </h2>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
+                        <h3 class="text-lg font-bold text-primary">Bachelor of Computer Science</h3>
+                        <div class="text-accent font-medium">Taif University</div>
+                        <div class="text-sm text-slate-500 mb-4">Jul 2019 — Jan 2026 (Expected)</div>
+                        <p class="text-slate-600 text-sm">
+                            Relevant coursework: Web Development, Database Systems, Machine Learning, Data Structures, and Algorithms.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div>
+                    <h2 class="text-2xl font-bold text-primary mb-6 flex items-center">
+                        <i class="fas fa-certificate mr-3 text-accent"></i> Certifications
+                    </h2>
+                    <div class="space-y-4">
+                        <div class="bg-white p-5 rounded-lg shadow-sm border border-slate-200 flex items-start">
+                            <i class="fab fa-aws text-3xl text-orange-500 mr-4 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-primary text-sm">AWS Cloud Practitioner</h4>
+                                <p class="text-xs text-slate-500">Amazon Web Services</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-5 rounded-lg shadow-sm border border-slate-200 flex items-start">
+                            <i class="fab fa-google text-3xl text-blue-500 mr-4 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-primary text-sm">Google Career Course – System Administration</h4>
+                                <p class="text-xs text-slate-500">IT Infrastructure Services</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-5 rounded-lg shadow-sm border border-slate-200 flex items-start">
+                            <i class="fas fa-dharmachakra text-3xl text-blue-600 mr-4 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-primary text-sm">DevOps with Kubernetes & Docker</h4>
+                                <p class="text-xs text-slate-500">Specialized Coursework</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Contact Section -->
+    <footer id="contact" class="bg-primary text-white pt-16 pb-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Get In Touch</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    I am currently seeking entry-level or junior technical roles in IT Operations, Cloud Support, or System Administration.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 text-center">
+                <a href="mailto:faisalalhuzali@outlook.com" class="group p-6 bg-slate-800 rounded-lg hover:bg-slate-700 transition-colors">
+                    <i class="fas fa-envelope text-2xl text-accent mb-3 group-hover:scale-110 transition-transform"></i>
+                    <p class="font-medium">faisalalhuzali@outlook.com</p>
+                </a>
+                <a href="tel:+966580408646" class="group p-6 bg-slate-800 rounded-lg hover:bg-slate-700 transition-colors">
+                    <i class="fas fa-phone text-2xl text-accent mb-3 group-hover:scale-110 transition-transform"></i>
+                    <p class="font-medium">+966 58 040 8646</p>
+                </a>
+                <a href="https://linkedin.com/in/faisalalhuzali" target="_blank" class="group p-6 bg-slate-800 rounded-lg hover:bg-slate-700 transition-colors">
+                    <i class="fab fa-linkedin text-2xl text-accent mb-3 group-hover:scale-110 transition-transform"></i>
+                    <p class="font-medium">linkedin.com/in/faisalalhuzali</p>
+                </a>
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
+                <p>&copy; 2025 Faisal AlHuzali. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="https://falhuz.github.io/portfolio.html" target="_blank" class="hover:text-white transition-colors">Portfolio</a>
+                    <a href="#" class="hover:text-white transition-colors">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        }
+
+        // Close mobile menu on resize if screen gets larger
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            }
+        });
+    </script>
 </body>
 </html>

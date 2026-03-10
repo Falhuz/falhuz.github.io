@@ -36,7 +36,7 @@
         @media (max-width: 768px) { .section-spacing { padding: 40px 0; } }
         .card { background: white; border: 1px solid #d9e2ec; border-radius: 4px; padding: 24px; transition: box-shadow 0.2s ease; }
         .card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-        .btn { display: inline-block; padding: 12px 24px; background: #334e68; color: white; border: none; border-radius: 4px; font-weight: 500; text-decoration: none; transition: background 0.2s ease; }
+        .btn { display: inline-block; padding: 12px 24px; background: #334e68; color: white; border: none; border-radius: 4px; font-weight: 500; text-decoration: none; transition: background 0.2s ease; cursor: pointer; }
         .btn:hover { background: #243b53; }
         .btn-outline { background: transparent; border: 1px solid #334e68; color: #334e68; }
         .btn-outline:hover { background: #f0f4f8; }
@@ -67,7 +67,12 @@
                 <a href="#projects" class="hover:text-accent">Projects</a>
                 <a href="#education" class="hover:text-accent">Education</a>
             </div>
-            <a href="#contact" class="btn btn-sm no-print">Contact</a>
+            <div class="flex gap-3">
+                <a href="Faisal_Alhuzali_CV.pdf" download="Faisal_Alhuzali_CV.pdf" class="btn btn-outline btn-sm no-print" title="Download CV">
+                    <i class="fas fa-download mr-2"></i>Download CV
+                </a>
+                <a href="#contact" class="btn btn-sm no-print">Contact</a>
+            </div>
         </div>
     </nav>
 
@@ -83,9 +88,15 @@
                 <a href="https://github.com/falhuz" target="_blank" class="hover:text-navy-300"><i class="fab fa-github mr-2"></i>GitHub</a>
                 <a href="https://falhuz.github.io/portfolio.html" target="_blank" class="hover:text-navy-300"><i class="fas fa-globe mr-2"></i>Portfolio</a>
             </div>
-            <div class="flex justify-center gap-4 no-print">
-                <a href="#" onclick="window.print()" class="btn btn-outline"><i class="fas fa-download mr-2"></i>Download PDF</a>
-                <a href="mailto:faisalalhuzali@outlook.com" class="btn"><i class="fas fa-envelope mr-2"></i>Hire Me</a>
+            <div class="flex flex-wrap justify-center gap-4 no-print">
+                <a href="Faisal_Alhuzali_CV.pdf" download="Faisal_Alhuzali_CV.pdf" class="btn btn-outline">
+                    <i class="fas fa-file-pdf mr-2"></i>Download CV (PDF)
+                </a>
+                <a href="#" onclick="window.print()" class="btn">
+                    <i class="fas fa-print mr-2"></i>Print / Save as PDF
+                </a>
+                <a href="mailto:faisalalhuzali@outlook.com" class="btn">
+                    <i class="fas fa-envelope mr-2"></i>Hire Me                </a>
             </div>
         </div>
     </header>
@@ -96,7 +107,8 @@
             <div class="metric-box">
                 <span class="metric-number">70+</span>
                 <span class="metric-label">Incidents Resolved</span>
-            </div>            <div class="metric-box">
+            </div>
+            <div class="metric-box">
                 <span class="metric-number">95%</span>
                 <span class="metric-label">First-Contact Resolution</span>
             </div>
@@ -133,8 +145,7 @@
                         <span class="skill-tag">Linux (Ubuntu)</span>
                         <span class="skill-tag">Active Directory</span>
                         <span class="skill-tag">DNS</span>
-                        <span class="skill-tag">DHCP</span>
-                        <span class="skill-tag">Group Policy</span>
+                        <span class="skill-tag">DHCP</span>                        <span class="skill-tag">Group Policy</span>
                         <span class="skill-tag">Patch Management</span>
                         <span class="skill-tag">Backup & Recovery</span>
                         <span class="skill-tag">ITIL Processes</span>
@@ -145,7 +156,8 @@
                     <div>
                         <span class="skill-tag">AWS (EC2, IAM, S3)</span>
                         <span class="skill-tag">Office 365</span>
-                        <span class="skill-tag">VMware vSphere</span>                    </div>
+                        <span class="skill-tag">VMware vSphere</span>
+                    </div>
                 </div>
                 <div class="card">
                     <h3 class="font-semibold mb-3 text-accent"><i class="fas fa-code mr-2"></i>Automation & Scripting</h3>
@@ -182,8 +194,7 @@
     <section id="experience" class="section-spacing">
         <div class="container mx-auto px-4">
             <h2 class="text-2xl font-bold mb-8 text-navy-900">Professional Experience</h2>
-            
-            <div class="card mb-6">
+                        <div class="card mb-6">
                 <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
                     <div>
                         <h3 class="font-bold text-lg">System Administrator Trainee</h3>
@@ -194,7 +205,8 @@
                 <ul class="space-y-2">
                     <li class="bullet-point"><strong>Boosted IT Efficiency:</strong> Automated software deployments to over <span class="keyword-highlight">50 endpoints</span> using PDQ Deploy and PowerShell scripting, reducing manual deployment time by <span class="keyword-highlight">30%</span>.</li>
                     <li class="bullet-point"><strong>Drove High Customer Satisfaction:</strong> Resolved <span class="keyword-highlight">70+ Level 1 & 2 IT incidents</span>, achieving a <span class="keyword-highlight">95% first-contact resolution rate</span> by rapidly diagnosing and troubleshooting issues.</li>
-                    <li class="bullet-point"><strong>Enhanced Security & Access Control:</strong> Centralized identity management for <span class="keyword-highlight">100+ employees</span>, streamlining user lifecycle management (provisioning/deprovisioning) and access controls within Active Directory.</li>                    <li class="bullet-point"><strong>Ensured System Reliability:</strong> Maintained <span class="keyword-highlight">99.9% uptime</span> for critical virtual servers through proactive configuration, monitoring, and maintenance of the VMware vSphere environment.</li>
+                    <li class="bullet-point"><strong>Enhanced Security & Access Control:</strong> Centralized identity management for <span class="keyword-highlight">100+ employees</span>, streamlining user lifecycle management (provisioning/deprovisioning) and access controls within Active Directory.</li>
+                    <li class="bullet-point"><strong>Ensured System Reliability:</strong> Maintained <span class="keyword-highlight">99.9% uptime</span> for critical virtual servers through proactive configuration, monitoring, and maintenance of the VMware vSphere environment.</li>
                     <li class="bullet-point"><strong>Standardized Knowledge Transfer:</strong> Authored comprehensive documentation for system configurations, procedures, and infrastructure diagrams to facilitate team knowledge sharing and future troubleshooting.</li>
                 </ul>
             </div>
@@ -231,8 +243,7 @@
                 <div class="card">
                     <h3 class="font-bold mb-3">Self-Hosted Professional Portfolio</h3>
                     <ul class="space-y-2 text-sm">
-                        <li class="bullet-point">Designed and developed a responsive personal portfolio website using HTML, CSS, and JavaScript.</li>
-                        <li class="bullet-point">Deployed the site via <span class="keyword-highlight">GitHub Pages</span>, creating a live, professional online presence to showcase technical projects and coding abilities.</li>
+                        <li class="bullet-point">Designed and developed a responsive personal portfolio website using HTML, CSS, and JavaScript.</li>                        <li class="bullet-point">Deployed the site via <span class="keyword-highlight">GitHub Pages</span>, creating a live, professional online presence to showcase technical projects and coding abilities.</li>
                     </ul>
                 </div>
             </div>
@@ -243,7 +254,8 @@
     <section id="education" class="section-spacing">
         <div class="container mx-auto px-4 grid md:grid-cols-2 gap-8">
             <div>
-                <h2 class="text-2xl font-bold mb-6 text-navy-900">Education</h2>                <div class="card">
+                <h2 class="text-2xl font-bold mb-6 text-navy-900">Education</h2>
+                <div class="card">
                     <h3 class="font-bold">Bachelor of Computer Science</h3>
                     <p class="text-accent">Taif University, Taif</p>
                     <p class="text-sm mt-3 text-navy-600"><strong>Relevant Coursework:</strong> Web Development, Database Systems, Machine Learning, Data Structures & Algorithms</p>
@@ -280,7 +292,6 @@
 
     <!-- Back to Top Button -->
     <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="no-print fixed bottom-6 right-6 bg-accent hover:bg-accentHover text-white p-3 rounded-full shadow-lg transition" aria-label="Back to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+        <i class="fas fa-arrow-up"></i>    </button>
 </body>
 </html>

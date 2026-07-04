@@ -1,573 +1,707 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faisal Alhuzali | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-family=%22FontAwesome%22></text></svg>">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Faisal Alhuzali — Systems Administrator & IAM Professional">
+  <title>Faisal Alhuzali · Systems & IAM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #E8EDF2;
+      --surface: #FFFFFF;
+      --text: #0D1117;
+      --text-secondary: #4A5568;
+      --text-muted: #8899AA;
+      --accent: #2563EB;
+      --accent-hover: #1D4ED8;
+      --amber: #D97706;
+      --emerald: #059669;
+      --border: #D1D9E6;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+      --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 1.125rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* System Dashboard */
+    .hero {
+      padding: 64px 0 48px;
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 48px;
+      align-items: start;
+    }
+    .hero-content h1 {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+    .hero-content h1 .last { color: var(--accent); }
+    .hero-content .title-line {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+    .hero-content .summary {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      max-width: 540px;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all .2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--border);
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* Dashboard card */
+    .dashboard {
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .dashboard-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: #F0F4F8;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+    .dashboard-dots { display: flex; gap: 6px; }
+    .dashboard-dots span {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+    }
+    .dot-red { background: #EF4444; }
+    .dot-amber { background: var(--amber); }
+    .dot-green { background: var(--emerald); }
+    .dashboard-body { padding: 20px; }
+    .status-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .status-indicator {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--emerald);
+      font-weight: 500;
+    }
+    .status-indicator .pulse {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--emerald);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.3); }
+    }
+    .status-time {
+      margin-left: auto;
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      color: var(--text-muted);
+    }
+    .metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .metric {
+      background: #F0F4F8;
+      border-radius: var(--radius-sm);
+      padding: 12px;
+    }
+    .metric-value {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .metric-label {
+      font-size: 0.6875rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .metric .accent { color: var(--accent); }
+    .metric .amber { color: var(--amber); }
+    .metric .emerald { color: var(--emerald); }
+
+    /* Sections */
+    section { padding: 56px 0; }
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .skill-category {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 20px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    .skill-category h3 {
+      font-size: 0.8125rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-tag {
+      background: #F0F4F8;
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+      transition: all .2s;
+    }
+    .skill-tag:hover { background: var(--accent); color: #fff; }
+
+    /* Timeline */
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: var(--border);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 36px;
+    }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-dot {
+      position: absolute;
+      left: -24px;
+      top: 6px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 2.5px solid var(--accent);
+    }
+    .timeline-date {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .timeline-role {
+      font-size: 1.0625rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .timeline-company {
+      color: var(--accent);
+      font-weight: 500;
+      font-size: 0.9375rem;
+      margin-bottom: 8px;
+    }
+    .timeline-desc {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      line-height: 1.7;
+    }
+    .timeline-desc ul { list-style: none; margin-top: 6px; }
+    .timeline-desc li {
+      position: relative;
+      padding-left: 16px;
+      margin-bottom: 4px;
+    }
+    .timeline-desc li::before {
+      content: '>';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-weight: 600;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .project-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 24px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: box-shadow .2s, transform .2s;
+    }
+    .project-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .project-stack {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .project-card h3 {
+      font-size: 1.0625rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .project-card p {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      line-height: 1.7;
+    }
+
+    /* Certifications */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px;
+    }
+    .cert-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--surface);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+    }
+    .cert-icon {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: #F0F4F8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .cert-name {
+      font-size: 0.875rem;
+      font-weight: 500;
+      line-height: 1.3;
+    }
+    .cert-name small {
+      display: block;
+      font-weight: 400;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+    }
+
+    /* Contact */
+    .contact-bar {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 10px 18px;
+      background: var(--surface);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      transition: all .2s;
+    }
+    .contact-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      nav { flex-direction: column; gap: 16px; }
+      .nav-links { gap: 20px; flex-wrap: wrap; justify-content: center; }
+      .hero { grid-template-columns: 1fr; gap: 32px; padding: 32px 0; }
+      .hero-content h1 { font-size: 2.25rem; }
+      .dashboard { max-width: 100%; }
+      section { padding: 40px 0; }
+      .section-title { font-size: 1.625rem; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .certs-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .hero-content h1 { font-size: 1.75rem; }
+      .metrics { grid-template-columns: 1fr 1fr; }
+      .container { padding: 0 16px; }
+    }
+
+    /* Animations */
+    .fade-in { opacity: 0; transform: translateY(16px); }
+    .fade-in.visible { animation: fadeUp 0.5s ease forwards; }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
-    <!-- Theme Toggle Button -->
-    <div class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
-        <i class="fas fa-sun"></i>
-    </div>
-    
-    <!-- Mobile Menu Toggle -->
-    <div class="menu-toggle" id="menuToggle" title="Toggle Menu" style="display: none;">
-        <i class="fas fa-bars"></i>
-    </div>
-    
-    <!-- Sidebar Backdrop for Mobile -->
-    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
-    
-    <div class="container">
-        <!-- Sidebar -->
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-header">
-                <div class="profile-img-container">
-                    <img src="faisal.png" alt="Faisal Alhuzali" class="profile-img">
-                </div>
-                <h1>Faisal Alhuzali</h1>
-                <p class="title">Junior System Administrator | IT Infrastructure & DevOps Focus</p>
-            </div>
-            
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Riyadh, Saudi Arabia</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <a href="https://wa.me/+966580408646" target="_blank">+966580408646</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:faisalalhuzali@outlook.com">faisalalhuzali@outlook.com</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-download"></i>
-                    <a href="https://falhuz.github.io/Faisal%20Alhuzali.pdf" download="">Download Resume</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-github"></i>
-                    <a href="https://github.com/Falhuz" target="_blank">GitHub</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-linkedin"></i>
-                    <a href="https://www.linkedin.com/in/faisal-alhuzali/" target="_blank">LinkedIn</a>
-                </div>
-            </div>
-            
-            <nav class="sidebar-nav">
-                <ul>
-                    <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
-                    <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
-                    <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
-                    <li><a href="#skills"><i class="fas fa-code"></i> Skills</a></li>
-                    <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
-                    <li><a href="#certifications"><i class="fas fa-certificate"></i> Certifications</a></li>
-                    <li><a href="#professional-courses"><i class="fas fa-book"></i> Professional Courses</a></li>
-                    <li><a href="#university-coursework"><i class="fas fa-graduation-cap"></i> University Coursework</a></li>
-                </ul>
-            </nav>
-        </aside>
-        
-        <!-- Main Content -->
-        <main class="main-content">
-            <section id="about" class="section">
-                <h2>About Me</h2>
-                <div class="about-content">
-                    <p>Computer Science graduate with proven ability to deliver measurable results in system administration and IT operations. Engineered automation solutions that reduced manual deployment time by 30% during traineeship, while resolving 70+ IT incidents with 95% first-contact resolution rate. Maintained 99.9% availability for virtual servers and streamlined identity management for 100+ employees using Active Directory, PowerShell, and VMware. Combines technical expertise with strong communication, analytical problem-solving, and collaboration skills – seeking a Junior System Administrator role to ensure reliable, user-focused IT operations.</p>
-                    <div class="highlight-boxes">
-                        <div class="highlight-box">
-                            <i class="fas fa-server"></i>
-                            <h3>System Administration</h3>
-                            <p>Windows Server, Active Directory, VMware vSphere, endpoint management and IT infrastructure support.</p>
-                        </div>
-                        <div class="highlight-box">
-                            <i class="fas fa-cloud"></i>
-                            <h3>Cloud & DevOps</h3>
-                            <p>AWS (EC2, IAM, S3), Docker basics, Kubernetes, and Infrastructure as Code practices.</p>
-                        </div>
-                        <div class="highlight-box">
-                            <i class="fas fa-robot"></i>
-                            <h3>Automation & Scripting</h3>
-                            <p>PDQ Deploy, PowerShell, Bash, and Git for version control.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <section id="experience" class="section">
-                <h2>Work Experience</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">Sep 2025 – Dec 2025</div>
-                        <div class="timeline-content">
-                            <h3>System Administrator Trainee</h3>
-                            <h4><i class="fas fa-building"></i> Saudi Food and Drug Authority (SFDA)</h4>
-                            <ul class="experience-list">
-                                <li>Engineered automated software deployment for 50+ endpoints using PDQ Deploy and PowerShell, achieving 30% reduction in manual deployment time.</li>
-                                <li>Resolved 70+ Level 1 & 2 IT incidents with 95% first-contact resolution by diagnosing issues via ManageEngine ServiceDesk Plus.</li>
-                                <li>Streamlined identity management for 100+ employees by centralizing Active Directory user lifecycle and access controls.</li>
-                                <li>Maintained 99.9% availability for virtual servers through VMware vSphere configuration and maintenance.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">Jan 2017 – Jun 2018</div>
-                        <div class="timeline-content">
-                            <h3>Mobile Software Technician</h3>
-                            <h4><i class="fas fa-building"></i> Self-employed</h4>
-                            <ul class="experience-list">
-                                <li>Diagnosed and repaired OS-level issues on various mobile devices, restoring full functionality and ensuring client satisfaction.</li>
-                                <li>Performed firmware updates and OS restoration, extending device lifespan and improving performance.</li>
-                                <li>Communicated technical solutions clearly to clients, demonstrating patience and customer-focused approach.</li>
-                                <li>Developed strong troubleshooting and problem-solving skills across multiple device platforms.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <section id="education" class="section">
-                <h2>Education</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">Dec 2025</div>
-                        <div class="timeline-content">
-                            <h3>Bachelor's Degree in Computer Science</h3>
-                            <h4><i class="fas fa-university"></i> Taif University</h4>
-                            <p>Relevant Coursework: Web Development, Database Systems, Machine Learning, Data Structures, and Algorithms.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <section id="skills" class="section">
-                <h2>Skills & Abilities</h2>
-                <div class="skills-container">
-                    <div class="skill-category">
-                        <h3><i class="fas fa-globe"></i> Languages</h3>
-                        <div class="skills-grid">
-                            <div class="skill-item">Arabic (Native)</div>
-                            <div class="skill-item">English (Intermediate)</div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3><i class="fas fa-server"></i> System Administration</h3>
-                        <div class="skills-grid">
-                            <div class="skill-item">Windows Server</div>
-                            <div class="skill-item">Active Directory</div>
-                            <div class="skill-item">Group Policy</div>
-                            <div class="skill-item">Patch Management</div>
-                            <div class="skill-item">Backup & Recovery</div>
-                            <div class="skill-item">ITIL Processes</div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3><i class="fas fa-robot"></i> Automation & Scripting</h3>
-                        <div class="skills-grid">
-                            <div class="skill-item">PDQ Deploy</div>
-                            <div class="skill-item">PowerShell</div>
-                            <div class="skill-item">Bash</div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3><i class="fas fa-cloud"></i> Virtualization & Cloud</h3>
-                        <div class="skills-grid">
-                            <div class="skill-item">VMware vSphere</div>
-                            <div class="skill-item">AWS EC2</div>
-                            <div class="skill-item">AWS IAM</div>
-                            <div class="skill-item">AWS S3</div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3><i class="fas fa-tools"></i> Monitoring & Helpdesk</h3>
-                        <div class="skills-grid">
-                            <div class="skill-item">ManageEngine ServiceDesk Plus</div>
-                            <div class="skill-item">ManageEngine AD360</div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3><i class="fas fa-code"></i> Programming & Version Control</h3>
-                        <div class="skills-grid">
-                            <div class="skill-item">Python</div>
-                            <div class="skill-item">Git</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <section id="projects" class="section">
-                <h2>Projects</h2>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3><i class="fas fa-cubes"></i> Kubernetes Cluster Deployment</h3>
-                        </div>
-                        <p>Deployed and configured a Kubernetes cluster using kubeadm on Ubuntu VMs. Set up pod networking with Flannel, deployed sample microservices, and practiced scaling, rolling updates, and basic troubleshooting. This project strengthened my understanding of container orchestration and DevOps workflows.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Kubernetes</span>
-                            <span class="tech-tag">kubeadm</span>
-                            <span class="tech-tag">Flannel</span>
-                            <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">Ubuntu</span>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3><i class="fas fa-id-card"></i> Personal Portfolio Website</h3>
-                        </div>
-                        <p>Designed and built a self-hosted professional portfolio website using HTML, CSS, and JavaScript. Deployed via GitHub Pages to showcase technical projects and establish an online professional presence.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">GitHub Pages</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://falhuz.github.io/portfolio.html" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <section id="certifications" class="section">
-                <h2>Certifications</h2>
-                <div class="cert-specializations">
-                    <div class="cert-specialization">
-                        <div class="cert-specialization-header">
-                            <i class="fas fa-cloud"></i>
-                            <h3>Cloud Computing</h3>
-                        </div>
-                        <div class="cert-grid">
-                            <div class="cert-card">
-                                <i class="fab fa-aws fa-2x"></i>
-                                <h3>AWS Cloud Practitioner</h3>
-                                <p>Amazon Web Services</p>
-                                <div class="cert-actions">
-                                    <a href="#" class="cert-link preview-cert" data-cert="aws-cloud-practitioner.pdf">Preview</a>
-                                    <a href="aws-cloud-practitioner.pdf" class="cert-link" download>Download PDF</a>
-                                </div>
-                            </div>
-                            
-                            <div class="cert-card">
-                                <i class="fab fa-aws fa-2x"></i>
-                                <h3>AWS Cloud Technical Essentials</h3>
-                                <p>Amazon Web Services</p>
-                                <div class="cert-actions">
-                                    <a href="#" class="cert-link preview-cert" data-cert="AWS Cloud Technical Essentials.pdf">Preview</a>
-                                    <a href="AWS%20Cloud%20Technical%20Essentials.pdf" class="cert-link" download>Download PDF</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="cert-specialization">
-                        <div class="cert-specialization-header">
-                            <i class="fab fa-dev"></i>
-                            <h3>DevOps</h3>
-                        </div>
-                        <div class="cert-grid">
-                            <div class="cert-card">
-                                <i class="fa-brands fa-ibm fa-2xl"></i>
-                                <h3>IBM DevOps Essentials</h3>
-                                <p>IBM</p>
-                                <div class="cert-actions">
-                                    <a href="#" class="cert-link preview-cert" data-cert="IBM_DevOps_Essentials_Badge.pdf">Preview</a>
-                                    <a href="IBM_DevOps_Essentials_Badge.pdf" class="cert-link" download>Download PDF</a>
-                                </div>
-                            </div>
-                            
-                            <div class="cert-card">
-                                <i class="fab fa-aws fa-2x"></i>
-                                <h3>DevOps on AWS</h3>
-                                <p>Amazon Web Services</p>
-                                <div class="cert-actions">
-                                    <a href="#" class="cert-link preview-cert" data-cert="devops-on-aws.pdf">Preview</a>
-                                    <a href="devops-on-aws.pdf" class="cert-link" download>Download PDF</a>
-                                </div>
-                            </div>
-                            
-                            <div class="cert-card">
-                                <i class="fab fa-aws fa-2x"></i>
-                                <h3>DevOps on AWS: Release and Deploy</h3>
-                                <p>Amazon Web Services</p>
-                                <div class="cert-actions">
-                                    <a href="#" class="cert-link preview-cert">Preview</a>
-                                    <a href="#" class="cert-link" download>Download PDF</a>
-                                </div>
-                            </div>
-                            
-                            <div class="cert-card">
-                                <i class="fab fa-aws fa-2x"></i>
-                                <h3>DevOps on AWS: Code Build and Test</h3>
-                                <p>Amazon Web Services</p>
-                                <div class="cert-actions">
-                                    <a href="#" class="cert-link preview-cert" data-cert="DevOps on AWS Code Build and Test.pdf">Preview</a>
-                                    <a href="DevOps%20on%20AWS%20Code%20Build%20and%20Test.pdf" class="cert-link" download>Download PDF</a>
-                                </div>
-                            </div>
-                            
-                            <div class="cert-card">
-                                <i class="fab fa-aws fa-2x"></i>
-                                <h3>DevOps on AWS: Operate and Monitor</h3>
-                                <p>Amazon Web Services</p>
-                                <div class="cert-actions">
-                                    <a href="#" class="cert-link preview-cert" data-cert="devops-aws-operate-monitor.pdf">Preview</a>
-                                    <a href="devops-aws-operate-monitor.pdf" class="cert-link" download>Download PDF</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="cert-specialization">
-                        <div class="cert-specialization-header">
-                            <i class="fas fa-database"></i>
-                            <h3>Database</h3>
-                        </div>
-                        <div class="cert-grid">
-                            <div class="cert-card">
-                                <i class="fas fa-database fa-2x"></i>
-                                <h3>Designing and Building Databases</h3>
-                                <p>Coursera</p>
-                                <div class="cert-actions">
-                                    <a href="#" class="cert-link preview-cert">Preview</a>
-                                    <a href="#" class="cert-link" download>Download PDF</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <section id="professional-courses" class="section">
-                <h2>Professional Courses</h2>
-                <div class="courses-grid">
-                    <div class="course-item"><i class="fab fa-google"></i> Google Career Course - System Administration and IT Infrastructure Services</div>
-                    <div class="course-item"><i class="fas fa-cubes"></i> DevOps with Kubernetes</div>
-                    <div class="course-item"><i class="fab fa-docker"></i> Mastering Docker</div>
-                </div>
-            </section>
-            
-            <section id="university-coursework" class="section">
-                <h2>University Coursework</h2>
-                <div class="courses-grid">
-                    <div class="course-item"><i class="fas fa-laptop-code"></i> Web Development</div>
-                    <div class="course-item"><i class="fas fa-database"></i> Database Systems</div>
-                    <div class="course-item"><i class="fas fa-robot"></i> Machine Learning</div>
-                    <div class="course-item"><i class="fas fa-project-diagram"></i> Data Structures & Algorithms</div>
-                </div>
-            </section>
-        </main>
-    </div>
-    
-    <footer>
-        <p>© 2025 Faisal Alhuzali. All rights reserved.</p>
-        <div class="social-icons">
-            <a href="https://github.com/Falhuz"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/faisal-alhuzali/"><i class="fab fa-linkedin"></i></a>
-        </div>
-    </footer>
-    
-    <!-- Certificate Preview Modal -->
-    <div class="cert-modal" id="certModal">
-        <div class="cert-modal-content">
-            <div class="cert-modal-header">
-                <h3 class="cert-modal-title" id="certModalTitle">Certificate Preview</h3>
-                <button class="cert-modal-close" id="certModalClose">×</button>
-            </div>
-            <div class="cert-modal-body">
-                <iframe id="certFrame" src="" frameborder="0">
-                    <p>Your browser doesn't support embedded PDF viewing. Please <a id="fallbackLink" href="" download>download the PDF</a> instead.</p>
-                </iframe>
-                <div id="pdfError" class="pdf-error">
-                    <i class="fas fa-file-pdf"></i>
-                    <h4>Unable to preview PDF</h4>
-                    <p>The PDF file might not be available or your browser doesn't support PDF preview.</p>
-                    <a href="#" id="pdfDownloadBtn" class="pdf-error-btn">Download PDF Instead</a>
-                </div>
-            </div>
-        </div>
-    </div>
+  <div class="container">
+    <nav>
+      <a href="#" class="logo">&lt;<span>fa</span>/&gt;</a>
+      <ul class="nav-links">
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
 
-    <script>
-        // Theme Toggle Functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = themeToggle.querySelector('i');
-        const htmlElement = document.documentElement;
-        
-        // Check for saved theme preference
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        htmlElement.setAttribute('data-theme', savedTheme);
-        updateThemeIcon(savedTheme);
-        
-        // Toggle theme on click
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = htmlElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            
-            htmlElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
-        });
-        
-        function updateThemeIcon(theme) {
-            if (theme === 'dark') {
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-            } else {
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-            }
+    <section class="hero">
+      <div class="hero-content">
+        <div class="section-label">Identity &bull; Access &bull; Infrastructure</div>
+        <h1>Faisal <span class="last">Alhuzali</span></h1>
+        <div class="title-line">Systems Administrator &middot; IAM Professional</div>
+        <p class="summary">
+          Identity &amp; Access Management and System Administration professional with a track record of strengthening security posture, streamlining operations, and delivering 99.9% server availability. Holds AWS Cloud Practitioner credential with hands-on expertise in identity governance, least-privilege access models, and Windows administration.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Get in touch</a>
+          <a href="https://linkedin.com/in/faisalalhuzali" class="btn btn-outline" target="_blank">LinkedIn</a>
+          <a href="https://falhuz.github.io/portfolio.html" class="btn btn-outline" target="_blank">Portfolio</a>
+        </div>
+      </div>
+
+      <div class="dashboard">
+        <div class="dashboard-header">
+          <div class="dashboard-dots">
+            <span class="dot-red"></span>
+            <span class="dot-amber"></span>
+            <span class="dot-green"></span>
+          </div>
+          <span>system@faisal ~ $ status</span>
+          <span>───╼</span>
+        </div>
+        <div class="dashboard-body">
+          <div class="status-row">
+            <div class="status-indicator">
+              <span class="pulse"></span>
+              ONLINE &bull; AVAILABLE
+            </div>
+            <span class="status-time">uptime 99.9%</span>
+          </div>
+          <div class="metrics">
+            <div class="metric">
+              <div class="metric-value accent">100+</div>
+              <div class="metric-label">Users Managed</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value emerald">95%</div>
+              <div class="metric-label">First-Contact Fix</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value amber">70+</div>
+              <div class="metric-label">Incidents Resolved</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value accent">85%</div>
+              <div class="metric-label">Automation Savings</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section id="skills">
+    <div class="container">
+      <div class="section-label">SKL-001</div>
+      <h2 class="section-title">Core Competencies</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Systems &amp; Virtualization</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Windows Server 2022/2019</span>
+            <span class="skill-tag">Windows 11</span>
+            <span class="skill-tag">Active Directory</span>
+            <span class="skill-tag">Group Policy</span>
+            <span class="skill-tag">VMware vSphere</span>
+            <span class="skill-tag">DNS</span>
+            <span class="skill-tag">DHCP</span>
+            <span class="skill-tag">VLAN</span>
+            <span class="skill-tag">High Availability</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Automation &amp; Scripting</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">PowerShell</span>
+            <span class="skill-tag">Bulk Provisioning</span>
+            <span class="skill-tag">Configuration Mgmt</span>
+            <span class="skill-tag">CSV Automation</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Identity &amp; Security</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">RBAC</span>
+            <span class="skill-tag">Least Privilege</span>
+            <span class="skill-tag">NTFS Permissions</span>
+            <span class="skill-tag">MFA</span>
+            <span class="skill-tag">Conditional Access</span>
+            <span class="skill-tag">Identity Lifecycle</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Cloud &amp; Tools</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">AWS (IAM/EC2/S3)</span>
+            <span class="skill-tag">Azure AD / Entra ID</span>
+            <span class="skill-tag">PDQ Deploy</span>
+            <span class="skill-tag">Git / GitHub</span>
+            <span class="skill-tag">VirtualBox</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <div class="section-label">EXP-001</div>
+      <h2 class="section-title">Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Sep 2025 &ndash; Dec 2025</div>
+          <div class="timeline-role">System Administrator Trainee</div>
+          <div class="timeline-company">Saudi Food &amp; Drug Authority &mdash; Riyadh</div>
+          <div class="timeline-desc">
+            <ul>
+              <li>Reengineered Active Directory OU structure and GPO architecture for 100+ employees, eliminating permission inconsistencies and strengthening security compliance</li>
+              <li>Streamlined software deployment across 50+ Windows 11 endpoints using PDQ Deploy, reducing manual administration by 30% and achieving 100% patch compliance</li>
+              <li>Resolved 70+ Level 1/2 incidents with a 95% first-contact resolution rate, cutting average user downtime to under 15 minutes</li>
+              <li>Deployed and maintained Windows Server VM on VMware vSphere, achieving 99.9% uptime through proactive monitoring</li>
+              <li>Resolved DNS and DHCP-related connectivity issues across server and workstation endpoints</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Jan 2017 &ndash; Jun 2018</div>
+          <div class="timeline-role">Mobile Software Technician</div>
+          <div class="timeline-company">Self-Employed &mdash; Al Khobar</div>
+          <div class="timeline-desc">
+            <ul>
+              <li>Delivered hardware and software diagnostics/repairs for mobile devices, achieving a 4.9/5 customer satisfaction rating</li>
+              <li>Created standardized troubleshooting workflows that reduced average resolution time and built repeat clientele</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="section-label">PRJ-001</div>
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-stack">Windows Server 2022 &middot; AD &middot; DNS &middot; GPO &middot; PowerShell</div>
+          <h3>Enterprise IAM Lab</h3>
+          <p>Designed and deployed a full Windows Server 2022 AD domain for centralized identity management, configuring OUs, users, groups, and GPOs to simulate a 200-user enterprise. Scripted bulk user provisioning via PowerShell and CSV, reducing manual account creation by 85%.</p>
+        </div>
+        <div class="project-card">
+          <div class="project-stack">Windows Server 2022 &middot; NTFS &middot; SMB &middot; AD &middot; PowerShell</div>
+          <h3>RBAC File Server Lab</h3>
+          <p>Designed a least-privilege access model across HR, IT, and Finance departments using AD security groups and NTFS/SMB share permissions. Validated access boundaries by simulating unauthorized attempts — all correctly blocked.</p>
+        </div>
+        <div class="project-card">
+          <div class="project-stack">HTML &middot; CSS &middot; JavaScript &middot; Git &middot; GitHub Pages</div>
+          <h3>Professional Portfolio</h3>
+          <p>Built a fully responsive portfolio website to showcase projects, certifications, and achievements. Managed version control with Git and deployed through GitHub Pages.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="container">
+      <div class="section-label">CRT-001</div>
+      <h2 class="section-title">Certifications</h2>
+      <div class="certs-grid">
+        <div class="cert-item">
+          <div class="cert-icon">&#9729;</div>
+          <div class="cert-name">AWS Certified Cloud Practitioner <small>Amazon Web Services</small></div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">&#9670;</div>
+          <div class="cert-name">Identity &amp; Access Administrator (SC-300) <small>Microsoft Learn &mdash; Prep Completed</small></div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">&#9881;</div>
+          <div class="cert-name">Google IT Support Professional <small>Google</small></div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">&#9881;</div>
+          <div class="cert-name">DevOps on AWS <small>Amazon Web Services</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container" style="text-align:center;">
+      <div class="section-label">CONTACT</div>
+      <h2 class="section-title">Get in Touch</h2>
+      <div class="contact-bar">
+        <a href="mailto:faisalalhuzli@gmail.com" class="contact-link">&#9993; faisalalhuzli@gmail.com</a>
+        <a href="tel:+966580408646" class="contact-link">&#9742; +966 58 040 8646</a>
+        <a href="https://linkedin.com/in/faisalalhuzali" target="_blank" class="contact-link">in /faisalalhuzali</a>
+        <a href="https://github.com/falhuz" target="_blank" class="contact-link">gh /falhuz</a>
+        <a href="https://falhuz.github.io/portfolio.html" target="_blank" class="contact-link">&#8679; Portfolio</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      &copy; 2026 Faisal Alhuzali &mdash; All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
         }
-        
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const sidebar = document.getElementById('sidebar');
-        const backdrop = document.getElementById('sidebarBackdrop');
-        
-        // Show menu toggle button on smaller screens
-        function updateMenuVisibility() {
-            if (window.innerWidth < 992) {
-                menuToggle.style.display = 'flex';
-            } else {
-                menuToggle.style.display = 'none';
-                sidebar.classList.remove('active');
-                backdrop.classList.remove('active');
-            }
-        }
-        
-        // Initialize menu visibility
-        updateMenuVisibility();
-        
-        // Toggle sidebar on menu button click
-        menuToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('active');
-            backdrop.classList.toggle('active');
-            
-            // Change icon based on sidebar state
-            const menuIcon = menuToggle.querySelector('i');
-            if (sidebar.classList.contains('active')) {
-                menuIcon.classList.remove('fa-bars');
-                menuIcon.classList.add('fa-times');
-            } else {
-                menuIcon.classList.remove('fa-times');
-                menuIcon.classList.add('fa-bars');
-            }
-        });
-        
-        // Close sidebar when clicking on backdrop
-        backdrop.addEventListener('click', () => {
-            sidebar.classList.remove('active');
-            backdrop.classList.remove('active');
-            
-            const menuIcon = menuToggle.querySelector('i');
-            menuIcon.classList.remove('fa-times');
-            menuIcon.classList.add('fa-bars');
-        });
-        
-        // Close sidebar when clicking on a link (mobile)
-        const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
-        sidebarLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth < 992) {
-                    sidebar.classList.remove('active');
-                    backdrop.classList.remove('active');
-                    
-                    const menuIcon = menuToggle.querySelector('i');
-                    menuIcon.classList.remove('fa-times');
-                    menuIcon.classList.add('fa-bars');
-                }
-            });
-        });
-        
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            updateMenuVisibility();
-        });
-        
-        // Certificate Preview Modal Functionality
-        const certModal = document.getElementById('certModal');
-        const certModalClose = document.getElementById('certModalClose');
-        const certFrame = document.getElementById('certFrame');
-        const certModalTitle = document.getElementById('certModalTitle');
-        const previewButtons = document.querySelectorAll('.preview-cert');
-        const pdfError = document.getElementById('pdfError');
-        const pdfDownloadBtn = document.getElementById('pdfDownloadBtn');
-        
-        // Open certificate preview modal
-        previewButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                const certFile = button.getAttribute('data-cert');
-                const certName = button.closest('.cert-card').querySelector('h3').textContent;
-                
-                // Reset error state
-                pdfError.classList.remove('active');
-                certFrame.style.display = 'block';
-                
-                certModalTitle.textContent = certName;
-                certFrame.src = certFile;
-                
-                // Set fallback download link
-                const fallbackLink = document.getElementById('fallbackLink');
-                if (fallbackLink) {
-                    fallbackLink.href = certFile;
-                    fallbackLink.textContent = `download ${certName}`;
-                }
-                
-                // Set download button for error fallback
-                pdfDownloadBtn.href = certFile;
-                pdfDownloadBtn.setAttribute('download', certName + '.pdf');
-                
-                certModal.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
-            });
-        });
-        
-        // Handle PDF loading error
-        certFrame.addEventListener('error', () => {
-            certFrame.style.display = 'none';
-            pdfError.classList.add('active');
-        });
-        
-        // Close certificate preview modal
-        certModalClose.addEventListener('click', () => {
-            certModal.classList.remove('active');
-            setTimeout(() => {
-                certFrame.src = '';
-                pdfError.classList.remove('active');
-                certFrame.style.display = 'block';
-                document.body.style.overflow = ''; // Restore scrolling
-            }, 300);
-        });
-        
-        // Close modal when clicking outside of modal content
-        certModal.addEventListener('click', (e) => {
-            if (e.target === certModal) {
-                certModalClose.click();
-            }
-        });
-        
-        // Close modal with Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && certModal.classList.contains('active')) {
-                certModalClose.click();
-            }
-        });
-    </script>
-</body></html>
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section, .hero').forEach(el => {
+      el.classList.add('fade-in');
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>

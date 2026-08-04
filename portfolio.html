@@ -1,707 +1,543 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Faisal Alhuzali — Systems Administrator & IAM Professional">
-  <title>Faisal Alhuzali · Systems & IAM</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #E8EDF2;
-      --surface: #FFFFFF;
-      --text: #0D1117;
-      --text-secondary: #4A5568;
-      --text-muted: #8899AA;
-      --accent: #2563EB;
-      --accent-hover: #1D4ED8;
-      --amber: #D97706;
-      --emerald: #059669;
-      --border: #D1D9E6;
-      --radius: 12px;
-      --radius-sm: 8px;
-      --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-      --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
-      --font-body: 'Inter', system-ui, sans-serif;
-      --font-mono: 'JetBrains Mono', monospace;
-    }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-body);
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    .container {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* Navigation */
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .logo {
-      font-family: var(--font-mono);
-      font-weight: 600;
-      font-size: 1.125rem;
-      color: var(--text);
-      text-decoration: none;
-      letter-spacing: -0.01em;
-    }
-    .logo span { color: var(--accent); }
-    .nav-links { display: flex; gap: 32px; list-style: none; }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text-secondary);
-      font-size: 0.875rem;
-      font-weight: 500;
-      transition: color .2s;
-    }
-    .nav-links a:hover { color: var(--accent); }
-
-    /* System Dashboard */
-    .hero {
-      padding: 64px 0 48px;
-      display: grid;
-      grid-template-columns: 1fr 360px;
-      gap: 48px;
-      align-items: start;
-    }
-    .hero-content h1 {
-      font-family: var(--font-display);
-      font-size: 3rem;
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-      margin-bottom: 8px;
-    }
-    .hero-content h1 .last { color: var(--accent); }
-    .hero-content .title-line {
-      font-size: 1.125rem;
-      color: var(--text-secondary);
-      margin-bottom: 20px;
-      font-weight: 500;
-    }
-    .hero-content .summary {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-      max-width: 540px;
-      line-height: 1.7;
-      margin-bottom: 24px;
-    }
-    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      border-radius: var(--radius-sm);
-      font-family: var(--font-body);
-      font-size: 0.875rem;
-      font-weight: 500;
-      text-decoration: none;
-      transition: all .2s;
-      cursor: pointer;
-      border: none;
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-    }
-    .btn-primary:hover { background: var(--accent-hover); }
-    .btn-outline {
-      background: transparent;
-      color: var(--text);
-      border: 1.5px solid var(--border);
-    }
-    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* Dashboard card */
-    .dashboard {
-      background: var(--surface);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-md);
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-    .dashboard-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 16px;
-      background: #F0F4F8;
-      border-bottom: 1px solid var(--border);
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--text-secondary);
-    }
-    .dashboard-dots { display: flex; gap: 6px; }
-    .dashboard-dots span {
-      width: 10px; height: 10px;
-      border-radius: 50%;
-    }
-    .dot-red { background: #EF4444; }
-    .dot-amber { background: var(--amber); }
-    .dot-green { background: var(--emerald); }
-    .dashboard-body { padding: 20px; }
-    .status-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 18px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border);
-    }
-    .status-indicator {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-family: var(--font-mono);
-      font-size: 0.8125rem;
-      color: var(--emerald);
-      font-weight: 500;
-    }
-    .status-indicator .pulse {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--emerald);
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.6; transform: scale(1.3); }
-    }
-    .status-time {
-      margin-left: auto;
-      font-family: var(--font-mono);
-      font-size: 0.6875rem;
-      color: var(--text-muted);
-    }
-    .metrics {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-    .metric {
-      background: #F0F4F8;
-      border-radius: var(--radius-sm);
-      padding: 12px;
-    }
-    .metric-value {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      font-weight: 700;
-      line-height: 1.2;
-    }
-    .metric-label {
-      font-size: 0.6875rem;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .metric .accent { color: var(--accent); }
-    .metric .amber { color: var(--amber); }
-    .metric .emerald { color: var(--emerald); }
-
-    /* Sections */
-    section { padding: 56px 0; }
-    .section-label {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 500;
-      margin-bottom: 8px;
-    }
-    .section-title {
-      font-family: var(--font-display);
-      font-size: 2rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 32px;
-    }
-
-    /* Skills */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 20px;
-    }
-    .skill-category {
-      background: var(--surface);
-      border-radius: var(--radius);
-      padding: 20px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-    }
-    .skill-category h3 {
-      font-size: 0.8125rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--text-muted);
-      margin-bottom: 12px;
-      font-weight: 600;
-    }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-    .skill-tag {
-      background: #F0F4F8;
-      padding: 4px 12px;
-      border-radius: 100px;
-      font-size: 0.8125rem;
-      color: var(--text-secondary);
-      font-weight: 500;
-      transition: all .2s;
-    }
-    .skill-tag:hover { background: var(--accent); color: #fff; }
-
-    /* Timeline */
-    .timeline { position: relative; padding-left: 28px; }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 7px;
-      top: 8px;
-      bottom: 8px;
-      width: 2px;
-      background: var(--border);
-    }
-    .timeline-item {
-      position: relative;
-      margin-bottom: 36px;
-    }
-    .timeline-item:last-child { margin-bottom: 0; }
-    .timeline-dot {
-      position: absolute;
-      left: -24px;
-      top: 6px;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: var(--surface);
-      border: 2.5px solid var(--accent);
-    }
-    .timeline-date {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-    }
-    .timeline-role {
-      font-size: 1.0625rem;
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-    .timeline-company {
-      color: var(--accent);
-      font-weight: 500;
-      font-size: 0.9375rem;
-      margin-bottom: 8px;
-    }
-    .timeline-desc {
-      color: var(--text-secondary);
-      font-size: 0.875rem;
-      line-height: 1.7;
-    }
-    .timeline-desc ul { list-style: none; margin-top: 6px; }
-    .timeline-desc li {
-      position: relative;
-      padding-left: 16px;
-      margin-bottom: 4px;
-    }
-    .timeline-desc li::before {
-      content: '>';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-family: var(--font-mono);
-      font-weight: 600;
-    }
-
-    /* Projects */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 20px;
-    }
-    .project-card {
-      background: var(--surface);
-      border-radius: var(--radius);
-      padding: 24px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      transition: box-shadow .2s, transform .2s;
-    }
-    .project-card:hover {
-      box-shadow: var(--shadow-md);
-      transform: translateY(-2px);
-    }
-    .project-stack {
-      font-family: var(--font-mono);
-      font-size: 0.6875rem;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-    .project-card h3 {
-      font-size: 1.0625rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-    .project-card p {
-      color: var(--text-secondary);
-      font-size: 0.875rem;
-      line-height: 1.7;
-    }
-
-    /* Certifications */
-    .certs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 12px;
-    }
-    .cert-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background: var(--surface);
-      border-radius: var(--radius-sm);
-      padding: 14px 16px;
-      border: 1px solid var(--border);
-    }
-    .cert-icon {
-      width: 36px; height: 36px;
-      border-radius: 50%;
-      background: #F0F4F8;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-    .cert-name {
-      font-size: 0.875rem;
-      font-weight: 500;
-      line-height: 1.3;
-    }
-    .cert-name small {
-      display: block;
-      font-weight: 400;
-      color: var(--text-muted);
-      font-size: 0.75rem;
-    }
-
-    /* Contact */
-    .contact-bar {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .contact-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-      color: var(--text-secondary);
-      font-size: 0.875rem;
-      font-weight: 500;
-      padding: 10px 18px;
-      background: var(--surface);
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border);
-      transition: all .2s;
-    }
-    .contact-link:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    footer {
-      text-align: center;
-      padding: 32px 0;
-      border-top: 1px solid var(--border);
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    /* Mobile */
-    @media (max-width: 768px) {
-      nav { flex-direction: column; gap: 16px; }
-      .nav-links { gap: 20px; flex-wrap: wrap; justify-content: center; }
-      .hero { grid-template-columns: 1fr; gap: 32px; padding: 32px 0; }
-      .hero-content h1 { font-size: 2.25rem; }
-      .dashboard { max-width: 100%; }
-      section { padding: 40px 0; }
-      .section-title { font-size: 1.625rem; }
-      .skills-grid { grid-template-columns: 1fr; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .certs-grid { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 480px) {
-      .hero-content h1 { font-size: 1.75rem; }
-      .metrics { grid-template-columns: 1fr 1fr; }
-      .container { padding: 0 16px; }
-    }
-
-    /* Animations */
-    .fade-in { opacity: 0; transform: translateY(16px); }
-    .fade-in.visible { animation: fadeUp 0.5s ease forwards; }
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Faisal Alhuzali | System Administrator Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Hanken+Grotesk:wght@600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#d5e3fd",
+                    "on-surface": "#191c1e",
+                    "surface-container": "#eceef0",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-container-highest": "#e0e3e5",
+                    "background": "#f7f9fb",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#191c1e",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#d8dadc",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "inverse-primary": "#bec6e0",
+                    "on-primary-container": "#7c839b",
+                    "primary-container": "#131b2e",
+                    "tertiary-container": "#0b1c30",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "error": "#ba1a1a",
+                    "inverse-surface": "#2d3133",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#f2f4f6",
+                    "on-secondary-fixed": "#0d1c2f",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#b9c7e0",
+                    "outline": "#76777d",
+                    "surface": "#f7f9fb",
+                    "on-secondary-container": "#57657b",
+                    "on-error-container": "#93000a",
+                    "secondary-container": "#d5e3fd",
+                    "surface-container-high": "#e6e8ea",
+                    "on-secondary-fixed-variant": "#3a485c",
+                    "surface-tint": "#565e74",
+                    "on-primary-fixed": "#131b2e",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "tertiary-fixed": "#d3e4fe",
+                    "on-primary": "#ffffff",
+                    "primary-fixed": "#dae2fd",
+                    "secondary": "#515f74",
+                    "primary": "#000000",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "surface-bright": "#f7f9fb",
+                    "primary-fixed-dim": "#bec6e0",
+                    "on-surface-variant": "#45464d",
+                    "surface-variant": "#e0e3e5",
+                    "outline-variant": "#c6c6cd",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "element-gap": "16px",
+                    "section-gap": "80px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "container-max": "1100px"
+            },
+            "fontFamily": {
+                    "label-sm": ["JetBrains Mono"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "display-xl": ["Hanken Grotesk"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      body {
+        background-color: #f7f9fb;
+        color: #191c1e;
+        -webkit-font-smoothing: antialiased;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .dark body {
+        background-color: #121416;
+        color: #e0e3e5;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        vertical-align: middle;
+      }
+      .grid-pattern {
+        background-image: linear-gradient(to right, #e2e8f0 1px, transparent 1px),
+                          linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
+        background-size: 40px 40px;
+      }
+      .dark .grid-pattern {
+        background-image: linear-gradient(to right, #2d3133 1px, transparent 1px),
+                          linear-gradient(to bottom, #2d3133 1px, transparent 1px);
+      }
+      .nav-active {
+        color: #000000;
+        border-bottom: 2px solid #000000;
+        padding-bottom: 4px;
+      }
+      .dark .nav-active {
+        color: #ffffff;
+        border-bottom: 2px solid #ffffff;
+      }
+      section {
+        padding-top: 100px;
+        margin-top: -100px;
+      }
+    </style>
 </head>
-<body>
-  <div class="container">
-    <nav>
-      <a href="#" class="logo">&lt;<span>fa</span>/&gt;</a>
-      <ul class="nav-links">
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#certifications">Certifications</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-
-    <section class="hero">
-      <div class="hero-content">
-        <div class="section-label">Identity &bull; Access &bull; Infrastructure</div>
-        <h1>Faisal <span class="last">Alhuzali</span></h1>
-        <div class="title-line">Systems Administrator &middot; IAM Professional</div>
-        <p class="summary">
-          Identity &amp; Access Management and System Administration professional with a track record of strengthening security posture, streamlining operations, and delivering 99.9% server availability. Holds AWS Cloud Practitioner credential with hands-on expertise in identity governance, least-privilege access models, and Windows administration.
-        </p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Get in touch</a>
-          <a href="https://linkedin.com/in/faisalalhuzali" class="btn btn-outline" target="_blank">LinkedIn</a>
-          <a href="https://falhuz.github.io/portfolio.html" class="btn btn-outline" target="_blank">Portfolio</a>
-        </div>
-      </div>
-
-      <div class="dashboard">
-        <div class="dashboard-header">
-          <div class="dashboard-dots">
-            <span class="dot-red"></span>
-            <span class="dot-amber"></span>
-            <span class="dot-green"></span>
-          </div>
-          <span>system@faisal ~ $ status</span>
-          <span>───╼</span>
-        </div>
-        <div class="dashboard-body">
-          <div class="status-row">
-            <div class="status-indicator">
-              <span class="pulse"></span>
-              ONLINE &bull; AVAILABLE
-            </div>
-            <span class="status-time">uptime 99.9%</span>
-          </div>
-          <div class="metrics">
-            <div class="metric">
-              <div class="metric-value accent">100+</div>
-              <div class="metric-label">Users Managed</div>
-            </div>
-            <div class="metric">
-              <div class="metric-value emerald">95%</div>
-              <div class="metric-label">First-Contact Fix</div>
-            </div>
-            <div class="metric">
-              <div class="metric-value amber">70+</div>
-              <div class="metric-label">Incidents Resolved</div>
-            </div>
-            <div class="metric">
-              <div class="metric-value accent">85%</div>
-              <div class="metric-label">Automation Savings</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <section id="skills">
-    <div class="container">
-      <div class="section-label">SKL-001</div>
-      <h2 class="section-title">Core Competencies</h2>
-      <div class="skills-grid">
-        <div class="skill-category">
-          <h3>Systems &amp; Virtualization</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Windows Server 2022/2019</span>
-            <span class="skill-tag">Windows 11</span>
-            <span class="skill-tag">Active Directory</span>
-            <span class="skill-tag">Group Policy</span>
-            <span class="skill-tag">VMware vSphere</span>
-            <span class="skill-tag">DNS</span>
-            <span class="skill-tag">DHCP</span>
-            <span class="skill-tag">VLAN</span>
-            <span class="skill-tag">High Availability</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3>Automation &amp; Scripting</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">PowerShell</span>
-            <span class="skill-tag">Bulk Provisioning</span>
-            <span class="skill-tag">Configuration Mgmt</span>
-            <span class="skill-tag">CSV Automation</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3>Identity &amp; Security</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">RBAC</span>
-            <span class="skill-tag">Least Privilege</span>
-            <span class="skill-tag">NTFS Permissions</span>
-            <span class="skill-tag">MFA</span>
-            <span class="skill-tag">Conditional Access</span>
-            <span class="skill-tag">Identity Lifecycle</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3>Cloud &amp; Tools</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">AWS (IAM/EC2/S3)</span>
-            <span class="skill-tag">Azure AD / Entra ID</span>
-            <span class="skill-tag">PDQ Deploy</span>
-            <span class="skill-tag">Git / GitHub</span>
-            <span class="skill-tag">VirtualBox</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="experience">
-    <div class="container">
-      <div class="section-label">EXP-001</div>
-      <h2 class="section-title">Experience</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">Sep 2025 &ndash; Dec 2025</div>
-          <div class="timeline-role">System Administrator Trainee</div>
-          <div class="timeline-company">Saudi Food &amp; Drug Authority &mdash; Riyadh</div>
-          <div class="timeline-desc">
-            <ul>
-              <li>Reengineered Active Directory OU structure and GPO architecture for 100+ employees, eliminating permission inconsistencies and strengthening security compliance</li>
-              <li>Streamlined software deployment across 50+ Windows 11 endpoints using PDQ Deploy, reducing manual administration by 30% and achieving 100% patch compliance</li>
-              <li>Resolved 70+ Level 1/2 incidents with a 95% first-contact resolution rate, cutting average user downtime to under 15 minutes</li>
-              <li>Deployed and maintained Windows Server VM on VMware vSphere, achieving 99.9% uptime through proactive monitoring</li>
-              <li>Resolved DNS and DHCP-related connectivity issues across server and workstation endpoints</li>
-            </ul>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">Jan 2017 &ndash; Jun 2018</div>
-          <div class="timeline-role">Mobile Software Technician</div>
-          <div class="timeline-company">Self-Employed &mdash; Al Khobar</div>
-          <div class="timeline-desc">
-            <ul>
-              <li>Delivered hardware and software diagnostics/repairs for mobile devices, achieving a 4.9/5 customer satisfaction rating</li>
-              <li>Created standardized troubleshooting workflows that reduced average resolution time and built repeat clientele</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects">
-    <div class="container">
-      <div class="section-label">PRJ-001</div>
-      <h2 class="section-title">Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-stack">Windows Server 2022 &middot; AD &middot; DNS &middot; GPO &middot; PowerShell</div>
-          <h3>Enterprise IAM Lab</h3>
-          <p>Designed and deployed a full Windows Server 2022 AD domain for centralized identity management, configuring OUs, users, groups, and GPOs to simulate a 200-user enterprise. Scripted bulk user provisioning via PowerShell and CSV, reducing manual account creation by 85%.</p>
-        </div>
-        <div class="project-card">
-          <div class="project-stack">Windows Server 2022 &middot; NTFS &middot; SMB &middot; AD &middot; PowerShell</div>
-          <h3>RBAC File Server Lab</h3>
-          <p>Designed a least-privilege access model across HR, IT, and Finance departments using AD security groups and NTFS/SMB share permissions. Validated access boundaries by simulating unauthorized attempts — all correctly blocked.</p>
-        </div>
-        <div class="project-card">
-          <div class="project-stack">HTML &middot; CSS &middot; JavaScript &middot; Git &middot; GitHub Pages</div>
-          <h3>Professional Portfolio</h3>
-          <p>Built a fully responsive portfolio website to showcase projects, certifications, and achievements. Managed version control with Git and deployed through GitHub Pages.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="certifications">
-    <div class="container">
-      <div class="section-label">CRT-001</div>
-      <h2 class="section-title">Certifications</h2>
-      <div class="certs-grid">
-        <div class="cert-item">
-          <div class="cert-icon">&#9729;</div>
-          <div class="cert-name">AWS Certified Cloud Practitioner <small>Amazon Web Services</small></div>
-        </div>
-        <div class="cert-item">
-          <div class="cert-icon">&#9670;</div>
-          <div class="cert-name">Identity &amp; Access Administrator (SC-300) <small>Microsoft Learn &mdash; Prep Completed</small></div>
-        </div>
-        <div class="cert-item">
-          <div class="cert-icon">&#9881;</div>
-          <div class="cert-name">Google IT Support Professional <small>Google</small></div>
-        </div>
-        <div class="cert-item">
-          <div class="cert-icon">&#9881;</div>
-          <div class="cert-name">DevOps on AWS <small>Amazon Web Services</small></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="container" style="text-align:center;">
-      <div class="section-label">CONTACT</div>
-      <h2 class="section-title">Get in Touch</h2>
-      <div class="contact-bar">
-        <a href="mailto:faisalalhuzli@gmail.com" class="contact-link">&#9993; faisalalhuzli@gmail.com</a>
-        <a href="tel:+966580408646" class="contact-link">&#9742; +966 58 040 8646</a>
-        <a href="https://linkedin.com/in/faisalalhuzali" target="_blank" class="contact-link">in /faisalalhuzali</a>
-        <a href="https://github.com/falhuz" target="_blank" class="contact-link">gh /falhuz</a>
-        <a href="https://falhuz.github.io/portfolio.html" target="_blank" class="contact-link">&#8679; Portfolio</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      &copy; 2026 Faisal Alhuzali &mdash; All rights reserved.
-    </div>
-  </footer>
-
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+<body class="font-body-md text-body-md dark:bg-[#121416] dark:text-[#e0e3e5]">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-[#121416]/80 backdrop-blur-md border-b border-outline-variant/30 dark:border-white/10">
+<div class="flex justify-between items-center h-16 px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold tracking-tight text-on-surface dark:text-white">FAISAL ALHUZALI</div>
+<div class="flex items-center gap-4 md:gap-8">
+<nav class="hidden md:flex gap-8 items-center font-label-sm text-label-sm">
+<a class="text-on-surface-variant dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors" href="#summary">Summary</a>
+<a class="text-on-surface-variant dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors" href="#experience">Experience</a>
+<a class="text-on-surface-variant dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors" href="#projects">Projects</a>
+<a class="text-on-surface-variant dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors" href="#skills">Skills</a>
+<a class="text-on-surface-variant dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors" href="#education">Education</a>
+<a class="text-on-surface-variant dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors" href="#contact">Contact</a>
+</nav>
+<div class="flex items-center gap-3">
+<button aria-label="Toggle Dark Mode" class="p-2 rounded-full hover:bg-surface-container-high dark:hover:bg-white/10 transition-colors" id="dark-mode-toggle">
+<span class="material-symbols-outlined dark:hidden">dark_mode</span>
+<span class="material-symbols-outlined hidden dark:block">light_mode</span>
+</button>
+<a class="bg-primary-container dark:bg-white dark:text-primary-container text-white px-4 md:px-6 py-2 rounded-lg font-label-sm text-label-sm hover:opacity-90 transition-opacity" href="#">CV</a>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<!-- Hero Section -->
+<section class="min-h-[90vh] md:min-screen flex flex-col justify-center relative overflow-hidden" id="hero">
+<div class="absolute inset-0 grid-pattern opacity-30 pointer-events-none"></div>
+<div class="relative z-10 space-y-6">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-secondary-container dark:bg-primary-container text-on-secondary-container dark:text-blue-200 rounded-full font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+                    Computer Science Graduate · Riyadh, Saudi Arabia
+                </div>
+<h1 class="font-display-xl text-[36px] md:text-display-xl max-w-3xl leading-tight dark:text-white">
+                    Automating &amp; Securing Enterprise <span class="text-primary-container dark:text-blue-400">System Infrastructures</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant dark:text-gray-400 max-w-2xl">
+                    Emerging IT professional with hands-on experience at the Saudi Food &amp; Drug Authority — specializing in System Administration, Active Directory, PowerShell automation, and root-cause analysis to ensure high system availability and business continuity.
+                </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<a class="flex items-center gap-2 bg-primary dark:bg-white dark:text-black text-white px-8 py-3 rounded-lg font-label-sm text-label-sm hover:opacity-90 transition-all" href="#contact">
+                        Get In Touch
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+<div class="flex items-center gap-6 px-4">
+<a class="text-on-surface-variant dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors" href="https://linkedin.com/in/faisalalhuzali" target="_blank">
+<span class="font-label-sm text-label-sm">LinkedIn</span>
+</a>
+<a class="text-on-surface-variant dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors" href="https://falhuz.github.io/portfolio.html" target="_blank">
+<span class="font-label-sm text-label-sm">Portfolio</span>
+</a>
+<a class="text-on-surface-variant dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors" href="mailto:faisalalhuzli@gmail.com">
+<span class="font-label-sm text-label-sm">Email</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Summary Section -->
+<section class="py-section-gap" id="summary">
+<div class="grid md:grid-cols-12 gap-gutter items-start">
+<div class="md:col-span-4 mb-6 md:mb-0">
+<p class="font-label-sm text-label-sm text-primary dark:text-blue-400 uppercase tracking-widest mb-2">The Mission</p>
+<h2 class="font-headline-lg text-headline-lg dark:text-white">Professional Summary</h2>
+</div>
+<div class="md:col-span-8 bg-surface-container-low dark:bg-[#1e2124] p-6 md:p-8 rounded-xl border border-outline-variant/30 dark:border-white/10">
+<p class="font-body-lg text-body-lg text-on-surface-variant dark:text-gray-300 leading-relaxed">
+                        Computer Science graduate and emerging IT professional with hands-on enterprise experience in systems and application support at the Saudi Food &amp; Drug Authority (SFDA). Proven ability to leverage scripting, root-cause analysis, and infrastructure management to troubleshoot complex incidents, automate IT operations, and ensure high system availability. Bridging the gap between technical execution and business continuity to deliver indispensable value in Application Support, Systems Engineering, or Information Systems Analyst roles.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Experience Section -->
+<section class="py-section-gap" id="experience">
+<div class="flex flex-col gap-8">
+<div class="flex justify-between items-end">
+<div>
+<p class="font-label-sm text-label-sm text-primary dark:text-blue-400 uppercase tracking-widest mb-2">History</p>
+<h2 class="font-headline-lg text-headline-lg dark:text-white">Professional Experience</h2>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Main Experience Card -->
+<div class="lg:col-span-2 bg-white dark:bg-[#1e2124] border border-outline-variant dark:border-white/10 p-6 md:p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="flex flex-col md:flex-row justify-between items-start mb-6 gap-4">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary dark:text-white">System Administrator (Traineeship)</h3>
+<p class="font-body-md text-body-md font-semibold text-on-surface-variant dark:text-blue-400">Saudi Food &amp; Drug Authority (SFDA)</p>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container-high dark:bg-white/10 px-3 py-1 rounded text-on-surface dark:text-white whitespace-nowrap">Sep 2025 – Dec 2025</span>
+</div>
+<ul class="space-y-4">
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-primary dark:text-blue-400 mt-1">check_circle</span>
+<p class="text-on-surface-variant dark:text-gray-300"><span class="font-semibold text-on-surface dark:text-white">Engineered IT Automation:</span> Developed PowerShell scripts to automate bulk Active Directory user provisioning via CSV, automating 50+ accounts and enforcing secure first-logon password policies.</p>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-primary dark:text-blue-400 mt-1">check_circle</span>
+<p class="text-on-surface-variant dark:text-gray-300"><span class="font-semibold text-on-surface dark:text-white">Ensured System Availability:</span> Monitored application and server performance across Windows Server and VMware vSphere environments, conducting proactive health checks to maintain enterprise stability.</p>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-primary dark:text-blue-400 mt-1">check_circle</span>
+<p class="text-on-surface-variant dark:text-gray-300"><span class="font-semibold text-on-surface dark:text-white">Resolved Complex Incidents:</span> Troubleshot server, workstation, and network incidents using structured root-cause analysis (RCA), escalating to senior engineers with detailed diagnostic data.</p>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-primary dark:text-blue-400 mt-1">check_circle</span>
+<p class="text-on-surface-variant dark:text-gray-300"><span class="font-semibold text-on-surface dark:text-white">Strengthened Enterprise Security:</span> Administered AD OUs, GPOs, and account policies; implemented Software Restriction Policies to prevent unauthorized application execution and ensure compliance.</p>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-primary dark:text-blue-400 mt-1">check_circle</span>
+<p class="text-on-surface-variant dark:text-gray-300"><span class="font-semibold text-on-surface dark:text-white">Optimized IT Operations:</span> Maintained critical network services (DNS, DHCP) and assisted in enterprise patch deployment using PDQ Deploy to keep systems secure and up-to-date.</p>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-primary dark:text-blue-400 mt-1">check_circle</span>
+<p class="text-on-surface-variant dark:text-gray-300"><span class="font-semibold text-on-surface dark:text-white">Created Knowledge Capital:</span> Authored comprehensive technical documentation detailing incident resolutions and troubleshooting procedures to accelerate future incident response.</p>
+</li>
+</ul>
+</div>
+<!-- Sidebar Stats/Focus -->
+<div class="bg-primary-container dark:bg-[#252a30] text-white p-6 md:p-8 rounded-xl flex flex-col justify-between">
+<div>
+<p class="font-label-sm text-label-sm opacity-70 uppercase mb-4">Key Achievements</p>
+<div class="space-y-5">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-blue-400 mt-0.5">bolt</span>
+<div>
+<p class="font-semibold text-sm">Automated Identity Lifecycle</p>
+<p class="text-xs opacity-80 mt-1">PowerShell-driven AD DS solution for user creation, OU assignment, and authentication testing.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-blue-400 mt-0.5">shield</span>
+<div>
+<p class="font-semibold text-sm">Enhanced Security Posture</p>
+<p class="text-xs opacity-80 mt-1">Restructured OUs and deployed stringent GPO configurations aligned with organizational policies.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-blue-400 mt-0.5">lan</span>
+<div>
+<p class="font-semibold text-sm">Validated Network Troubleshooting</p>
+<p class="text-xs opacity-80 mt-1">Built enterprise Windows Server lab from scratch, resolving IP configuration and host-unreachable issues.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-8">
+<p class="text-xs opacity-60 italic font-label-sm">Committed to operational excellence and proactive system monitoring.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Key Projects Section -->
+<section class="py-section-gap" id="projects">
+<div class="mb-12">
+<p class="font-label-sm text-label-sm text-primary dark:text-blue-400 uppercase tracking-widest mb-2">Portfolio</p>
+<h2 class="font-headline-lg text-headline-lg dark:text-white">Technical Projects</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-white dark:bg-[#1e2124] border border-outline-variant dark:border-white/10 p-6 rounded-xl hover:border-primary dark:hover:border-blue-400 transition-all group">
+<div class="w-12 h-12 bg-surface-container-high dark:bg-white/5 rounded-lg flex items-center justify-center mb-6 text-primary dark:text-blue-400 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl">shield</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2 dark:text-white">AD Group Policy &amp; Security Administration</h3>
+<p class="font-label-sm text-label-sm text-primary dark:text-blue-400 mb-3">Windows Server 2022 · AD · GPMC</p>
+<p class="text-on-surface-variant dark:text-gray-400 text-sm leading-relaxed">Designed and configured OUs mirroring organizational structure, successfully linking GPOs to enforce administrative restrictions and account security policies on domain-joined clients.</p>
+</div>
+<div class="bg-white dark:bg-[#1e2124] border border-outline-variant dark:border-white/10 p-6 rounded-xl hover:border-primary dark:hover:border-blue-400 transition-all group">
+<div class="w-12 h-12 bg-surface-container-high dark:bg-white/5 rounded-lg flex items-center justify-center mb-6 text-primary dark:text-blue-400 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl">dns</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2 dark:text-white">Windows Server Infrastructure &amp; Network Lab</h3>
+<p class="font-label-sm text-label-sm text-primary dark:text-blue-400 mb-3">Windows Server 2022 · AD DS · DNS · DHCP · TCP/IP · VirtualBox</p>
+<p class="text-on-surface-variant dark:text-gray-400 text-sm leading-relaxed">Architected a simulated enterprise environment; configured domain services and validated communication between Windows Server and clients, resolving Layer 2/3 connectivity issues.</p>
+</div>
+<div class="bg-white dark:bg-[#1e2124] border border-outline-variant dark:border-white/10 p-6 rounded-xl hover:border-primary dark:hover:border-blue-400 transition-all group">
+<div class="w-12 h-12 bg-surface-container-high dark:bg-white/5 rounded-lg flex items-center justify-center mb-6 text-primary dark:text-blue-400 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl">automation</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2 dark:text-white">PowerShell AD Automation Solution</h3>
+<p class="font-label-sm text-label-sm text-primary dark:text-blue-400 mb-3">PowerShell · AD DS · CSV Processing</p>
+<p class="text-on-surface-variant dark:text-gray-400 text-sm leading-relaxed">Architected a PowerShell-driven solution for AD DS that automated user creation, OU assignment, and authentication testing — proving scalability for enterprise onboarding.</p>
+</div>
+</div>
+</section>
+<!-- Skills Section -->
+<section class="py-section-gap" id="skills">
+<div class="mb-12 text-center">
+<p class="font-label-sm text-label-sm text-primary dark:text-blue-400 uppercase tracking-widest mb-2">Capabilities</p>
+<h2 class="font-headline-lg text-headline-lg dark:text-white">Core Competencies &amp; Tech Stack</h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="p-6 bg-white dark:bg-[#1e2124] border border-outline-variant dark:border-white/10 hover:border-primary dark:hover:border-blue-400 transition-colors group">
+<span class="material-symbols-outlined text-primary dark:text-blue-400 mb-4 block text-3xl">hub</span>
+<h4 class="font-headline-md text-headline-md text-sm mb-2 dark:text-white">Systems &amp; Infrastructure</h4>
+<p class="text-xs text-on-surface-variant dark:text-gray-400">Windows Server · AD DS · GPO · DNS · DHCP · TCP/IP · VMware vSphere · VirtualBox</p>
+</div>
+<div class="p-6 bg-white dark:bg-[#1e2124] border border-outline-variant dark:border-white/10 hover:border-primary dark:hover:border-blue-400 transition-colors group">
+<span class="material-symbols-outlined text-primary dark:text-blue-400 mb-4 block text-3xl">support_agent</span>
+<h4 class="font-headline-md text-headline-md text-sm mb-2 dark:text-white">Support &amp; Operations</h4>
+<p class="text-xs text-on-surface-variant dark:text-gray-400">Incident Troubleshooting · RCA · System Monitoring · PDQ Deploy · IT Operations</p>
+</div>
+<div class="p-6 bg-white dark:bg-[#1e2124] border border-outline-variant dark:border-white/10 hover:border-primary dark:hover:border-blue-400 transition-colors group">
+<span class="material-symbols-outlined text-primary dark:text-blue-400 mb-4 block text-3xl">code</span>
+<h4 class="font-headline-md text-headline-md text-sm mb-2 dark:text-white">Scripting &amp; Databases</h4>
+<p class="text-xs text-on-surface-variant dark:text-gray-400">PowerShell · Bash · SQL · Database Validation · Git &amp; GitHub · CSV Processing</p>
+</div>
+<div class="p-6 bg-white dark:bg-[#1e2124] border border-outline-variant dark:border-white/10 hover:border-primary dark:hover:border-blue-400 transition-colors group">
+<span class="material-symbols-outlined text-primary dark:text-blue-400 mb-4 block text-3xl">cloud</span>
+<h4 class="font-headline-md text-headline-md text-sm mb-2 dark:text-white">Cloud &amp; Security</h4>
+<p class="text-xs text-on-surface-variant dark:text-gray-400">AWS Fundamentals · IAM · Endpoint Security · ISO 9001 Compliance</p>
+</div>
+</div>
+<!-- List of all skills -->
+<div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-4 border-t border-outline-variant/30 dark:border-white/10 pt-12">
+<div class="flex items-center gap-3 text-on-surface-variant dark:text-gray-400 font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary dark:bg-blue-400"></span> Windows Server Administration
+                </div>
+<div class="flex items-center gap-3 text-on-surface-variant dark:text-gray-400 font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary dark:bg-blue-400"></span> Active Directory (AD DS)
+                </div>
+<div class="flex items-center gap-3 text-on-surface-variant dark:text-gray-400 font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary dark:bg-blue-400"></span> Group Policy (GPO) Management
+                </div>
+<div class="flex items-center gap-3 text-on-surface-variant dark:text-gray-400 font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary dark:bg-blue-400"></span> PowerShell Automation
+                </div>
+<div class="flex items-center gap-3 text-on-surface-variant dark:text-gray-400 font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary dark:bg-blue-400"></span> VMware vSphere / VirtualBox
+                </div>
+<div class="flex items-center gap-3 text-on-surface-variant dark:text-gray-400 font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary dark:bg-blue-400"></span> DNS &amp; DHCP Services
+                </div>
+<div class="flex items-center gap-3 text-on-surface-variant dark:text-gray-400 font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary dark:bg-blue-400"></span> Root Cause Analysis (RCA)
+                </div>
+<div class="flex items-center gap-3 text-on-surface-variant dark:text-gray-400 font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary dark:bg-blue-400"></span> Enterprise Patch Management (PDQ)
+                </div>
+<div class="flex items-center gap-3 text-on-surface-variant dark:text-gray-400 font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary dark:bg-blue-400"></span> Identity &amp; Access Management
+                </div>
+<div class="flex items-center gap-3 text-on-surface-variant dark:text-gray-400 font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary dark:bg-blue-400"></span> Endpoint Security &amp; ISO 9001
+                </div>
+<div class="flex items-center gap-3 text-on-surface-variant dark:text-gray-400 font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary dark:bg-blue-400"></span> SQL &amp; Database Validation
+                </div>
+<div class="flex items-center gap-3 text-on-surface-variant dark:text-gray-400 font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary dark:bg-blue-400"></span> Technical Documentation
+                </div>
+</div>
+</section>
+<!-- Education & Certs Section -->
+<section class="py-section-gap" id="education">
+<div class="grid md:grid-cols-2 gap-12">
+<div>
+<p class="font-label-sm text-label-sm text-primary dark:text-blue-400 uppercase tracking-widest mb-6">Academic Foundation</p>
+<div class="bg-surface-container-low dark:bg-[#1e2124] p-6 md:p-8 border-l-4 border-primary dark:border-blue-400 rounded-r-xl">
+<h3 class="font-headline-md text-headline-md mb-1 dark:text-white">Bachelor of Computer Science</h3>
+<p class="font-body-md text-body-md font-semibold text-primary-container dark:text-blue-400">Taif University</p>
+<div class="mt-4 flex items-center gap-2 text-on-surface-variant dark:text-gray-400 font-label-sm">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                            Completed
+                        </div>
+</div>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-primary dark:text-blue-400 uppercase tracking-widest mb-6">Professional Credentials</p>
+<div class="space-y-4">
+<div class="flex items-center gap-4 p-4 border border-outline-variant dark:border-white/10 rounded-lg bg-white dark:bg-[#1e2124] group hover:border-primary dark:hover:border-blue-400 transition-colors">
+<span class="material-symbols-outlined text-primary dark:text-blue-400">verified_user</span>
+<div>
+<p class="font-body-md font-semibold dark:text-white">AWS Certified Cloud Practitioner</p>
+<p class="text-xs text-on-surface-variant dark:text-gray-400">Amazon Web Services</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 border border-outline-variant dark:border-white/10 rounded-lg bg-white dark:bg-[#1e2124] group hover:border-primary dark:hover:border-blue-400 transition-colors">
+<span class="material-symbols-outlined text-primary dark:text-blue-400">assignment_turned_in</span>
+<div>
+<p class="font-body-md font-semibold dark:text-white">ISO 9001:2015 Lead Auditor Training</p>
+<p class="text-xs text-on-surface-variant dark:text-gray-400">TVTC Approved</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 border border-outline-variant dark:border-white/10 rounded-lg bg-white dark:bg-[#1e2124] opacity-70">
+<span class="material-symbols-outlined text-on-surface-variant dark:text-gray-500">pending</span>
+<div>
+<p class="font-body-md font-semibold dark:text-gray-400">Google Cybersecurity Professional Certificate</p>
+<p class="text-xs text-on-surface-variant dark:text-gray-500">In Progress</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-section-gap" id="contact">
+<div class="bg-primary-container dark:bg-[#1e2124] text-white rounded-2xl p-8 md:p-12 relative overflow-hidden border border-white/5">
+<div class="absolute right-0 top-0 w-1/3 h-full opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[150px] md:text-[200px] absolute -right-10 -top-10">lan</span>
+</div>
+<div class="relative z-10 max-w-2xl">
+<h2 class="font-headline-lg text-[28px] md:text-headline-lg mb-4">Let's build more secure systems together.</h2>
+<p class="text-on-secondary-fixed-variant dark:text-gray-400 mb-8 font-body-lg">Open to opportunities in Application Support, Systems Engineering, and Information Systems Analyst roles.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<a class="flex items-center gap-4 p-4 bg-white/10 hover:bg-white/20 transition-colors rounded-xl border border-white/20" href="mailto:faisalalhuzli@gmail.com">
+<span class="material-symbols-outlined text-white">mail</span>
+<div>
+<p class="text-xs uppercase opacity-60 font-label-sm">Email</p>
+<p class="font-body-md font-medium">faisalalhuzli@gmail.com</p>
+</div>
+</a>
+<a class="flex items-center gap-4 p-4 bg-white/10 hover:bg-white/20 transition-colors rounded-xl border border-white/20" href="tel:+966580408646">
+<span class="material-symbols-outlined text-white">call</span>
+<div>
+<p class="text-xs uppercase opacity-60 font-label-sm">Phone</p>
+<p class="font-body-md font-medium">+966 58 040 8646</p>
+</div>
+</a>
+<a class="flex items-center gap-4 p-4 bg-white/10 hover:bg-white/20 transition-colors rounded-xl border border-white/20" href="https://linkedin.com/in/faisalalhuzali" target="_blank">
+<span class="material-symbols-outlined text-white">person_add</span>
+<div>
+<p class="text-xs uppercase opacity-60 font-label-sm">LinkedIn</p>
+<p class="font-body-md font-medium">/in/faisalalhuzali</p>
+</div>
+</a>
+<a class="flex items-center gap-4 p-4 bg-white/10 hover:bg-white/20 transition-colors rounded-xl border border-white/20" href="https://falhuz.github.io/portfolio.html" target="_blank">
+<span class="material-symbols-outlined text-white">language</span>
+<div>
+<p class="text-xs uppercase opacity-60 font-label-sm">Portfolio</p>
+<p class="font-body-md font-medium">falhuz.github.io</p>
+</div>
+</a>
+</div>
+<p class="text-xs opacity-60 font-label-sm mt-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">location_on</span> Riyadh, Saudi Arabia
+                    </p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-[#0f1113] border-t border-outline-variant/50 dark:border-white/10 mt-section-gap">
+<div class="py-12 px-margin-mobile md:px-gutter max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-white">FAISAL ALHUZALI</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant dark:text-gray-500 text-center md:text-left">© 2024 Faisal Alhuzali. Designed for Technical Excellence.</p>
+<div class="flex gap-6 font-label-sm text-label-sm">
+<a class="text-on-surface-variant dark:text-gray-400 hover:text-primary dark:hover:text-white underline underline-offset-4" href="https://linkedin.com/in/faisalalhuzali" target="_blank">LinkedIn</a>
+<a class="text-on-surface-variant dark:text-gray-400 hover:text-primary dark:hover:text-white underline underline-offset-4" href="https://github.com" target="_blank">GitHub</a>
+<a class="text-on-surface-variant dark:text-gray-400 hover:text-primary dark:hover:text-white underline underline-offset-4" href="mailto:faisalalhuzli@gmail.com">Email</a>
+</div>
+</div>
+</footer>
+<script>
+        // Dark Mode Logic
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const html = document.documentElement;
+        
+        // Check for saved preference
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
         }
-      });
-    }, { threshold: 0.1 });
 
-    document.querySelectorAll('section, .hero').forEach(el => {
-      el.classList.add('fade-in');
-      observer.observe(el);
-    });
-  </script>
-</body>
-</html>
+        darkModeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            if (html.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Simple scroll spy for navigation highlight
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('nav-active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('nav-active');
+                }
+            });
+        });
+
+        // Add visual interest to skills on hover
+        document.querySelectorAll('#skills .group, #projects .group').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const icon = card.querySelector('.material-symbols-outlined');
+                if (icon) icon.style.fontVariationSettings = "'FILL' 1";
+            });
+            card.addEventListener('mouseleave', () => {
+                const icon = card.querySelector('.material-symbols-outlined');
+                if (icon) icon.style.fontVariationSettings = "'FILL' 0";
+            });
+        });
+    </script>
+</body></html>

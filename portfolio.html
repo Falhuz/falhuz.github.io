@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Faisal Alhuzali | Systems, DevOps &amp; Cloud Infrastructure</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Hanken+Grotesk:wght@600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#d5e3fd",
+                    "on-surface": "#191c1e",
+                    "surface-container": "#eceef0",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-container-highest": "#e0e3e5",
+                    "background": "#f7f9fb",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#191c1e",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#d8dadc",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "inverse-primary": "#bec6e0",
+                    "on-primary-container": "#7c839b",
+                    "primary-container": "#131b2e",
+                    "tertiary-container": "#0b1c30",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "error": "#ba1a1a",
+                    "inverse-surface": "#2d3133",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#f2f4f6",
+                    "on-secondary-fixed": "#0d1c2f",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#b9c7e0",
+                    "outline": "#76777d",
+                    "surface": "#f7f9fb",
+                    "on-secondary-container": "#57657b",
+                    "on-error-container": "#93000a",
+                    "secondary-container": "#d5e3fd",
+                    "surface-container-high": "#e6e8ea",
+                    "on-secondary-fixed-variant": "#3a485c",
+                    "surface-tint": "#565e74",
+                    "on-primary-fixed": "#131b2e",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "tertiary-fixed": "#d3e4fe",
+                    "on-primary": "#ffffff",
+                    "primary-fixed": "#dae2fd",
+                    "secondary": "#515f74",
+                    "primary": "#000000",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "surface-bright": "#f7f9fb",
+                    "primary-fixed-dim": "#bec6e0",
+                    "on-surface-variant": "#45464d",
+                    "surface-variant": "#e0e3e5",
+                    "outline-variant": "#c6c6cd",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "element-gap": "16px",
+                    "section-gap": "80px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "container-max": "1100px"
+            },
+            "fontFamily": {
+                    "label-sm": ["JetBrains Mono"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "display-xl": ["Hanken Grotesk"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      body {
+        background-color: #f7f9fb;
+        color: #191c1e;
+        -webkit-font-smoothing: antialiased;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .dark body {
+        background-color: #121416;
+        color: #e0e3e5;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        vertical-align: middle;
+      }
+      .grid-pattern {
+        background-image: linear-gradient(to right, #e2e8f0 1px, transparent 1px),
+                          linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
+        background-size: 40px 40px;
+      }
+      .dark .grid-pattern {
+        background-image: linear-gradient(to right, #2d3133 1px, transparent 1px),
+                          linear-gradient(to bottom, #2d3133 1px, transparent 1px);
+      }
+      .nav-active {
+        color: #000000;
+        border-bottom: 2px solid #000000;
+        padding-bottom: 4px;
+      }
+      .dark .nav-active {
+        color: #ffffff;
+        border-bottom: 2px solid #ffffff;
+      }
+      section {
+        padding-top: 100px;
+        margin-top: -100px;
+      }
+    </style>
+</head>
+<body class="font-body-md text-body-md dark:bg-[#121416] dark:text-[#e0e3e5]">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-[#121416]/80 backdrop-blur-md border-b border-outline-variant/30 dark:border-white/10">
+<div class="flex justify-between items-center h-16 px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+<a class="font-headline-md text-headline-md font-bold tracking-tight text-on-surface dark:text-white" href="#hero">FAISAL ALHUZALI</a>
+<div class="flex items-center gap-4 md:gap-8">
+<nav class="hidden md:flex gap-8 items-center font-label-sm text-label-sm">
+<a class="text-on-surface-variant dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors" href="#summary">Summary</a>
+<a class="text-on-surface-variant dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors" href="#experience">Experience</a>
+<a class="text-on-surface-variant dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors" href="#projects">Projects</a>
+<a class="text-on-surface-variant dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors" href="#skills">Skills</a>
+<a class="text-on-surface-variant dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors" href="#education">Credentials</a>
+<a class="text-on-surface-variant dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors" href="#contact">Contact</a>
+</nav>
+<div class="flex items-center gap-3">
+<button aria-label="Toggle Dark Mode" class="p-2 rounded-full hover:bg-surface-container-high dark:hover:bg-white/10 transition-colors" id="dark-mode-toggle">
+<span class="material-symbols-outlined dark:hidden">dark_mode</span>
+<span class="material-symbols-outlined hidden dark:block">light_mode</span>
+</button>
+<a class="bg-primary dark:bg-white dark:text-black text-white px-4 md:px-6 py-2 rounded-lg font-label-sm text-label-sm hover:opacity-90 transition-opacity flex items-center gap-2" href="#contact">
+<span class="material-symbols-outlined text-[18px]">download</span>
+    Download CV
+</a>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<!-- Hero Section -->
+<section class="min-h-[90vh] md:min-screen flex flex-col justify-center relative overflow-hidden" id="hero">
+<div class="absolute inset-0 grid-pattern opacity-30 pointer-events-none"></div>
+<div class="relative z-10 space-y-6">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-secondary-container dark:bg-primary-container text-on-secondary-container dark:text-blue-200 rounded-full font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+    Computer Science Graduate | DevOps &amp; Cloud | IT Infrastructure
+</div>
+<h1 class="font-display-xl text-[34px] sm:text-[40px] md:text-display-xl max-w-4xl leading-tight dark:text-white">
+    Securing &amp; Automating <span class="text-primary-container dark:text-blue-400">Cloud and Enterprise Infrastructure</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant dark:text-gray-300 max-w-2xl">
+    Transitioning into DevOps and Cloud engineering with practical systems administration experience and AWS &amp; Python skills. Supporting 100+ users, incident troubleshooting, and modern automated deployments.
+</p>
+<div class="flex flex-wrap items-center gap-4 pt-2">
+<a class="flex items-center gap-2 bg-primary dark:bg-white dark:text-black text-white px-8 py-3 rounded-lg font-label-sm text-label-sm hover:opacity-90 transition-all shadow-sm" href="#contact">
+    Get In Touch
+    <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+<a class="flex items-center gap-2 border border-outline-variant dark:border-white/20 bg-white dark:bg-[#1e2124] px-5 py-3 rounded-lg font-label-sm text-label-sm hover:border-primary dark:hover:border-blue-400 transition-colors" href="tel:+966580408646">
+<span class="material-symbols-outlined text-[18px] text-primary dark:text-blue-400">call</span>
+    +966 58 040 8646
+</a>
+<div class="flex items-center gap-5 px-2">
+<a class="text-on-surface-variant dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors flex items-center gap-1.5" href="mailto:faisalalhuzli@gmail.com">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+<span class="font-label-sm text-label-sm">faisalalhuzli@gmail.com</span>
+</a>
+<a class="text-on-surface-variant dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors flex items-center gap-1" href="https://linkedin.com/in/faisalalhuzali" target="_blank">
+<span class="font-label-sm text-label-sm">LinkedIn</span>
+<span class="material-symbols-outlined text-[14px]">north_east</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Summary Section -->
+<section class="py-section-gap" id="summary">
+<div class="grid md:grid-cols-12 gap-gutter items-start">
+<div class="md:col-span-4 mb-6 md:mb-0">
+<p class="font-label-sm text-label-sm text-primary dark:text-blue-400 uppercase tracking-widest mb-2">The Mission</p>
+<h2 class="font-headline-lg text-headline-lg dark:text-white">Professional Summary</h2>
+</div>
+<div class="md:col-span-8 bg-surface-container-low dark:bg-[#1e2124] p-6 md:p-8 rounded-xl border border-outline-variant/30 dark:border-white/10 shadow-sm">
+<p class="font-body-lg text-body-lg text-on-surface-variant dark:text-gray-300 leading-relaxed">
+    Computer Science graduate with practical systems administration experience and a strong foundation in IT infrastructure. Transitioning into DevOps and Cloud engineering, supported by hands-on training in AWS and Python scripting. Proven ability to support 100+ users, troubleshoot system incidents, and maintain Windows Server environments while actively developing cloud deployment and automation skills.
+</p>
+</div>
+</div>
+</section>
+<!-- Experience Section -->
+<section class="py-section-gap" id="experience">
+<div class="flex flex-col gap-8">
+<div class="flex justify-between items-end">
+<div>
+<p class="font-label-sm text-label-sm text-primary dark:text-blue-400 uppercase tracking-widest mb-2">History</p>
+<h2 class="font-headline-lg text-headline-lg dark:text-white">Professional Experience</h2>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Main Experience Card -->
+<div class="lg:col-span-2 bg-white dark:bg-[#1e2124] border border-outline-variant dark:border-white/10 p-6 md:p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="flex flex-col md:flex-row justify-between items-start mb-6 gap-3 pb-5 border-b border-outline-variant/30 dark:border-white/10">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary dark:text-white">System Administrator (Traineeship)</h3>
+<p class="font-body-md text-body-md font-semibold text-on-surface-variant dark:text-blue-400">Saudi Food &amp; Drug Authority (SFDA) — Riyadh</p>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container-high dark:bg-white/10 px-3 py-1 rounded text-on-surface dark:text-white whitespace-nowrap">Sep 2025 – Dec 2025</span>
+</div>
+<ul class="space-y-4">
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-primary dark:text-blue-400 mt-1 shrink-0">check_circle</span>
+<p class="text-on-surface-variant dark:text-gray-300">Administered and supported a Windows Server environment for 100+ users, managing user accounts, password resets, permissions, and department changes via Active Directory.</p>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-primary dark:text-blue-400 mt-1 shrink-0">check_circle</span>
+<p class="text-on-surface-variant dark:text-gray-300">Deployed software and managed patch cycles using PDQ Deploy, ensuring endpoints remained secure and up to date.</p>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-primary dark:text-blue-400 mt-1 shrink-0">check_circle</span>
+<p class="text-on-surface-variant dark:text-gray-300">Configured and maintained Group Policy Objects (GPO) and Software Restriction Policies to enforce security standards across the network.</p>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-primary dark:text-blue-400 mt-1 shrink-0">check_circle</span>
+<p class="text-on-surface-variant dark:text-gray-300">Troubleshot network, DNS, and DHCP issues, performing Root Cause Analysis (RCA) and escalating complex incidents to senior engineers.</p>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-primary dark:text-blue-400 mt-1 shrink-0">check_circle</span>
+<p class="text-on-surface-variant dark:text-gray-300">Monitored system and application health, creating technical documentation and runbooks to standardize incident response and system maintenance.</p>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-primary dark:text-blue-400 mt-1 shrink-0">check_circle</span>
+<p class="text-on-surface-variant dark:text-gray-300">Assisted in the management of VMware vSphere virtual machines and supported daily IT infrastructure operations.</p>
+</li>
+</ul>
+</div>
+<!-- Sidebar Stats/Focus -->
+<div class="bg-primary-container dark:bg-[#252a30] text-white p-6 md:p-8 rounded-xl flex flex-col justify-between">
+<div>
+<p class="font-label-sm text-label-sm opacity-70 uppercase mb-4 tracking-wider">Core Operational Scope</p>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-blue-400">group</span>
+<span>100+ Enterprise Users Supported</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-blue-400">admin_panel_settings</span>
+<span>Active Directory &amp; GPO Enforcement</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-blue-400">system_update</span>
+<span>PDQ Deploy &amp; Patch Lifecycle</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-blue-400">lan</span>
+<span>DNS, DHCP &amp; Network RCA</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-blue-400">layers</span>
+<span>VMware vSphere Virtualization</span>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-white/10 mt-6">
+<p class="text-xs opacity-75 italic font-label-sm">Committed to operational uptime, proactive monitoring, and standardized runbooks.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Key Projects Section -->
+<section class="py-section-gap" id="projects">
+<div class="mb-12">
+<p class="font-label-sm text-label-sm text-primary dark:text-blue-400 uppercase tracking-widest mb-2">Portfolio</p>
+<h2 class="font-headline-lg text-headline-lg dark:text-white">Featured Projects</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Project 1 -->
+<div class="bg-white dark:bg-[#1e2124] border border-outline-variant dark:border-white/10 p-7 rounded-xl hover:border-primary dark:hover:border-blue-400 transition-all flex flex-col justify-between group shadow-sm">
+<div>
+<div class="flex items-center justify-between mb-5">
+<div class="w-12 h-12 bg-surface-container-high dark:bg-white/5 rounded-lg flex items-center justify-center text-primary dark:text-blue-400 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl">monitoring</span>
+</div>
+<span class="font-label-sm text-[12px] bg-secondary-container dark:bg-white/10 text-on-secondary-container dark:text-blue-200 px-2.5 py-1 rounded">Personal Project</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2 dark:text-white">Python DevOps Server Health Monitor</h3>
+<p class="text-on-surface-variant dark:text-gray-300 text-sm leading-relaxed mb-6">
+    Developed a Python script on Linux (Debian) using the psutil library to monitor real-time CPU, memory, and disk utilization. Implemented health status classification logic to categorize server performance and output structured JSON data. Wrote unit tests using pytest to validate logic reliability; managed version control via Git &amp; GitHub.
+</p>
+</div>
+<div class="flex flex-wrap gap-2 pt-4 border-t border-outline-variant/30 dark:border-white/10">
+<span class="font-label-sm text-xs bg-surface-container dark:bg-white/5 text-on-surface-variant dark:text-gray-300 px-2.5 py-1 rounded">Python</span>
+<span class="font-label-sm text-xs bg-surface-container dark:bg-white/5 text-on-surface-variant dark:text-gray-300 px-2.5 py-1 rounded">Linux (Debian)</span>
+<span class="font-label-sm text-xs bg-surface-container dark:bg-white/5 text-on-surface-variant dark:text-gray-300 px-2.5 py-1 rounded">psutil</span>
+<span class="font-label-sm text-xs bg-surface-container dark:bg-white/5 text-on-surface-variant dark:text-gray-300 px-2.5 py-1 rounded">pytest</span>
+<span class="font-label-sm text-xs bg-surface-container dark:bg-white/5 text-on-surface-variant dark:text-gray-300 px-2.5 py-1 rounded">Git/GitHub</span>
+<span class="font-label-sm text-xs bg-surface-container dark:bg-white/5 text-on-surface-variant dark:text-gray-300 px-2.5 py-1 rounded">JSON</span>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="bg-white dark:bg-[#1e2124] border border-outline-variant dark:border-white/10 p-7 rounded-xl hover:border-primary dark:hover:border-blue-400 transition-all flex flex-col justify-between group shadow-sm">
+<div>
+<div class="flex items-center justify-between mb-5">
+<div class="w-12 h-12 bg-surface-container-high dark:bg-white/5 rounded-lg flex items-center justify-center text-primary dark:text-blue-400 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl">dns</span>
+</div>
+<span class="font-label-sm text-[12px] bg-secondary-container dark:bg-white/10 text-on-secondary-container dark:text-blue-200 px-2.5 py-1 rounded">Home Lab</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2 dark:text-white">Windows Server Infrastructure Lab</h3>
+<p class="text-on-surface-variant dark:text-gray-300 text-sm leading-relaxed mb-6">
+    Built a virtualized Active Directory environment using VirtualBox and Windows Server 2022 to simulate enterprise authentication. Configured Domain Controllers, DNS, DHCP, TCP/IP networking, custom password policies, and Organizational Units (OUs).
+</p>
+</div>
+<div class="flex flex-wrap gap-2 pt-4 border-t border-outline-variant/30 dark:border-white/10">
+<span class="font-label-sm text-xs bg-surface-container dark:bg-white/5 text-on-surface-variant dark:text-gray-300 px-2.5 py-1 rounded">Windows Server 2022</span>
+<span class="font-label-sm text-xs bg-surface-container dark:bg-white/5 text-on-surface-variant dark:text-gray-300 px-2.5 py-1 rounded">Active Directory</span>
+<span class="font-label-sm text-xs bg-surface-container dark:bg-white/5 text-on-surface-variant dark:text-gray-300 px-2.5 py-1 rounded">VirtualBox</span>
+<span class="font-label-sm text-xs bg-surface-container dark:bg-white/5 text-on-surface-variant dark:text-gray-300 px-2.5 py-1 rounded">DNS/DHCP</span>
+<span class="font-label-sm text-xs bg-surface-container dark:bg-white/5 text-on-surface-variant dark:text-gray-300 px-2.5 py-1 rounded">GPO</span>
+<span class="font-label-sm text-xs bg-surface-container dark:bg-white/5 text-on-surface-variant dark:text-gray-300 px-2.5 py-1 rounded">Networking</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Skills Section -->
+<section class="py-section-gap" id="skills">
+<div class="mb-12 text-center">
+<p class="font-label-sm text-label-sm text-primary dark:text-blue-400 uppercase tracking-widest mb-2">Capabilities</p>
+<h2 class="font-headline-lg text-headline-lg dark:text-white">Technical Proficiencies</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Operating Systems -->
+<div class="p-6 bg-white dark:bg-[#1e2124] border border-outline-variant dark:border-white/10 rounded-xl">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary dark:text-blue-400 text-2xl">terminal</span>
+<h3 class="font-headline-md text-base font-semibold dark:text-white">Operating Systems</h3>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="font-label-sm text-xs px-2.5 py-1 rounded bg-surface-container-low dark:bg-white/5 border border-outline-variant/30 dark:border-white/10 dark:text-gray-300">Windows Server</span>
+<span class="font-label-sm text-xs px-2.5 py-1 rounded bg-surface-container-low dark:bg-white/5 border border-outline-variant/30 dark:border-white/10 dark:text-gray-300">Windows 11</span>
+<span class="font-label-sm text-xs px-2.5 py-1 rounded bg-surface-container-low dark:bg-white/5 border border-outline-variant/30 dark:border-white/10 dark:text-gray-300">Linux (Debian)</span>
+</div>
+</div>
+<!-- Infrastructure & Systems -->
+<div class="p-6 bg-white dark:bg-[#1e2124] border border-outline-variant dark:border-white/10 rounded-xl">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary dark:text-blue-400 text-2xl">hub</span>
+<h3 class="font-headline-md text-base font-semibold dark:text-white">Infrastructure &amp; Systems</h3>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="font-label-sm text-xs px-2.5 py-1 rounded bg-surface-container-low dark:bg-white/5 border border-outline-variant/30 dark:border-white/10 dark:text-gray-300">Active Directory</span>
+<span class="font-label-sm text-xs px-2.5 py-1 rounded bg-surface-container-low dark:bg-white/5 border border-outline-variant/30 dark:border-white/10 dark:text-gray-300">Group Policy (GPO)</span>
+<span class="font-label-sm text-xs px-2.5 py-1 rounded bg-surface-container-low dark:bg-white/5 border border-outline-variant/30 dark:border-white/10 dark:text-gray-300">DNS &amp; DHCP</span>
+<span class="font-label-sm text-xs px-2.5 py-1 rounded bg-surface-container-low dark:bg-white/5 border border-outline-variant/30 dark:border-white/10 dark:text-gray-300">TCP/IP</span>
+<span class="font-label-sm text-xs px-2.5 py-1 rounded bg-surface-container-low dark:bg-white/5 border border-outline-variant/30 dark:border-white/10 dark:text-gray-300">VMware vSphere</span>
+<span class="font-label-sm text-xs px-2.5 py-1 rounded bg-surface-container-low dark:bg-white/5 border border-outline-variant/30 dark:border-white/10 dark:text-gray-300">VirtualBox</span>
+<span class="font-label-sm text-xs px-2.5 py-1 rounded bg-surface-container-low dark:bg-white/5 border border-outline-variant/30 dark:border-white/10 dark:text-gray-300">PDQ Deploy</span>
+<span class="font-label-sm text-xs px-2.5 py-1 rounded bg-surface-container-low dark:bg-white/5 border border-outline-variant/30 dark:border-white/10 dark:text-gray-300">Patch Management</span>
+</div>
+</div>
+<!-- Cloud & Security -->
+<div class="p-6 bg-white dark:bg-[#1e2124] border border-outline-variant dark:border-white/10 rounded-xl">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary dark:text-blue-400 text-2xl">cloud_queue</span>
+<h3 class="font-headline-md text-base font-semibold dark:text-white">Cloud &amp; Security</h3>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="font-label-sm text-xs px-2.5 py-1 rounded bg-surface-container-low dark:bg-white/5 border border-outline-variant/30 dark:border-white/10 dark:text-gray-300">AWS (IAM, EC2, S3)</span>
+<span class="font-label-sm text-xs px-2.5 py-1 rounded bg-surface-container-low dark:bg-white/5 border border-outline-variant/30 dark:border-white/10 dark:text-gray-300">Endpoint Security</span>
+<span class="font-label-sm text-xs px-2.5 py-1 rounded bg-surface-container-low dark:bg-white/5 border border-outline-variant/30 dark:border-white/10 dark:text-gray-300">Basic Cybersecurity</span>
+<span class="font-label-sm text-xs px-2.5 py-1 rounded bg-surface-container-low dark:bg-white/5 border border-outline-variant/30 dark:border-white/10 dark:text-gray-300">IAM Principles</span>
+</div>
+</div>
+<!-- Programming & Scripting -->
+<div class="p-6 bg-white dark:bg-[#1e2124] border border-outline-variant dark:border-white/10 rounded-xl">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary dark:text-blue-400 text-2xl">code</span>
+<h3 class="font-headline-md text-base font-semibold dark:text-white">Programming &amp; Scripting</h3>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="font-label-sm text-xs px-2.5 py-1 rounded bg-surface-container-low dark:bg-white/5 border border-outline-variant/30 dark:border-white/10 dark:text-gray-300">Python (Developing)</span>
+<span class="font-label-sm text-xs px-2.5 py-1 rounded bg-surface-container-low dark:bg-white/5 border border-outline-variant/30 dark:border-white/10 dark:text-gray-300">Bash</span>
+<span class="font-label-sm text-xs px-2.5 py-1 rounded bg-surface-container-low dark:bg-white/5 border border-outline-variant/30 dark:border-white/10 dark:text-gray-300">PowerShell (Labs/Personal)</span>
+<span class="font-label-sm text-xs px-2.5 py-1 rounded bg-surface-container-low dark:bg-white/5 border border-outline-variant/30 dark:border-white/10 dark:text-gray-300">SQL</span>
+</div>
+</div>
+<!-- DevOps & Tools -->
+<div class="p-6 bg-white dark:bg-[#1e2124] border border-outline-variant dark:border-white/10 rounded-xl lg:col-span-2">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary dark:text-blue-400 text-2xl">construction</span>
+<h3 class="font-headline-md text-base font-semibold dark:text-white">DevOps &amp; Tools</h3>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="font-label-sm text-xs px-2.5 py-1 rounded bg-surface-container-low dark:bg-white/5 border border-outline-variant/30 dark:border-white/10 dark:text-gray-300">Git</span>
+<span class="font-label-sm text-xs px-2.5 py-1 rounded bg-surface-container-low dark:bg-white/5 border border-outline-variant/30 dark:border-white/10 dark:text-gray-300">GitHub</span>
+<span class="font-label-sm text-xs px-2.5 py-1 rounded bg-surface-container-low dark:bg-white/5 border border-outline-variant/30 dark:border-white/10 dark:text-gray-300">Incident Troubleshooting</span>
+<span class="font-label-sm text-xs px-2.5 py-1 rounded bg-surface-container-low dark:bg-white/5 border border-outline-variant/30 dark:border-white/10 dark:text-gray-300">System Monitoring</span>
+<span class="font-label-sm text-xs px-2.5 py-1 rounded bg-surface-container-low dark:bg-white/5 border border-outline-variant/30 dark:border-white/10 dark:text-gray-300">Technical Documentation</span>
+<span class="font-label-sm text-xs px-2.5 py-1 rounded bg-surface-container-low dark:bg-white/5 border border-outline-variant/30 dark:border-white/10 dark:text-gray-300">Runbooks</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Education & Certs Section -->
+<section class="py-section-gap" id="education">
+<div class="grid md:grid-cols-12 gap-12">
+<div class="md:col-span-5">
+<p class="font-label-sm text-label-sm text-primary dark:text-blue-400 uppercase tracking-widest mb-6">Academic Foundation</p>
+<div class="bg-surface-container-low dark:bg-[#1e2124] p-6 md:p-8 border-l-4 border-primary dark:border-blue-400 rounded-r-xl space-y-4">
+<div>
+<h3 class="font-headline-md text-headline-md mb-1 dark:text-white">Bachelor of Computer Science</h3>
+<p class="font-body-md text-body-md font-semibold text-primary-container dark:text-blue-400">Taif University</p>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant dark:text-gray-400 font-label-sm">
+<span class="material-symbols-outlined text-[18px]">school</span>
+<span>Graduate Degree</span>
+</div>
+<div class="pt-2 border-t border-outline-variant/30 dark:border-white/10">
+<div class="inline-flex items-center gap-2 text-xs font-label-sm text-on-surface-variant dark:text-gray-300">
+<span class="material-symbols-outlined text-sm text-primary dark:text-blue-400">badge</span>
+<span>Registered Specialist – Computer Science</span>
+</div>
+</div>
+</div>
+</div>
+<div class="md:col-span-7">
+<p class="font-label-sm text-label-sm text-primary dark:text-blue-400 uppercase tracking-widest mb-6">Certifications &amp; Training</p>
+<div class="space-y-3">
+<div class="flex items-center gap-4 p-3.5 border border-outline-variant dark:border-white/10 rounded-lg bg-white dark:bg-[#1e2124] group hover:border-primary dark:hover:border-blue-400 transition-colors">
+<span class="material-symbols-outlined text-primary dark:text-blue-400 text-2xl">verified_user</span>
+<div class="flex-1">
+<p class="font-body-md text-sm font-semibold dark:text-white">AWS Certified Cloud Practitioner</p>
+<p class="text-xs text-on-surface-variant dark:text-gray-400">Amazon Web Services</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-3.5 border border-outline-variant dark:border-white/10 rounded-lg bg-white dark:bg-[#1e2124] group hover:border-primary dark:hover:border-blue-400 transition-colors">
+<span class="material-symbols-outlined text-primary dark:text-blue-400 text-2xl">cloud_sync</span>
+<div class="flex-1">
+<p class="font-body-md text-sm font-semibold dark:text-white">DevOps on AWS Specialization</p>
+<p class="text-xs text-on-surface-variant dark:text-gray-400">Code/Build/Test, Release/Deploy, Operate/Monitor – AWS</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-3.5 border border-outline-variant dark:border-white/10 rounded-lg bg-white dark:bg-[#1e2124] group hover:border-primary dark:hover:border-blue-400 transition-colors">
+<span class="material-symbols-outlined text-primary dark:text-blue-400 text-2xl">route</span>
+<div class="flex-1">
+<p class="font-body-md text-sm font-semibold dark:text-white">DevOps – Level 1 Learning Pathway</p>
+<p class="text-xs text-on-surface-variant dark:text-gray-400">Foundational DevOps Practices</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-3.5 border border-outline-variant dark:border-white/10 rounded-lg bg-white dark:bg-[#1e2124] group hover:border-primary dark:hover:border-blue-400 transition-colors">
+<span class="material-symbols-outlined text-primary dark:text-blue-400 text-2xl">integration_instructions</span>
+<div class="flex-1">
+<p class="font-body-md text-sm font-semibold dark:text-white">IBM DevOps Essentials</p>
+<p class="text-xs text-on-surface-variant dark:text-gray-400">IBM</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-3.5 border border-outline-variant dark:border-white/10 rounded-lg bg-white dark:bg-[#1e2124] group hover:border-primary dark:hover:border-blue-400 transition-colors">
+<span class="material-symbols-outlined text-primary dark:text-blue-400 text-2xl">assignment_turned_in</span>
+<div class="flex-1">
+<p class="font-body-md text-sm font-semibold dark:text-white">ISO 9001: Lead Auditor Training – 2015</p>
+<p class="text-xs text-on-surface-variant dark:text-gray-400">Quality Management Systems</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-3.5 border border-outline-variant dark:border-white/10 rounded-lg bg-white dark:bg-[#1e2124] opacity-80">
+<span class="material-symbols-outlined text-on-surface-variant dark:text-blue-300 text-2xl">pending</span>
+<div class="flex-1">
+<p class="font-body-md text-sm font-semibold dark:text-white">Google Cybersecurity Professional Certificate</p>
+<p class="text-xs text-on-surface-variant dark:text-gray-400">Coursera (In Progress)</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-section-gap" id="contact">
+<div class="bg-primary-container dark:bg-[#1e2124] text-white rounded-2xl p-8 md:p-12 relative overflow-hidden border border-white/5">
+<div class="absolute right-0 top-0 w-1/3 h-full opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[150px] md:text-[200px] absolute -right-10 -top-10">lan</span>
+</div>
+<div class="relative z-10 max-w-2xl">
+<h2 class="font-headline-lg text-[28px] md:text-headline-lg mb-4">Let's build more secure systems together.</h2>
+<p class="text-on-secondary-fixed-variant dark:text-gray-400 mb-8 font-body-lg">Available for opportunities in System Administration, Cloud Infrastructure, and IT Security.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<a class="flex items-center gap-4 p-4 bg-white/10 hover:bg-white/20 transition-colors rounded-xl border border-white/20" href="mailto:faisalalhuzli@gmail.com">
+<span class="material-symbols-outlined text-white">mail</span>
+<div>
+<p class="text-xs uppercase opacity-60 font-label-sm">Email Me</p>
+<p class="font-body-md font-medium text-sm">faisalalhuzli@gmail.com</p>
+</div>
+</a>
+<a class="flex items-center gap-4 p-4 bg-white/10 hover:bg-white/20 transition-colors rounded-xl border border-white/20" href="tel:+966580408646">
+<span class="material-symbols-outlined text-white">call</span>
+<div>
+<p class="text-xs uppercase opacity-60 font-label-sm">Call Me</p>
+<p class="font-body-md font-medium text-sm">+966 58 040 8646</p>
+</div>
+</a>
+<a class="flex items-center gap-4 p-4 bg-white/10 hover:bg-white/20 transition-colors rounded-xl border border-white/20 sm:col-span-2" href="https://linkedin.com/in/faisalalhuzali" target="_blank">
+<span class="material-symbols-outlined text-white">person_add</span>
+<div>
+<p class="text-xs uppercase opacity-60 font-label-sm">LinkedIn Profile</p>
+<p class="font-body-md font-medium text-sm">linkedin.com/in/faisalalhuzali (FAISAL ALHUZALI)</p>
+</div>
+</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-[#0f1113] border-t border-outline-variant/50 dark:border-white/10 mt-section-gap">
+<div class="py-12 px-margin-mobile md:px-gutter max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-white">FAISAL ALHUZALI</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant dark:text-gray-500 text-center md:text-left">© 2025 Faisal Alhuzali. DevOps &amp; IT Infrastructure.</p>
+<div class="flex gap-6 font-label-sm text-label-sm">
+<a class="text-on-surface-variant dark:text-gray-400 hover:text-primary dark:hover:text-white underline underline-offset-4" href="https://linkedin.com/in/faisalalhuzali" target="_blank">LinkedIn</a>
+<a class="text-on-surface-variant dark:text-gray-400 hover:text-primary dark:hover:text-white underline underline-offset-4" href="mailto:faisalalhuzli@gmail.com">Email</a>
+<a class="text-on-surface-variant dark:text-gray-400 hover:text-primary dark:hover:text-white underline underline-offset-4" href="tel:+966580408646">Phone</a>
+<a class="text-on-surface-variant dark:text-gray-400 hover:text-primary dark:hover:text-white underline underline-offset-4" href="#contact">Download CV</a>
+</div>
+</div>
+</footer>
+<script>
+        // Dark Mode Logic
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const html = document.documentElement;
+        
+        // Check for saved preference
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            if (html.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Simple scroll spy for navigation highlight
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('nav-active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('nav-active');
+                }
+            });
+        });
+
+        // Add visual interest to skills on hover
+        document.querySelectorAll('#skills .group, #projects .group').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const icon = card.querySelector('.material-symbols-outlined');
+                if (icon) icon.style.fontVariationSettings = "'FILL' 1";
+            });
+            card.addEventListener('mouseleave', () => {
+                const icon = card.querySelector('.material-symbols-outlined');
+                if (icon) icon.style.fontVariationSettings = "'FILL' 0";
+            });
+        });
+    </script>
+</body></html>

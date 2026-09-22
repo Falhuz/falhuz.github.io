@@ -1,0 +1,355 @@
+<!DOCTYPE html><html class="h-full" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#0f172a",
+            "primary-dark": "#f8fafc",
+            "surface": "#f8fafc",
+            "surface-dark": "#090d16",
+            "card": "#ffffff",
+            "card-dark": "#111827",
+            "card-border": "#e2e8f0",
+            "card-border-dark": "#1f2937",
+            "text-muted": "#64748b",
+            "text-muted-dark": "#94a3b8"
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            display: ["Hanken Grotesk", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    /* Smooth theme transitions */
+    html.transition-theme,
+    html.transition-theme *,
+    html.transition-theme *:before,
+    html.transition-theme *:after {
+      transition: background-color 0.25s ease-out, border-color 0.25s ease-out, color 0.2s ease-out !important;
+    }
+    .pb-safe { padding-bottom: max(1.5rem, env(safe-area-inset-bottom, 1.5rem)); }
+    .pt-safe { padding-top: max(1rem, env(safe-area-inset-top, 1rem)); }
+    .bg-grid-pattern {
+      background-image: radial-gradient(rgba(100, 116, 139, 0.12) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .dark .bg-grid-pattern {
+      background-image: radial-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+  </style>
+<script>
+    // Initialize theme immediately to prevent flash
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    })();
+  </script>
+</head>
+<body class="bg-surface dark:bg-surface-dark bg-grid-pattern text-slate-800 dark:text-slate-100 font-sans min-h-screen flex flex-col selection:bg-slate-900 selection:text-white dark:selection:bg-slate-100 dark:selection:text-slate-900">
+<!-- Top Sticky Navigation Bar -->
+<header class="sticky top-0 w-full z-40 pt-safe bg-surface/85 dark:bg-surface-dark/85 backdrop-blur-md border-b border-slate-200/60 dark:border-slate-800/60">
+<div class="max-w-xl mx-auto px-4 h-14 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-mono text-xs font-semibold px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">FA</span>
+<span class="font-mono text-xs text-text-muted dark:text-text-muted-dark">// linktree</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="font-mono text-[11px] text-slate-600 dark:text-slate-300 uppercase tracking-wider">Available</span>
+</div>
+<!-- Dark Mode Toggle Button -->
+<button aria-label="Toggle dark mode" class="w-9 h-9 rounded-lg flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition-colors" id="theme-toggle">
+<span class="material-symbols-outlined text-[20px]" id="theme-toggle-icon">dark_mode</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Container -->
+<main class="flex-1 w-full max-w-xl mx-auto px-4 pt-6 pb-safe space-y-6">
+<!-- Profile Header Card -->
+<div class="bg-card dark:bg-card-dark rounded-2xl p-6 border border-card-border dark:border-card-border-dark shadow-sm space-y-4">
+<div class="flex items-start justify-between gap-4">
+<!-- Avatar with verified badge -->
+<div class="relative">
+<div class="w-16 h-16 rounded-2xl bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 font-display font-bold text-xl flex items-center justify-center shadow-inner tracking-wider">
+            FA
+          </div>
+<span class="absolute -bottom-1 -right-1 flex h-5 w-5 rounded-full bg-emerald-500 text-white border-2 border-card dark:border-card-dark items-center justify-center text-[10px] font-bold" title="Verified Profile">
+            ✓
+          </span>
+</div>
+<!-- Location Pill -->
+<div class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span class="">Riyadh, Saudi Arabia</span>
+</div>
+</div>
+<!-- Identity & Title -->
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<h1 class="font-display text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Faisal Alhuzali</h1>
+</div>
+<p class="font-display font-medium text-slate-700 dark:text-slate-300 text-sm sm:text-base">
+          DevOps &amp; Cloud Engineer | IT Infrastructure
+        </p>
+<p class="text-xs sm:text-sm text-text-muted dark:text-text-muted-dark leading-relaxed pt-1">
+          Systems administration, automated cloud deployment, and Linux/AWS infrastructure engineering. Former SFDA trainee.
+        </p>
+</div>
+<!-- Primary & Quick Action Row -->
+<div class="pt-2 flex flex-col gap-2.5">
+<a class="w-full h-11 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 text-white font-medium text-sm flex items-center justify-center gap-2 transition-all active:scale-[0.99] shadow-sm" href="mailto:faisalalhuzli@gmail.com?subject=Resume%20Inquiry%20-%20Faisal%20Alhuzali">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span class="">Download Resume / CV</span>
+<span class="font-mono text-[10px] px-1.5 py-0.5 rounded bg-white/20 dark:bg-slate-900/10 uppercase ml-0.5">PDF</span>
+</a>
+<div class="grid grid-cols-3 gap-2">
+<a class="h-10 rounded-xl bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/60 dark:hover:bg-slate-800 border border-card-border dark:border-card-border-dark flex items-center justify-center gap-1.5 text-xs font-medium text-slate-700 dark:text-slate-300 transition-colors" href="mailto:faisalalhuzli@gmail.com">
+<span class="material-symbols-outlined text-[17px] text-slate-500 dark:text-slate-400">mail</span>
+<span class="">Email</span>
+</a>
+<a class="h-10 rounded-xl bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/60 dark:hover:bg-slate-800 border border-card-border dark:border-card-border-dark flex items-center justify-center gap-1.5 text-xs font-medium text-slate-700 dark:text-slate-300 transition-colors" href="tel:+966580408646">
+<span class="material-symbols-outlined text-[17px] text-slate-500 dark:text-slate-400">call</span>
+<span class="">Phone</span>
+</a>
+<a class="h-10 rounded-xl bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/60 dark:hover:bg-slate-800 border border-card-border dark:border-card-border-dark flex items-center justify-center gap-1.5 text-xs font-medium text-slate-700 dark:text-slate-300 transition-colors" href="https://linkedin.com/in/faisalalhuzali" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[17px] text-slate-500 dark:text-slate-400">share</span>
+<span class="">LinkedIn</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Essential Links Stack -->
+<div class="space-y-3">
+<div class="flex items-center justify-between px-1">
+<span class="font-mono text-xs uppercase tracking-wider text-text-muted dark:text-text-muted-dark">Essential Links</span>
+<span class="font-mono text-[11px] text-text-muted dark:text-text-muted-dark">07 Items</span>
+</div>
+<!-- Link 1: Portfolio Website -->
+<a class="group flex items-center justify-between p-4 rounded-xl bg-card dark:bg-card-dark border border-card-border dark:border-card-border-dark hover:border-slate-400 dark:hover:border-slate-600 hover:shadow-sm transition-all" href="https://falhuz.github.io/portfolio.html" rel="noopener noreferrer" target="_blank">
+<div class="flex items-center gap-3.5 min-w-0">
+<div class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 group-hover:bg-slate-900 group-hover:text-white dark:group-hover:bg-slate-100 dark:group-hover:text-slate-900 flex items-center justify-center shrink-0 transition-colors">
+<span class="material-symbols-outlined text-[20px]">public</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<h2 class="font-display font-semibold text-sm sm:text-base text-slate-900 dark:text-white truncate">Portfolio Website</h2>
+<span class="font-mono text-[10px] px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 font-medium">Live</span>
+</div>
+<p class="text-xs text-text-muted dark:text-text-muted-dark truncate">Interactive SysAdmin portfolio &amp; architectures</p>
+</div>
+</div>
+
+</a>
+<!-- Link 2: GitHub Repositories -->
+<a class="group flex items-center justify-between p-4 rounded-xl bg-card dark:bg-card-dark border border-card-border dark:border-card-border-dark hover:border-slate-400 dark:hover:border-slate-600 hover:shadow-sm transition-all" href="https://github.com/falhuz" rel="noopener noreferrer" target="_blank">
+<div class="flex items-center gap-3.5 min-w-0">
+<div class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 group-hover:bg-slate-900 group-hover:text-white dark:group-hover:bg-slate-100 dark:group-hover:text-slate-900 flex items-center justify-center shrink-0 transition-colors">
+<span class="material-symbols-outlined text-[20px]">code</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<h2 class="font-display font-semibold text-sm sm:text-base text-slate-900 dark:text-white truncate">GitHub Repositories</h2>
+<span class="font-mono text-[10px] px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Open Source</span>
+</div>
+<p class="text-xs text-text-muted dark:text-text-muted-dark truncate">DevOps scripts, Bash, PowerShell automation &amp; CI</p>
+</div>
+</div>
+
+</a>
+<!-- Link 3: LinkedIn Profile -->
+<a class="group flex items-center justify-between p-4 rounded-xl bg-card dark:bg-card-dark border border-card-border dark:border-card-border-dark hover:border-slate-400 dark:hover:border-slate-600 hover:shadow-sm transition-all" href="https://linkedin.com/in/faisalalhuzali" rel="noopener noreferrer" target="_blank">
+<div class="flex items-center gap-3.5 min-w-0">
+<div class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 group-hover:bg-slate-900 group-hover:text-white dark:group-hover:bg-slate-100 dark:group-hover:text-slate-900 flex items-center justify-center shrink-0 transition-colors">
+<span class="material-symbols-outlined text-[20px]">person_add</span>
+</div>
+<div class="min-w-0">
+<h2 class="font-display font-semibold text-sm sm:text-base text-slate-900 dark:text-white truncate">LinkedIn Profile</h2>
+<p class="text-xs text-text-muted dark:text-text-muted-dark truncate">Connect, view professional network &amp; recommendations</p>
+</div>
+</div>
+
+</a>
+<!-- Link 4: Python Server Health Monitor (Featured Project) -->
+<a class="group flex items-center justify-between p-4 rounded-xl bg-card dark:bg-card-dark border border-card-border dark:border-card-border-dark hover:border-slate-400 dark:hover:border-slate-600 hover:shadow-sm transition-all" href="https://github.com/falhuz" rel="noopener noreferrer" target="_blank">
+<div class="flex items-center gap-3.5 min-w-0">
+<div class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 group-hover:bg-slate-900 group-hover:text-white dark:group-hover:bg-slate-100 dark:group-hover:text-slate-900 flex items-center justify-center shrink-0 transition-colors">
+<span class="material-symbols-outlined text-[20px]">monitoring</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<h2 class="font-display font-semibold text-sm sm:text-base text-slate-900 dark:text-white truncate">Python Server Health Monitor</h2>
+<span class="font-mono text-[10px] px-1.5 py-0.5 rounded bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 font-semibold">Featured</span>
+</div>
+<p class="text-xs text-text-muted dark:text-text-muted-dark truncate">Linux daemon, psutil metrics, JSON logging &amp; pytest</p>
+</div>
+</div>
+
+</a>
+<!-- Link 5: Windows Server Infrastructure Lab -->
+<a class="group flex items-center justify-between p-4 rounded-xl bg-card dark:bg-card-dark border border-card-border dark:border-card-border-dark hover:border-slate-400 dark:hover:border-slate-600 hover:shadow-sm transition-all" href="https://github.com/falhuz" rel="noopener noreferrer" target="_blank">
+<div class="flex items-center gap-3.5 min-w-0">
+<div class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 group-hover:bg-slate-900 group-hover:text-white dark:group-hover:bg-slate-100 dark:group-hover:text-slate-900 flex items-center justify-center shrink-0 transition-colors">
+<span class="material-symbols-outlined text-[20px]">dns</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<h2 class="font-display font-semibold text-sm sm:text-base text-slate-900 dark:text-white truncate">Windows Server Infrastructure Lab</h2>
+<span class="font-mono text-[10px] px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Lab</span>
+</div>
+<p class="text-xs text-text-muted dark:text-text-muted-dark truncate">VirtualBox AD DS, Group Policies, DHCP &amp; RBAC</p>
+</div>
+</div>
+
+</a>
+<!-- Link 6: Experience: Saudi Food & Drug Authority -->
+<div class="p-4 rounded-xl bg-card dark:bg-card-dark border border-card-border dark:border-card-border-dark space-y-2">
+<div class="flex items-center justify-between gap-3">
+<div class="flex items-center gap-3.5 min-w-0">
+<div class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">domain</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<h2 class="font-display font-semibold text-sm sm:text-base text-slate-900 dark:text-white truncate">Saudi Food &amp; Drug Authority (SFDA)</h2>
+</div>
+<p class="text-xs text-text-muted dark:text-text-muted-dark truncate">System Administrator Trainee (Sep 2025 – Dec 2025)</p>
+</div>
+</div>
+<span class="font-mono text-[11px] px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 shrink-0">Verified</span>
+</div>
+<p class="text-xs text-slate-600 dark:text-slate-400 pl-13.5 leading-relaxed">
+          Managed VMware vSphere VMs, scripted bulk onboarding with PowerShell &amp; maintained incident-free support.
+        </p>
+</div>
+<!-- Link 7: Certifications & Badges -->
+<div class="p-4 rounded-xl bg-card dark:bg-card-dark border border-card-border dark:border-card-border-dark space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+</div>
+<div>
+<h2 class="font-display font-semibold text-sm sm:text-base text-slate-900 dark:text-white">Certifications &amp; Credentials</h2>
+<p class="text-xs text-text-muted dark:text-text-muted-dark">Accredited technical qualifications</p>
+</div>
+</div>
+<span class="font-mono text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">3 Verified</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
+<div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 text-center">
+<p class="text-xs font-semibold text-slate-900 dark:text-white">AWS Cloud</p>
+<p class="font-mono text-[10px] text-text-muted dark:text-text-muted-dark">Practitioner</p>
+</div>
+<div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 text-center">
+<p class="text-xs font-semibold text-slate-900 dark:text-white">DevOps on AWS</p>
+<p class="font-mono text-[10px] text-text-muted dark:text-text-muted-dark">CI/CD Specialization</p>
+</div>
+<div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 text-center">
+<p class="text-xs font-semibold text-slate-900 dark:text-white">ISO 9001:2015</p>
+<p class="font-mono text-[10px] text-text-muted dark:text-text-muted-dark">Lead Auditor</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Clean Bottom Contact Card -->
+<div class="rounded-2xl bg-slate-900 text-white dark:bg-slate-800 p-5 border border-slate-800 dark:border-slate-700 shadow-sm text-center space-y-3">
+<div class="space-y-1">
+<h3 class="font-display font-semibold text-base">Get in touch</h3>
+<p class="font-mono text-xs text-slate-300">
+<a class="hover:underline" href="mailto:faisalalhuzli@gmail.com">faisalalhuzli@gmail.com</a>
+<span class="mx-1 text-slate-500">|</span>
+<a class="hover:underline" href="tel:+966580408646">+966 58 040 8646</a>
+</p>
+</div>
+<div class="flex justify-center gap-2">
+<button class="h-9 px-4 rounded-lg bg-white/10 hover:bg-white/20 active:bg-white/25 text-white font-mono text-xs inline-flex items-center gap-1.5 transition-colors" id="copy-btn" onclick="copyEmailToClipboard()">
+<span class="material-symbols-outlined text-[15px]">content_copy</span>
+<span id="copy-btn-text" class="">Copy Email</span>
+</button>
+</div>
+</div>
+<!-- Minimal Footer -->
+<footer class="pt-2 pb-6 text-center space-y-1">
+<p class="font-mono text-xs text-text-muted dark:text-text-muted-dark">© 2025 Faisal Alhuzali</p>
+<p class="font-mono text-[10px] text-slate-400 dark:text-slate-600 uppercase tracking-widest">Riyadh, Saudi Arabia</p>
+</footer>
+</main>
+<!-- Interactive Logic for Dark Mode & Copy Action -->
+<script>
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleIcon = document.getElementById('theme-toggle-icon');
+
+    function updateThemeIcon(isDark) {
+      if (themeToggleIcon) {
+        themeToggleIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
+      }
+    }
+
+    // Set initial icon based on applied theme
+    updateThemeIcon(document.documentElement.classList.contains('dark'));
+
+    // Toggle theme with smooth transition
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', () => {
+        document.documentElement.classList.add('transition-theme');
+        const isDark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        updateThemeIcon(isDark);
+        setTimeout(() => {
+          document.documentElement.classList.remove('transition-theme');
+        }, 300);
+      });
+    }
+
+    // System theme change listener if user hasn't explicitly set localStorage
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+      if (!localStorage.getItem('theme')) {
+        if (e.matches) {
+          document.documentElement.classList.add('dark');
+          updateThemeIcon(true);
+        } else {
+          document.documentElement.classList.remove('dark');
+          updateThemeIcon(false);
+        }
+      }
+    });
+
+    // Copy Email Function
+    function copyEmailToClipboard() {
+      const email = 'faisalalhuzli@gmail.com';
+      navigator.clipboard.writeText(email).then(() => {
+        const textSpan = document.getElementById('copy-btn-text');
+        const orig = textSpan.innerText;
+        textSpan.innerText = 'Copied!';
+        setTimeout(() => {
+          textSpan.innerText = orig;
+        }, 2000);
+      }).catch(err => {
+        console.error('Failed to copy: ', err);
+      });
+    }
+  </script>
+
+
+</body></html>

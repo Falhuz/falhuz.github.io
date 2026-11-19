@@ -66,17 +66,15 @@
 </head>
 <body class="bg-surface dark:bg-surface-dark bg-grid-pattern text-slate-800 dark:text-slate-100 font-sans min-h-screen flex flex-col selection:bg-slate-900 selection:text-white dark:selection:bg-slate-100 dark:selection:text-slate-900">
 <!-- Top Sticky Navigation Bar -->
-<header class="sticky top-0 w-full z-40 pt-safe bg-surface/85 dark:bg-surface-dark/85 backdrop-blur-md border-b border-slate-200/60 dark:border-slate-800/60">
+<header class="sticky top-0 w-full z-40 pt-safe bg-surface/85 dark:bg-surface-dark/85 backdrop-blur-md border-b border-slate-200/60 dark:border-slate-800/60" style="filter: none; pointer-events: auto;">
 <div class="max-w-xl mx-auto px-4 h-14 flex items-center justify-between">
 <div class="flex items-center gap-2">
 <span class="font-mono text-xs font-semibold px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">FA</span>
 <span class="font-mono text-xs text-text-muted dark:text-text-muted-dark">// linktree</span>
 </div>
 <div class="flex items-center gap-2">
-<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60">
-<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-<span class="font-mono text-[11px] text-slate-600 dark:text-slate-300 uppercase tracking-wider">Available</span>
-</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="font-mono text-[11px] text-slate-600 dark:text-slate-300 uppercase tracking-wider">SCE Registered // Available</span></div>
 <!-- Dark Mode Toggle Button -->
 <button aria-label="Toggle dark mode" class="w-9 h-9 rounded-lg flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition-colors" id="theme-toggle">
 <span class="material-symbols-outlined text-[20px]" id="theme-toggle-icon">dark_mode</span>
@@ -101,49 +99,65 @@
 <!-- Location Pill -->
 <div class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300">
 <span class="material-symbols-outlined text-[14px]">location_on</span>
-<span class="">Riyadh, Saudi Arabia</span>
+<span>Riyadh, Saudi Arabia</span>
 </div>
 </div>
 <!-- Identity & Title -->
-<div class="space-y-1">
-<div class="flex items-center gap-2">
+<div class="space-y-1"><div class="flex items-center gap-2">
 <h1 class="font-display text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Faisal Alhuzali</h1>
 </div>
 <p class="font-display font-medium text-slate-700 dark:text-slate-300 text-sm sm:text-base">
-          DevOps &amp; Cloud Engineer | IT Infrastructure
-        </p>
+IT Systems &amp; Infrastructure | Technical Support | IT Operations
+</p>
 <p class="text-xs sm:text-sm text-text-muted dark:text-text-muted-dark leading-relaxed pt-1">
-          Systems administration, automated cloud deployment, and Linux/AWS infrastructure engineering. Former SFDA trainee.
-        </p>
-</div>
+Computer Science graduate with hands-on SFDA experience. Supported 70+ users, 60+ technical incidents (~65% FCR). Active Directory, Windows Server, PDQ Deploy &amp; AWS.
+</p></div>
 <!-- Primary & Quick Action Row -->
 <div class="pt-2 flex flex-col gap-2.5">
-<a class="w-full h-11 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 text-white font-medium text-sm flex items-center justify-center gap-2 transition-all active:scale-[0.99] shadow-sm" href="Faisal-Alhuzali-DevOps-Resume.pdf">
+<a class="w-full h-11 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 text-white font-medium text-sm flex items-center justify-center gap-2 transition-all active:scale-[0.99] shadow-sm" href="mailto:faisalalhuzli@gmail.com?subject=Resume%20Inquiry%20-%20Faisal%20Alhuzali">
 <span class="material-symbols-outlined text-[18px]">download</span>
-<span class="">Download Resume / CV</span>
+<span>Download Resume / CV</span>
 <span class="font-mono text-[10px] px-1.5 py-0.5 rounded bg-white/20 dark:bg-slate-900/10 uppercase ml-0.5">PDF</span>
 </a>
-<div class="grid grid-cols-3 gap-2">
-<a class="h-10 rounded-xl bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/60 dark:hover:bg-slate-800 border border-card-border dark:border-card-border-dark flex items-center justify-center gap-1.5 text-xs font-medium text-slate-700 dark:text-slate-300 transition-colors" href="mailto:faisalalhuzli@gmail.com">
-<span class="material-symbols-outlined text-[17px] text-slate-500 dark:text-slate-400">mail</span>
-<span class="">Email</span>
+<div class="grid grid-cols-4 gap-1.5">
+<a class="h-10 rounded-xl bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/60 dark:hover:bg-slate-800 border border-card-border dark:border-card-border-dark flex flex-col items-center justify-center gap-0.5 text-[11px] font-medium text-slate-700 dark:text-slate-300 transition-colors" href="mailto:faisalalhuzli@gmail.com">
+<span class="material-symbols-outlined text-[16px] text-slate-500 dark:text-slate-400">mail</span>
+<span>Email</span>
 </a>
-<a class="h-10 rounded-xl bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/60 dark:hover:bg-slate-800 border border-card-border dark:border-card-border-dark flex items-center justify-center gap-1.5 text-xs font-medium text-slate-700 dark:text-slate-300 transition-colors" href="tel:+966580408646">
-<span class="material-symbols-outlined text-[17px] text-slate-500 dark:text-slate-400">call</span>
-<span class="">Phone</span>
+<a class="h-10 rounded-xl bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/60 dark:hover:bg-slate-800 border border-card-border dark:border-card-border-dark flex flex-col items-center justify-center gap-0.5 text-[11px] font-medium text-slate-700 dark:text-slate-300 transition-colors" href="tel:+966580408646">
+<span class="material-symbols-outlined text-[16px] text-slate-500 dark:text-slate-400">call</span>
+<span>Phone</span>
 </a>
-<a class="h-10 rounded-xl bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/60 dark:hover:bg-slate-800 border border-card-border dark:border-card-border-dark flex items-center justify-center gap-1.5 text-xs font-medium text-slate-700 dark:text-slate-300 transition-colors" href="https://linkedin.com/in/faisalalhuzali" rel="noopener noreferrer" target="_blank">
-<span class="material-symbols-outlined text-[17px] text-slate-500 dark:text-slate-400">share</span>
-<span class="">LinkedIn</span>
+<a class="h-10 rounded-xl bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/60 dark:hover:bg-slate-800 border border-card-border dark:border-card-border-dark flex flex-col items-center justify-center gap-0.5 text-[11px] font-medium text-slate-700 dark:text-slate-300 transition-colors" href="https://linkedin.com/in/faisalalhuzali" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[16px] text-slate-500 dark:text-slate-400">share</span>
+<span>LinkedIn</span>
+</a>
+<a class="h-10 rounded-xl bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/60 dark:hover:bg-slate-800 border border-card-border dark:border-card-border-dark flex flex-col items-center justify-center gap-0.5 text-[11px] font-medium text-slate-700 dark:text-slate-300 transition-colors" href="https://github.com/falhuz" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[16px] text-slate-500 dark:text-slate-400">code</span>
+<span>GitHub</span>
 </a>
 </div>
 </div>
 </div>
 <!-- Essential Links Stack -->
-<div class="space-y-3">
-<div class="flex items-center justify-between px-1">
+<div class="p-4 rounded-xl bg-card dark:bg-card-dark border border-card-border dark:border-card-border-dark space-y-2.5">
+<div class="flex items-center justify-between">
+<span class="font-mono text-xs uppercase tracking-wider text-text-muted dark:text-text-muted-dark">Core Technical Competencies</span>
+<span class="font-mono text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">Infrastructure</span>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="font-mono text-[11px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Windows Server</span>
+<span class="font-mono text-[11px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Active Directory</span>
+<span class="font-mono text-[11px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">GPO</span>
+<span class="font-mono text-[11px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">PDQ Deploy</span>
+<span class="font-mono text-[11px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">VMware vSphere</span>
+<span class="font-mono text-[11px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">PowerShell</span>
+<span class="font-mono text-[11px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">TCP/IP</span>
+<span class="font-mono text-[11px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">AWS IAM/EC2/S3</span>
+</div>
+</div><div class="space-y-3"><div class="flex items-center justify-between px-1"><span class="font-mono text-xs uppercase tracking-wider text-text-muted dark:text-text-muted-dark">Technical Projects</span><span class="font-mono text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">02 Projects</span></div><div class="p-4 rounded-xl bg-card dark:bg-card-dark border border-card-border dark:border-card-border-dark space-y-2.5"><div class="flex items-center justify-between gap-3"><div class="flex items-center gap-3.5 min-w-0"><div class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[20px]">terminal</span></div><div class="min-w-0"><div class="flex items-center gap-2"><h2 class="font-display font-semibold text-sm sm:text-base text-slate-900 dark:text-white truncate">Active Directory User Provisioning Automation</h2></div><p class="font-mono text-[11px] text-text-muted dark:text-text-muted-dark">PowerShell Scripting • 2026</p></div></div><span class="font-mono text-[10px] px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-medium shrink-0">Project</span></div><p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Developed a CSV-based PowerShell script to automate the creation and initial configuration of 50+ test Active Directory accounts.</p><div class="flex flex-wrap gap-1.5 pt-1"><span class="font-mono text-[10px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">PowerShell</span><span class="font-mono text-[10px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Active Directory</span><span class="font-mono text-[10px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Automation</span><span class="font-mono text-[10px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Scripting</span></div></div><div class="p-4 rounded-xl bg-card dark:bg-card-dark border border-card-border dark:border-card-border-dark space-y-2.5"><div class="flex items-center justify-between gap-3"><div class="flex items-center gap-3.5 min-w-0"><div class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[20px]">dns</span></div><div class="min-w-0"><div class="flex items-center gap-2"><h2 class="font-display font-semibold text-sm sm:text-base text-slate-900 dark:text-white truncate">Windows Server Home Lab</h2></div><p class="font-mono text-[11px] text-text-muted dark:text-text-muted-dark">Infrastructure &amp; Directory Services • 2026</p></div></div><span class="font-mono text-[10px] px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-medium shrink-0">Lab</span></div><p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Built a Windows Server 2022 environment using VirtualBox; configured AD DS, DNS, DHCP, OUs, test accounts, and Group Policy.</p><div class="flex flex-wrap gap-1.5 pt-1"><span class="font-mono text-[10px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Windows Server 2022</span><span class="font-mono text-[10px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">AD DS</span><span class="font-mono text-[10px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">VirtualBox</span><span class="font-mono text-[10px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Group Policy</span></div></div></div><div class="space-y-3"><div class="flex items-center justify-between px-1">
 <span class="font-mono text-xs uppercase tracking-wider text-text-muted dark:text-text-muted-dark">Essential Links</span>
-<span class="font-mono text-[11px] text-text-muted dark:text-text-muted-dark">07 Items</span>
+<span class="font-mono text-[11px] text-text-muted dark:text-text-muted-dark">04 Items</span>
 </div>
 <!-- Link 1: Portfolio Website -->
 <a class="group flex items-center justify-between p-4 rounded-xl bg-card dark:bg-card-dark border border-card-border dark:border-card-border-dark hover:border-slate-400 dark:hover:border-slate-600 hover:shadow-sm transition-all" href="https://falhuz.github.io/portfolio.html" rel="noopener noreferrer" target="_blank">
@@ -156,73 +170,15 @@
 <h2 class="font-display font-semibold text-sm sm:text-base text-slate-900 dark:text-white truncate">Portfolio Website</h2>
 <span class="font-mono text-[10px] px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 font-medium">Live</span>
 </div>
-<p class="text-xs text-text-muted dark:text-text-muted-dark truncate">Interactive SysAdmin portfolio &amp; architectures</p>
+<p class="text-xs text-text-muted dark:text-text-muted-dark truncate">Interactive IT Systems &amp; Infrastructure portfolio</p>
 </div>
 </div>
-
 </a>
-<!-- Link 2: GitHub Repositories -->
-<a class="group flex items-center justify-between p-4 rounded-xl bg-card dark:bg-card-dark border border-card-border dark:border-card-border-dark hover:border-slate-400 dark:hover:border-slate-600 hover:shadow-sm transition-all" href="https://github.com/falhuz" rel="noopener noreferrer" target="_blank">
-<div class="flex items-center gap-3.5 min-w-0">
-<div class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 group-hover:bg-slate-900 group-hover:text-white dark:group-hover:bg-slate-100 dark:group-hover:text-slate-900 flex items-center justify-center shrink-0 transition-colors">
-<span class="material-symbols-outlined text-[20px]">code</span>
-</div>
-<div class="min-w-0">
-<div class="flex items-center gap-2">
-<h2 class="font-display font-semibold text-sm sm:text-base text-slate-900 dark:text-white truncate">GitHub Repositories</h2>
-<span class="font-mono text-[10px] px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Open Source</span>
-</div>
-<p class="text-xs text-text-muted dark:text-text-muted-dark truncate">DevOps scripts, Bash, PowerShell automation &amp; CI</p>
-</div>
-</div>
+<!-- Link 2: Active Directory Automation -->
 
-</a>
-<!-- Link 3: LinkedIn Profile -->
-<a class="group flex items-center justify-between p-4 rounded-xl bg-card dark:bg-card-dark border border-card-border dark:border-card-border-dark hover:border-slate-400 dark:hover:border-slate-600 hover:shadow-sm transition-all" href="https://linkedin.com/in/faisalalhuzali" rel="noopener noreferrer" target="_blank">
-<div class="flex items-center gap-3.5 min-w-0">
-<div class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 group-hover:bg-slate-900 group-hover:text-white dark:group-hover:bg-slate-100 dark:group-hover:text-slate-900 flex items-center justify-center shrink-0 transition-colors">
-<span class="material-symbols-outlined text-[20px]">person_add</span>
-</div>
-<div class="min-w-0">
-<h2 class="font-display font-semibold text-sm sm:text-base text-slate-900 dark:text-white truncate">LinkedIn Profile</h2>
-<p class="text-xs text-text-muted dark:text-text-muted-dark truncate">Connect, view professional network &amp; recommendations</p>
-</div>
-</div>
+<!-- Link 3: Windows Server Home Lab -->
 
-</a>
-<!-- Link 4: Python Server Health Monitor (Featured Project) -->
-<a class="group flex items-center justify-between p-4 rounded-xl bg-card dark:bg-card-dark border border-card-border dark:border-card-border-dark hover:border-slate-400 dark:hover:border-slate-600 hover:shadow-sm transition-all" href="https://github.com/falhuz" rel="noopener noreferrer" target="_blank">
-<div class="flex items-center gap-3.5 min-w-0">
-<div class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 group-hover:bg-slate-900 group-hover:text-white dark:group-hover:bg-slate-100 dark:group-hover:text-slate-900 flex items-center justify-center shrink-0 transition-colors">
-<span class="material-symbols-outlined text-[20px]">monitoring</span>
-</div>
-<div class="min-w-0">
-<div class="flex items-center gap-2">
-<h2 class="font-display font-semibold text-sm sm:text-base text-slate-900 dark:text-white truncate">Python Server Health Monitor</h2>
-<span class="font-mono text-[10px] px-1.5 py-0.5 rounded bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 font-semibold">Featured</span>
-</div>
-<p class="text-xs text-text-muted dark:text-text-muted-dark truncate">Linux daemon, psutil metrics, JSON logging &amp; pytest</p>
-</div>
-</div>
-
-</a>
-<!-- Link 5: Windows Server Infrastructure Lab -->
-<a class="group flex items-center justify-between p-4 rounded-xl bg-card dark:bg-card-dark border border-card-border dark:border-card-border-dark hover:border-slate-400 dark:hover:border-slate-600 hover:shadow-sm transition-all" href="https://github.com/falhuz" rel="noopener noreferrer" target="_blank">
-<div class="flex items-center gap-3.5 min-w-0">
-<div class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 group-hover:bg-slate-900 group-hover:text-white dark:group-hover:bg-slate-100 dark:group-hover:text-slate-900 flex items-center justify-center shrink-0 transition-colors">
-<span class="material-symbols-outlined text-[20px]">dns</span>
-</div>
-<div class="min-w-0">
-<div class="flex items-center gap-2">
-<h2 class="font-display font-semibold text-sm sm:text-base text-slate-900 dark:text-white truncate">Windows Server Infrastructure Lab</h2>
-<span class="font-mono text-[10px] px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Lab</span>
-</div>
-<p class="text-xs text-text-muted dark:text-text-muted-dark truncate">VirtualBox AD DS, Group Policies, DHCP &amp; RBAC</p>
-</div>
-</div>
-
-</a>
-<!-- Link 6: Experience: Saudi Food & Drug Authority -->
+<!-- Link 4: SFDA Experience -->
 <div class="p-4 rounded-xl bg-card dark:bg-card-dark border border-card-border dark:border-card-border-dark space-y-2">
 <div class="flex items-center justify-between gap-3">
 <div class="flex items-center gap-3.5 min-w-0">
@@ -232,17 +188,48 @@
 <div class="min-w-0">
 <div class="flex items-center gap-2">
 <h2 class="font-display font-semibold text-sm sm:text-base text-slate-900 dark:text-white truncate">Saudi Food &amp; Drug Authority (SFDA)</h2>
+<span class="font-mono text-[10px] px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Experience</span>
 </div>
-<p class="text-xs text-text-muted dark:text-text-muted-dark truncate">System Administrator Trainee (Sep 2025 – Dec 2025)</p>
+<p class="text-xs text-text-muted dark:text-text-muted-dark truncate">System Administrator Trainee (Sep – Dec 2025)</p>
 </div>
 </div>
 <span class="font-mono text-[11px] px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 shrink-0">Verified</span>
 </div>
 <p class="text-xs text-slate-600 dark:text-slate-400 pl-13.5 leading-relaxed">
-          Managed VMware vSphere VMs, scripted bulk onboarding with PowerShell &amp; maintained incident-free support.
-        </p>
+Supported 70+ users, 60+ technical incidents (~65% FCR), and conducted 16 weekly system health checks across VMware &amp; Windows servers.
+</p>
 </div>
-<!-- Link 7: Certifications & Badges -->
+<!-- Link 5: GitHub Repositories -->
+<a class="group flex items-center justify-between p-4 rounded-xl bg-card dark:bg-card-dark border border-card-border dark:border-card-border-dark hover:border-slate-400 dark:hover:border-slate-600 hover:shadow-sm transition-all" href="https://github.com/falhuz" rel="noopener noreferrer" target="_blank">
+<div class="flex items-center gap-3.5 min-w-0">
+<div class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 group-hover:bg-slate-900 group-hover:text-white dark:group-hover:bg-slate-100 dark:group-hover:text-slate-900 flex items-center justify-center shrink-0 transition-colors">
+<span class="material-symbols-outlined text-[20px]">code</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<h2 class="font-display font-semibold text-sm sm:text-base text-slate-900 dark:text-white truncate">GitHub Repositories</h2>
+<span class="font-mono text-[10px] px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Code</span>
+</div>
+<p class="text-xs text-text-muted dark:text-text-muted-dark truncate">PowerShell, CSV automation, Bash, Debian Linux scripts</p>
+</div>
+</div>
+</a>
+<!-- Link 6: LinkedIn Profile -->
+<a class="group flex items-center justify-between p-4 rounded-xl bg-card dark:bg-card-dark border border-card-border dark:border-card-border-dark hover:border-slate-400 dark:hover:border-slate-600 hover:shadow-sm transition-all" href="https://linkedin.com/in/faisalalhuzali" rel="noopener noreferrer" target="_blank">
+<div class="flex items-center gap-3.5 min-w-0">
+<div class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 group-hover:bg-slate-900 group-hover:text-white dark:group-hover:bg-slate-100 dark:group-hover:text-slate-900 flex items-center justify-center shrink-0 transition-colors">
+<span class="material-symbols-outlined text-[20px]">person_add</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<h2 class="font-display font-semibold text-sm sm:text-base text-slate-900 dark:text-white truncate">LinkedIn Profile</h2>
+<span class="font-mono text-[10px] px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Network</span>
+</div>
+<p class="text-xs text-text-muted dark:text-text-muted-dark truncate">Connect &amp; professional network</p>
+</div>
+</div>
+</a>
+<!-- Certifications & Credentials Card -->
 <div class="p-4 rounded-xl bg-card dark:bg-card-dark border border-card-border dark:border-card-border-dark space-y-3">
 <div class="flex items-center justify-between">
 <div class="flex items-center gap-3.5">
@@ -254,41 +241,36 @@
 <p class="text-xs text-text-muted dark:text-text-muted-dark">Accredited technical qualifications</p>
 </div>
 </div>
-<span class="font-mono text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">3 Verified</span>
+<span class="font-mono text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">5 Credentials</span>
 </div>
-<div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
-<div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 text-center">
-<p class="text-xs font-semibold text-slate-900 dark:text-white">AWS Cloud</p>
-<p class="font-mono text-[10px] text-text-muted dark:text-text-muted-dark">Practitioner</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+<div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 text-left">
+<p class="text-xs font-semibold text-slate-900 dark:text-white">AWS Certified Cloud Practitioner</p>
+<p class="font-mono text-[10px] text-text-muted dark:text-text-muted-dark">AWS • Cloud Fundamentals</p>
 </div>
-<div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 text-center">
-<p class="text-xs font-semibold text-slate-900 dark:text-white">DevOps on AWS</p>
-<p class="font-mono text-[10px] text-text-muted dark:text-text-muted-dark">CI/CD Specialization</p>
+<div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 text-left">
+<p class="text-xs font-semibold text-slate-900 dark:text-white">Saudi Council of Engineers</p>
+<p class="font-mono text-[10px] text-text-muted dark:text-text-muted-dark">Registered Specialist (CS)</p>
 </div>
-<div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 text-center">
-<p class="text-xs font-semibold text-slate-900 dark:text-white">ISO 9001:2015</p>
-<p class="font-mono text-[10px] text-text-muted dark:text-text-muted-dark">Lead Auditor</p>
+<div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 text-left">
+<p class="text-xs font-semibold text-slate-900 dark:text-white">DevOps on AWS Specialization</p>
+<p class="font-mono text-[10px] text-text-muted dark:text-text-muted-dark">Coursera • CI/CD &amp; Infrastructure</p>
+</div>
+<div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 text-left">
+<p class="text-xs font-semibold text-slate-900 dark:text-white">ISO 9001:2015 Lead Auditor</p>
+<p class="font-mono text-[10px] text-text-muted dark:text-text-muted-dark">TVTC Approved • Quality Systems</p>
+</div>
+<div class="sm:col-span-2 p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 flex items-center justify-between text-left">
+<div>
+<p class="text-xs font-semibold text-slate-900 dark:text-white">Google Cybersecurity Professional</p>
+<p class="font-mono text-[10px] text-text-muted dark:text-text-muted-dark">SIEM, Linux, Incident Response</p>
+</div>
+<span class="font-mono text-[10px] px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium shrink-0">In Progress</span>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 <!-- Clean Bottom Contact Card -->
-<div class="rounded-2xl bg-slate-900 text-white dark:bg-slate-800 p-5 border border-slate-800 dark:border-slate-700 shadow-sm text-center space-y-3">
-<div class="space-y-1">
-<h3 class="font-display font-semibold text-base">Get in touch</h3>
-<p class="font-mono text-xs text-slate-300">
-<a class="hover:underline" href="mailto:faisalalhuzli@gmail.com">faisalalhuzli@gmail.com</a>
-<span class="mx-1 text-slate-500">|</span>
-<a class="hover:underline" href="tel:+966580408646">+966 58 040 8646</a>
-</p>
-</div>
-<div class="flex justify-center gap-2">
-<button class="h-9 px-4 rounded-lg bg-white/10 hover:bg-white/20 active:bg-white/25 text-white font-mono text-xs inline-flex items-center gap-1.5 transition-colors" id="copy-btn" onclick="copyEmailToClipboard()">
-<span class="material-symbols-outlined text-[15px]">content_copy</span>
-<span id="copy-btn-text" class="">Copy Email</span>
-</button>
-</div>
-</div>
+
 <!-- Minimal Footer -->
 <footer class="pt-2 pb-6 text-center space-y-1">
 <p class="font-mono text-xs text-text-muted dark:text-text-muted-dark">© 2025 Faisal Alhuzali</p>
